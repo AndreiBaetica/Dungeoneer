@@ -9,6 +9,15 @@ public class PlayerMovement : MonoBehaviour
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     private bool moving;
+    private playerDir dirFacing = playerDir.Up;
+    
+    enum playerDir
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
 
     private Vector3 targetPosition;
     private Vector3 startPosition;
@@ -30,43 +39,83 @@ public class PlayerMovement : MonoBehaviour
 
             transform.position += (targetPosition - startPosition) * speed * Time.deltaTime;
             return;
-        }
+        }//should the rest not go under an else here?
         
+        //up
         if (Input.GetKeyDown("w"))
         {
-            if (canMove(Vector3.forward)) {
-                targetPosition = transform.position + Vector3.forward;
-                startPosition = transform.position;
-                moving = true;
+
+            if (dirFacing != playerDir.Up)
+            {
+                //look up
+                dirFacing = playerDir.Up;
+            }
+            else
+            {
+                if (canMove(Vector3.forward))
+                {
+                    targetPosition = transform.position + Vector3.forward;
+                    startPosition = transform.position;
+                    moving = true;
+                }
             }
         }
+        
+        //left
         if (Input.GetKeyDown("a"))
         {
-            if (canMove(Vector3.left))
+            if (dirFacing != playerDir.Left)
             {
-                targetPosition = transform.position + Vector3.left;
-                startPosition = transform.position;
-                moving = true;
+                //look left
+                dirFacing = playerDir.Left;
+            }
+            else
+            {
+                if (canMove(Vector3.left))
+                {
+                    targetPosition = transform.position + Vector3.left;
+                    startPosition = transform.position;
+                    moving = true;
+                }
             }
         }
 
+        //down
         if (Input.GetKeyDown("s"))
         {
-            if (canMove(Vector3.back))
+            if (dirFacing != playerDir.Down)
             {
-                targetPosition = transform.position + Vector3.back;
-                startPosition = transform.position;
-                moving = true;
+                //look up
+                dirFacing = playerDir.Down;
+            }
+            else
+            {
+                if (canMove(Vector3.back))
+                {
+                    targetPosition = transform.position + Vector3.back;
+                    startPosition = transform.position;
+                    moving = true;
+                }
             }
         }
 
+        //right
         if (Input.GetKeyDown("d"))
         {
-            if (canMove(Vector3.right))
+            
+            if (dirFacing != playerDir.Right)
             {
-                targetPosition = transform.position + Vector3.right;
-                startPosition = transform.position;
-                moving = true;
+                //look up
+                dirFacing = playerDir.Right;
+            }
+            else
+            {
+                if (canMove(Vector3.right))
+                {
+                    targetPosition = transform.position + Vector3.right;
+                    startPosition = transform.position;
+                    moving = true;
+                }
             }
         }
     }
