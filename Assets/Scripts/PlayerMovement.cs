@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float rayOffsetZ = 0.4f;
     private bool moving;
     private playerDir dirFacing = playerDir.Up;
+
+    public Animator animator;
     
     enum playerDir
     {
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //look up
                 dirFacing = playerDir.Up;
+                animator.SetInteger("intDirection",4);
             }
             else
             {
@@ -68,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 //look left
                 dirFacing = playerDir.Left;
+                animator.SetInteger("intDirection",2);
             }
             else
             {
@@ -85,8 +90,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dirFacing != playerDir.Down)
             {
-                //look up
+                //look down
                 dirFacing = playerDir.Down;
+                animator.SetInteger("intDirection",2);
             }
             else
             {
@@ -105,8 +111,9 @@ public class PlayerMovement : MonoBehaviour
             
             if (dirFacing != playerDir.Right)
             {
-                //look up
+                //look right
                 dirFacing = playerDir.Right;
+                animator.SetInteger("intDirection",4);
             }
             else
             {
