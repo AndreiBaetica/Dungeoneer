@@ -610,14 +610,14 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="com.unity.quicksearch">
  <HintPath>C:/Users/sebas/RiderProjects/Dungeoneer/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
