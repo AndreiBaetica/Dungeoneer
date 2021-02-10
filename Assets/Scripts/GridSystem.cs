@@ -15,6 +15,7 @@ public class GridSystem
 
         gridArray = new int[width, height];
         
+        Debug.Log(width + "," +height);
     }
     
     // Start is called before the first frame update
