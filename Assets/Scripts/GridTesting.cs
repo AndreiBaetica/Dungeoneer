@@ -7,7 +7,7 @@ public class GridTesting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GridSystem grid = new GridSystem(20, 10);
+        GridSystem grid = new GridSystem(4, 2);
     }
 
     // Update is called once per frame
