@@ -6,14 +6,19 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    public int maxMana = 10;
+    public int currentMana;
 
     public HealthBar healthBar;
+    public ManaBar manaBar;
     
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        currentMana = maxMana;
+        manaBar.SetMaxMana(maxMana);
     }
 
     // Update is called once per frame
@@ -28,6 +33,16 @@ public class Player : MonoBehaviour
         {
             Heal(5);
         }
+        
+        if (Input.GetKeyDown(KeyCode.J) && currentMana > 0)
+        {
+            SpendMana(2);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.K) && currentMana < maxMana)
+        {
+            RegenMana(1);
+        }
     }
 
     void TakeDamage(int damage)
@@ -40,5 +55,17 @@ public class Player : MonoBehaviour
     {
         currentHealth += heal;
         healthBar.SetHealth(currentHealth);
+    }
+    
+    void SpendMana(int mana)
+    {
+        currentMana -= mana;
+        manaBar.SetMana(currentMana);
+    }
+    
+    void RegenMana(int mana)
+    {
+        currentMana += mana;
+        manaBar.SetMana(currentMana);
     }
 }
