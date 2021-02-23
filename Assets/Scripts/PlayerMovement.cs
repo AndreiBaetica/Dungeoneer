@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
             transform.position += (targetPosition - startPosition) * speed * Time.deltaTime;
             return;
-        }//should the rest not go under an else here?
+        }
         
         //up
         if (Input.GetKeyDown("w"))
