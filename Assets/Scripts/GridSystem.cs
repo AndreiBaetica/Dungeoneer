@@ -7,15 +7,22 @@ using UnityEngine.UI;
 
 public class GridSystem<TGridObject>
 {
+
+    public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
+
+    public class OnGridObjectChangedEventArgs : EventArgs
+    {
+        public int x;
+        public int y;
+    }
+    
     private int width;
     private int height;
     private float cellSize;
     private Vector3 origin;
     private TGridObject[,] gridArray;
-    
-    private TextMesh[,] debugTextArray;
-    
-    public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<TGridObject> createGridObject)
+
+    public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<GridSystem<TGridObject>, int, int, TGridObject> createGridObject)
     {
         this.width = width;
         this.height = height;
@@ -28,7 +35,7 @@ public class GridSystem<TGridObject>
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                gridArray[x, y] = createGridObject();
+                gridArray[x, y] = createGridObject(this, x, y);
             }
         }
 
@@ -36,7 +43,7 @@ public class GridSystem<TGridObject>
         if (showDebug)
         {
 
-            debugTextArray = new TextMesh[width, height];
+            TextMesh[,] debugTextArray = new TextMesh[width, height];
 
             //Debug.Log(width + "," +height);
 
@@ -46,7 +53,7 @@ public class GridSystem<TGridObject>
                 {
                     
                     //draw text in grid tile
-                    //debugTextArray[x,y] =GameUtilities.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,0,cellSize) * 0.5f, 5, Color.white,TextAnchor.MiddleCenter);
+                    debugTextArray[x,y] =GameUtilities.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,0,cellSize) * 0.5f, 5, Color.white,TextAnchor.MiddleCenter);
 
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
@@ -55,9 +62,29 @@ public class GridSystem<TGridObject>
 
             Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
             Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
+
+            OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) =>
+            {
+                debugTextArray[eventArgs.x, eventArgs.y].text = gridArray[eventArgs.x, eventArgs.y]?.ToString();
+            };
         }
     }
 
+    public int GetWidth()
+    {
+        return width;
+    }
+
+    public int getHeight()
+    {
+        return height;
+    }
+
+    public float getCellSize()
+    {
+        return cellSize;
+    }
+    
     private Vector3 GetWorldPosition(float x, float y)
     {
         //we are actually using the x and z plane
@@ -75,7 +102,11 @@ public class GridSystem<TGridObject>
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
             gridArray[x, y] = value;
-            debugTextArray[x, y].text = gridArray[x, y].ToString();
+            if (OnGridObjectChanged != null)
+            {
+                OnGridObjectChanged(this, new OnGridObjectChangedEventArgs {x = x, y = y});
+            }
+            //debugTextArray[x, y].text = gridArray[x, y].ToString();
         }
     }
 
@@ -85,6 +116,14 @@ public class GridSystem<TGridObject>
         int y;
         GetXY(worldPosition, out x, out y);
         SetGridObject(x,y,value);
+    }
+
+    public void TriggerGridObjectChanged(int x, int y)
+    {
+        if (OnGridObjectChanged != null)
+        {
+            OnGridObjectChanged(this, new OnGridObjectChangedEventArgs {x = x, y = y});
+        }
     }
 
     public TGridObject GetGridObject(int x, int y)
