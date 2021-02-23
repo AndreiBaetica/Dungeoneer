@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class GridTesting : MonoBehaviour
 {
-    private GridSystem<bool> grid;
+    private GridSystem<TestGridObject> grid;
     
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GridSystem<bool>(20, 20, 1f, new Vector3(0.5f, 0 , 0.5f));
+        grid = new GridSystem<TestGridObject>(20, 20, 1f, new Vector3(0.5f, 0 , 0.5f), () => new TestGridObject());
     }
     
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public class TestGridObject
     {
         
     }

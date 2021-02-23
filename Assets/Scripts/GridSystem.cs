@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ public class GridSystem<TGridObject>
     
     private TextMesh[,] debugTextArray;
     
-    public GridSystem(int width, int height, float cellSize, Vector3 origin)
+    public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<TGridObject> createGridObject)
     {
         this.width = width;
         this.height = height;
@@ -23,8 +24,15 @@ public class GridSystem<TGridObject>
 
         gridArray = new TGridObject[width, height];
 
-        bool showDebug = true; // show debug
+        for (int x = 0; x < gridArray.GetLength(0); x++)
+        {
+            for (int y = 0; y < gridArray.GetLength(1); y++)
+            {
+                gridArray[x, y] = createGridObject();
+            }
+        }
 
+        bool showDebug = true; // show debug
         if (showDebug)
         {
 
@@ -38,7 +46,7 @@ public class GridSystem<TGridObject>
                 {
                     
                     //draw text in grid tile
-                    //debugTextArray[x,y] =GameUtilities.CreateWorldText(gridArray[x, y].ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,0,cellSize) * 0.5f, 5, Color.white,TextAnchor.MiddleCenter);
+                    //debugTextArray[x,y] =GameUtilities.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,0,cellSize) * 0.5f, 5, Color.white,TextAnchor.MiddleCenter);
 
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
                     Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
@@ -62,7 +70,7 @@ public class GridSystem<TGridObject>
         y = Mathf.FloorToInt((worldPosition - origin).z / cellSize);
     }
 
-    public void SetValue(int x, int y, TGridObject value)
+    public void SetGridObject(int x, int y, TGridObject value)
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
@@ -71,15 +79,15 @@ public class GridSystem<TGridObject>
         }
     }
 
-    public void SetValue(Vector3 worldPosition, TGridObject value)
+    public void SetGridObject(Vector3 worldPosition, TGridObject value)
     {
         int x;
         int y;
         GetXY(worldPosition, out x, out y);
-        SetValue(x,y,value);
+        SetGridObject(x,y,value);
     }
 
-    public TGridObject GetValue(int x, int y)
+    public TGridObject GetGridObject(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < width && y < height)
         {
