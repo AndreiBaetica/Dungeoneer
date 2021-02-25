@@ -23,28 +23,34 @@ public class EnemyMovement : MonoBehaviour
         Right
     }
 
-    private Vector3 targetPosition;
-    private Vector3 startPosition;
+    private Vector3 enemyTargetPosition;
+    private Vector3 enemyStartPosition;
+    private PlayerMovement Player;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        Player = GetComponent<PlayerMovement>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Start: "+Player.playerStartPosition);
+        Debug.Log("Target: "+Player.playerTargetPosition);
         if (moving)
         {
-            if (Vector3.Distance(startPosition, transform.position) > 1f)
+            if (Vector3.Distance(enemyStartPosition, transform.position) > 1f)
             {
-                transform.position = targetPosition;
+                transform.position = enemyTargetPosition;
                 moving = false;
                 return;
             }
 
-            transform.position += (targetPosition - startPosition) * speed * Time.deltaTime;
+            transform.position += (enemyTargetPosition - enemyStartPosition) * speed * Time.deltaTime;
             return;
         }//should the rest not go under an else here?
 
@@ -62,8 +68,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (canMove(Vector3.forward))
                 {
-                    targetPosition = transform.position + Vector3.forward;
-                    startPosition = transform.position;
+                    enemyTargetPosition = transform.position + Vector3.forward;
+                    enemyStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -82,8 +88,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (canMove(Vector3.left))
                 {
-                    targetPosition = transform.position + Vector3.left;
-                    startPosition = transform.position;
+                    enemyTargetPosition = transform.position + Vector3.left;
+                    enemyStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -102,8 +108,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (canMove(Vector3.back))
                 {
-                    targetPosition = transform.position + Vector3.back;
-                    startPosition = transform.position;
+                    enemyTargetPosition = transform.position + Vector3.back;
+                    enemyStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -123,8 +129,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 if (canMove(Vector3.right))
                 {
-                    targetPosition = transform.position + Vector3.right;
-                    startPosition = transform.position;
+                    enemyTargetPosition = transform.position + Vector3.right;
+                    enemyStartPosition = transform.position;
                     moving = true;
                 }
             }

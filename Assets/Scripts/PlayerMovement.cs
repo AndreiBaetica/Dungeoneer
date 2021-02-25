@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
         Right
     }
 
-    private Vector3 targetPosition;
-    private Vector3 startPosition;
+    public Vector3 playerTargetPosition;
+    public Vector3 playerStartPosition;
     
     void Start()
     {
@@ -33,14 +33,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moving)
         {
-            if (Vector3.Distance(startPosition, transform.position) > 1f)
+            if (Vector3.Distance(playerStartPosition, transform.position) > 1f)
             {
-                transform.position = targetPosition;
+                transform.position = playerTargetPosition;
                 moving = false;
                 return;
             }
 
-            transform.position += (targetPosition - startPosition) * speed * Time.deltaTime;
+            transform.position += (playerTargetPosition - playerStartPosition) * speed * Time.deltaTime;
             return;
         }//should the rest not go under an else here?
         
@@ -58,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (canMove(Vector3.forward))
                 {
-                    targetPosition = transform.position + Vector3.forward;
-                    startPosition = transform.position;
+                    playerTargetPosition = transform.position + Vector3.forward;
+                    playerStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -78,8 +78,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (canMove(Vector3.left))
                 {
-                    targetPosition = transform.position + Vector3.left;
-                    startPosition = transform.position;
+                    playerTargetPosition = transform.position + Vector3.left;
+                    playerStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -98,8 +98,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (canMove(Vector3.back))
                 {
-                    targetPosition = transform.position + Vector3.back;
-                    startPosition = transform.position;
+                    playerTargetPosition = transform.position + Vector3.back;
+                    playerStartPosition = transform.position;
                     moving = true;
                 }
             }
@@ -119,8 +119,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (canMove(Vector3.right))
                 {
-                    targetPosition = transform.position + Vector3.right;
-                    startPosition = transform.position;
+                    playerTargetPosition = transform.position + Vector3.right;
+                    playerStartPosition = transform.position;
                     moving = true;
                 }
             }
