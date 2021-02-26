@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class EnemyMovement : MonoBehaviour
     private float rayOffsetZ = 0.4f;
     private bool moving;
     private enemyDir dirFacing = enemyDir.Down;
+    public float lookRadius = 10f;
+    Transform target;
+    NavMeshAgent agent;
+
 
     public Animator animator;
 
@@ -25,13 +30,14 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 enemyTargetPosition;
     private Vector3 enemyStartPosition;
-    private PlayerMovement Player;
+    //private PlayerMovement Player;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        Player = GetComponent<PlayerMovement>();
+        //Player = GetComponent<PlayerMovement>();
+        Debug.Log("Start: " + animator);
 
 
     }
@@ -39,8 +45,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Start: "+Player.playerStartPosition);
-        Debug.Log("Target: "+Player.playerTargetPosition);
+        //Debug.Log("Target: "+Player.playerTargetPosition);
         if (moving)
         {
             if (Vector3.Distance(enemyStartPosition, transform.position) > 1f)
