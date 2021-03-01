@@ -27,6 +27,7 @@ public class GridTesting : MonoBehaviour
         }
     }
 
+    
     public class TestGridObject
     {
         private GridSystem<TestGridObject> grid;

@@ -75,23 +75,23 @@ public class GridSystem<TGridObject>
         return width;
     }
 
-    public int getHeight()
+    public int GetHeight()
     {
         return height;
     }
 
-    public float getCellSize()
+    public float GetCellSize()
     {
         return cellSize;
     }
     
-    private Vector3 GetWorldPosition(float x, float y)
+    public Vector3 GetWorldPosition(float x, float y)
     {
         //we are actually using the x and z plane
         return new Vector3(x,0,y) * cellSize + origin;
     }
 
-    private void GetXY(Vector3 worldPosition, out int x, out int y)
+    public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - origin).x / cellSize);
         y = Mathf.FloorToInt((worldPosition - origin).z / cellSize);
@@ -120,10 +120,7 @@ public class GridSystem<TGridObject>
 
     public void TriggerGridObjectChanged(int x, int y)
     {
-        if (OnGridObjectChanged != null)
-        {
-            OnGridObjectChanged(this, new OnGridObjectChangedEventArgs {x = x, y = y});
-        }
+        if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
     }
 
     public TGridObject GetGridObject(int x, int y)
@@ -136,5 +133,11 @@ public class GridSystem<TGridObject>
         {
             return default(TGridObject);
         }
+    }
+    
+    public TGridObject GetGridObject(Vector3 worldPosition) {
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        return GetGridObject(x, y);
     }
 }
