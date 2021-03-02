@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
@@ -21,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
         Right
     }
 
-    public Vector3 playerTargetPosition;
-    public Vector3 playerStartPosition;
+    private Vector3 playerTargetPosition;
+    private Vector3 playerStartPosition;
     
     void Start()
     {
@@ -33,15 +34,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moving)
         {
-            if (Vector3.Distance(playerStartPosition, transform.position) > 1f)
-            {
-                transform.position = playerTargetPosition;
-                moving = false;
-                return;
-            }
-
-            transform.position += (playerTargetPosition - playerStartPosition) * speed * Time.deltaTime;
-            return;
+            move();
         }//should the rest not go under an else here?
         
         //up
@@ -56,12 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (canMove(Vector3.forward))
-                {
-                    playerTargetPosition = transform.position + Vector3.forward;
-                    playerStartPosition = transform.position;
-                    moving = true;
-                }
+                moveUp();
             }
         }
         
@@ -76,12 +64,8 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (canMove(Vector3.left))
-                {
-                    playerTargetPosition = transform.position + Vector3.left;
-                    playerStartPosition = transform.position;
-                    moving = true;
-                }
+                moveLeft();
+
             }
         }
 
@@ -96,12 +80,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (canMove(Vector3.back))
-                {
-                    playerTargetPosition = transform.position + Vector3.back;
-                    playerStartPosition = transform.position;
-                    moving = true;
-                }
+                moveDown();
             }
         }
 
@@ -117,12 +96,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (canMove(Vector3.right))
-                {
-                    playerTargetPosition = transform.position + Vector3.right;
-                    playerStartPosition = transform.position;
-                    moving = true;
-                }
+                moveRight();
             }
         }
     }
@@ -144,5 +118,59 @@ public class PlayerMovement : MonoBehaviour
                 rayLength)) return false;
         }
         return true;
+    }
+
+
+    private void move()
+    {
+        if (Vector3.Distance(playerStartPosition, transform.position) > 1f)
+        {
+            transform.position = playerTargetPosition;
+            moving = false;
+            return;
+        }
+
+        transform.position += (playerTargetPosition - playerStartPosition) * speed * Time.deltaTime;
+        return;
+    }
+
+    private void moveUp()
+    {
+        if (canMove(Vector3.forward))
+        {
+            playerTargetPosition = transform.position + Vector3.forward;
+            playerStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveDown()
+    {
+        if (canMove(Vector3.back))
+        {
+            playerTargetPosition = transform.position + Vector3.back;
+            playerStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveLeft()
+    {
+        if (canMove(Vector3.left))
+        {
+            playerTargetPosition = transform.position + Vector3.left;
+            playerStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveRight()
+    {
+        if (canMove(Vector3.right))
+        {
+            playerTargetPosition = transform.position + Vector3.right;
+            playerStartPosition = transform.position;
+            moving = true;
+        }
     }
 }
