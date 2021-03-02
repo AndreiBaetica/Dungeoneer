@@ -5,13 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    //[SerializeField] private float speed = 10f;
-    //enemy is 1 unit thick (same as player), so a raylength from the middle will stick out 0.9 units.
-    //private float rayLength = 1.4f;
-
-    //private bool moving;
     private enemyDir dirFacing = enemyDir.Up;
-    public float lookRadius = 10f;
+    private float lookRadius = 4.5f;
     Transform target;
     NavMeshAgent agent;
 
@@ -42,9 +37,13 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector3.Distance(target.position, transform.position);
 
-        if(distance <= lookRadius)
+
+        float distance = Vector3.Distance(target.position, transform.position);
+        Debug.Log("Distance: " + distance);
+        Debug.Log("Radius: " + lookRadius);
+
+        if (distance <= lookRadius)
         {
             agent.SetDestination(target.position);
             Debug.Log("target pos: " + target.position);
@@ -80,5 +79,6 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    
+
+
 }
