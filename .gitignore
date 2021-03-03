@@ -12,6 +12,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assembly-CSharp.csproj
+obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
