@@ -1,2 +1,2 @@
-- name Unity - Builder
-  uses game-ciunity-builder@v2.0-alpha-6
+- name: Unity - Builder
+  uses: game-ci/unity-builder@v2.0-alpha-6
