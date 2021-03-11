@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,25 +7,33 @@ public class GridTesting : MonoBehaviour
 {
     private GridSystem<TestGridObject> grid;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        grid = new GridSystem<TestGridObject>(20, 20, 1f, new Vector3(0.5f, 0 , 0.5f),
-            (GridSystem<TestGridObject> g, int x, int y) => new TestGridObject(g, x, y));
-    }
+    [SerializeField] private MovementTilemapVisual movementTilemapVisual;
     
-    // Update is called once per frame
+    private MovementTilemap movementTilemap;
+    
+    void Awake()
+    {
+        
+        int mapWidth = 40;
+        int mapHeight = 25;
+        float cellSize = 1f;
+        Vector3 origin = new Vector3(0.5f, 0 , 0.5f);
+        
+        grid = new GridSystem<TestGridObject>(mapWidth, mapHeight, cellSize, origin,
+            (GridSystem<TestGridObject> g, int x, int y) => new TestGridObject(g, x, y));
+        
+        movementTilemap = new MovementTilemap(mapWidth, mapHeight, cellSize, origin);
+        
+    }
+
+    private void Start()
+    {
+        movementTilemap.SetTilemapVisual(movementTilemapVisual);
+    }
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TestGridObject testGridObject = grid.GetGridObject(2, 2);
-            if (testGridObject != null)
-            {
-                //modify object values here
-                testGridObject.SetValue(69);
-            }
-        }
+       
     }
 
     

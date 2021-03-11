@@ -5,32 +5,34 @@ using UnityEngine;
 public class GridCombatSystem : MonoBehaviour
 {
     public static GridCombatSystem Instance { get; private set; }
-
-    [SerializeField] private Transform cinemachineFollowTransform;
-    //[SerializeField] private MovementTileMap movementTileMap;
+    
+    [SerializeField] private MovementTilemapVisual movementTilemapVisual;
 
     private GridSystem<EmptyGridObject> grid;
     private MovementTilemap movementTilemap;
 
     private void Awake()
     {
-        Instance = this;
-
-        int mapWidth = 40; // map width
-        int mapHeight = 40; // map height
-        float cellSize = 10f;
-        Vector3 origin = new Vector3(0, 0, 0);
-
-        grid = new GridSystem<EmptyGridObject>(mapWidth, mapHeight, cellSize, origin,
-            (GridSystem<EmptyGridObject> g, int x, int y) => new EmptyGridObject(g, x, y));
-
-        movementTilemap = new MovementTilemap(mapWidth, mapHeight, cellSize, origin);
+        
     }
     
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+
+        int mapWidth = 40;
+        int mapHeight = 25;
+        float cellSize = 1f;
+        Vector3 origin = new Vector3(0.5f, 0 , 0.5f);
+
+        grid = new GridSystem<EmptyGridObject>(mapWidth, mapHeight, cellSize, origin,
+            (GridSystem<EmptyGridObject> g, int x, int y) => new EmptyGridObject(g, x, y));
+
+        movementTilemap = new MovementTilemap(mapWidth, mapHeight, cellSize, origin);
         
+        movementTilemap.SetTilemapVisual(movementTilemapVisual);
+        movementTilemap.SetAllTilemapSprite(MovementTilemap.TilemapObject.TilemapSprite.Move);
     }
 
     // Update is called once per frame
