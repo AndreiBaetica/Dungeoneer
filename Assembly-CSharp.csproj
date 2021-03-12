@@ -59,6 +59,7 @@
      <Compile Include="Assets\ManaBar.cs" />
      <Compile Include="Assets\Scripts\Controllers\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\TurnController.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
  <Reference Include="UnityEngine">
@@ -592,8 +593,20 @@
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.TerrainTools">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Runtime">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VisualEffectGraph.Runtime">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -607,41 +620,20 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.quicksearch">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TerrainTools">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TerrainTools.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Runtime">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VisualEffectGraph.Runtime">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.VisualEffectGraph.Runtime.dll</HintPath>
- </Reference>
  <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualEffectGraph.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
@@ -655,8 +647,17 @@
  <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TerrainTools.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.TerrainTools.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.quicksearch">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

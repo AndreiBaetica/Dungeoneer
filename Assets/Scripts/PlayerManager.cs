@@ -20,6 +20,7 @@ public class PlayerManager : MonoBehaviour
 	#endregion
 
 	public GameObject player;
+    //public bool isTurn = true;
 	public int maxHealth = 100;
 	public int currentHealth;
 	public int maxMana = 10;

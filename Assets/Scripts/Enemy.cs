@@ -6,12 +6,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+	#region Singleton
 
-	PlayerManager playerManager;
+	public static Enemy instance;
+
+	void Awake()
+	{
+		instance = this;
+	}
+
+	#endregion
+
+	public GameObject enemy;
+	//public bool isTurn = false;
 
 	void Start()
 	{
-		playerManager = PlayerManager.instance;
+		//playerManager = PlayerManager.instance;
 	}
 
 	/*public override void Interact()

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private playerDir dirFacing = playerDir.Up;
 
     public Animator animator;
+    //public bool isTurn;
     
     enum playerDir
     {
@@ -32,73 +33,84 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (moving)
-        {
-            move();
-        }//should the rest not go under an else here?
+       // if (isTurn){
+            if (moving)
+            {
+                move();
+            }//should the rest not go under an else here?
+
+            //up
+            if (Input.GetKeyDown("w"))
+            {
+
+                if (dirFacing != playerDir.Up)
+                {
+                    //look up
+                    dirFacing = playerDir.Up;
+                    animator.SetInteger("intDirection", 4);
+                }
+                else
+                {
+                    moveUp();
+                    //isTurn = false;
+
+                }
+            }
+
+            //left
+            if (Input.GetKeyDown("a"))
+            {
+                if (dirFacing != playerDir.Left)
+                {
+                    //look left
+                    dirFacing = playerDir.Left;
+                    animator.SetInteger("intDirection", 2);
+                }
+                else
+                {
+                    moveLeft();
+                    //isTurn = false;
+
+
+                }
+            }
+
+            //down
+            if (Input.GetKeyDown("s"))
+            {
+                if (dirFacing != playerDir.Down)
+                {
+                    //look down
+                    dirFacing = playerDir.Down;
+                    animator.SetInteger("intDirection", 2);
+                }
+                else
+                {
+                    moveDown();
+                    //isTurn = false;
+
+                }
+            }
+
+            //right
+            if (Input.GetKeyDown("d"))
+            {
+
+                if (dirFacing != playerDir.Right)
+                {
+                    //look right
+                    dirFacing = playerDir.Right;
+                    animator.SetInteger("intDirection", 4);
+                }
+                else
+                {
+                    moveRight();
+                    //isTurn = false;
+
+                }
+            }
+       // }
         
-        //up
-        if (Input.GetKeyDown("w"))
-        {
-
-            if (dirFacing != playerDir.Up)
-            {
-                //look up
-                dirFacing = playerDir.Up;
-                animator.SetInteger("intDirection",4);
-            }
-            else
-            {
-                moveUp();
-            }
-        }
-        
-        //left
-        if (Input.GetKeyDown("a"))
-        {
-            if (dirFacing != playerDir.Left)
-            {
-                //look left
-                dirFacing = playerDir.Left;
-                animator.SetInteger("intDirection",2);
-            }
-            else
-            {
-                moveLeft();
-
-            }
-        }
-
-        //down
-        if (Input.GetKeyDown("s"))
-        {
-            if (dirFacing != playerDir.Down)
-            {
-                //look down
-                dirFacing = playerDir.Down;
-                animator.SetInteger("intDirection",2);
-            }
-            else
-            {
-                moveDown();
-            }
-        }
-
-        //right
-        if (Input.GetKeyDown("d"))
-        {
-            
-            if (dirFacing != playerDir.Right)
-            {
-                //look right
-                dirFacing = playerDir.Right;
-                animator.SetInteger("intDirection",4);
-            }
-            else
-            {
-                moveRight();
-            }
-        }
     }
 //raycasts the corners of the player cube
     private bool canMove(Vector3 direction)

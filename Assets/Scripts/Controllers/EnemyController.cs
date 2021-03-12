@@ -12,17 +12,14 @@ public class EnemyController : MonoBehaviour
 
 
     public Animator animator;
+    //public bool isTurn;
 
     enum enemyDir
     {
         Up,
         Down,
         Left,
-        Right,
-        UpRight,
-        UpLeft,
-        DownRight,
-        DownLeft
+        Right
     }
 
     // Start is called before the first frame update
@@ -43,42 +40,49 @@ public class EnemyController : MonoBehaviour
         Debug.Log("Distance: " + distance);
         Debug.Log("Radius: " + lookRadius);
 
-        if (distance <= lookRadius)
+        if (distance <= lookRadius )//&& isTurn==true)
         {
             agent.SetDestination(target.position);
             Debug.Log("target pos: " + target.position);
             Debug.Log("enemy pos: " + transform.position);
 
-            if (transform.position.x > target.position.x && transform.position.z > target.position.z){//Enemy going left and down to player
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.DownLeft;
-            }else if (transform.position.x < target.position.x && transform.position.z < target.position.z){//Enemy going right and up to player
-                animator.SetInteger("intDirection", 4);
-                dirFacing = enemyDir.UpRight;
-            }else if (transform.position.x < target.position.x && transform.position.z == target.position.z) { //Enemy going right
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.Right;
-            }else if (transform.position.x > target.position.x && transform.position.z == target.position.z){ //Enemy going left
-                animator.SetInteger("intDirection", 4);
-                dirFacing = enemyDir.Left;
-            }else if (transform.position.x == target.position.x && transform.position.z < target.position.z){ //Enemy going up
+
+
+        if (transform.position.x == target.position.x && transform.position.z < target.position.z)
+            { //Player is above
                 animator.SetInteger("intDirection", 4);
                 dirFacing = enemyDir.Up;
-            }else if (transform.position.x == target.position.x && transform.position.z > target.position.z){ //Enemy going down
+                agent.Move(transform.position + Vector3.forward);
+                //isTurn = false;
+            }
+            else if (transform.position.x < target.position.x && transform.position.z == target.position.z)
+            { //Player is to the right
+                animator.SetInteger("intDirection", 2);
+                dirFacing = enemyDir.Right;
+                agent.Move(transform.position + Vector3.right);
+                //isTurn = false;
+            }
+            else if (transform.position.x == target.position.x && transform.position.z > target.position.z)
+            { //Player is below
                 animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Down;
-            }else if (transform.position.x < target.position.x && transform.position.z < target.position.z){//Enemy going right and down to player
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.DownRight;
+                agent.Move(transform.position + Vector3.back);
+               // isTurn = false;
+            }
+            else if (transform.position.x > target.position.x && transform.position.z == target.position.z)
+            { //Player is to the left
+                animator.SetInteger("intDirection", 4);
+                dirFacing = enemyDir.Left;
+                agent.Move(transform.position + Vector3.left);
+               // isTurn = false;
             }
 
 
-            if (distance <= agent.stoppingDistance)
+        }
+
+        if (distance <= agent.stoppingDistance)
             {
                 //do somethin;
             }
         }
     }
-
-
-}
