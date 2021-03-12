@@ -5,10 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private float speed = 10f;
+
     private enemyDir dirFacing = enemyDir.Up;
     private float lookRadius = 4.5f;
     Transform target;
     NavMeshAgent agent;
+    private bool moving;
+    private float rayLength = 1.4f;
+    private float rayOffsetX = 0.4f;
+    private float rayOffsetY = 0.4f;
+    private float rayOffsetZ = 0.4f;
 
 
     public Animator animator;
@@ -21,6 +28,10 @@ public class EnemyController : MonoBehaviour
         Left,
         Right
     }
+
+
+    private Vector3 enemyTargetPosition;
+    private Vector3 enemyStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -42,38 +53,45 @@ public class EnemyController : MonoBehaviour
 
         if (distance <= lookRadius )//&& isTurn==true)
         {
-            agent.SetDestination(target.position);
+            //agent.SetDestination(target.position);
             Debug.Log("target pos: " + target.position);
             Debug.Log("enemy pos: " + transform.position);
 
 
-
-        if (transform.position.x == target.position.x && transform.position.z < target.position.z)
+            if (moving)
+            {
+                move();
+            }
+            if (transform.position.x == target.position.x && transform.position.z < target.position.z)
             { //Player is above
                 animator.SetInteger("intDirection", 4);
                 dirFacing = enemyDir.Up;
-                agent.Move(transform.position + Vector3.forward);
+                moveUp();
+                agent.Move(enemyTargetPosition);
                 //isTurn = false;
             }
             else if (transform.position.x < target.position.x && transform.position.z == target.position.z)
             { //Player is to the right
                 animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Right;
-                agent.Move(transform.position + Vector3.right);
+                moveRight();
+                agent.Move(enemyTargetPosition);
                 //isTurn = false;
             }
             else if (transform.position.x == target.position.x && transform.position.z > target.position.z)
             { //Player is below
                 animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Down;
-                agent.Move(transform.position + Vector3.back);
+                moveDown();
+                agent.Move(enemyTargetPosition);
                // isTurn = false;
             }
             else if (transform.position.x > target.position.x && transform.position.z == target.position.z)
             { //Player is to the left
                 animator.SetInteger("intDirection", 4);
                 dirFacing = enemyDir.Left;
-                agent.Move(transform.position + Vector3.left);
+                moveLeft();
+                agent.Move(enemyTargetPosition);
                // isTurn = false;
             }
 
@@ -85,4 +103,78 @@ public class EnemyController : MonoBehaviour
                 //do somethin;
             }
         }
+
+    private bool canMove(Vector3 direction)
+    {
+        if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
+        {
+            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.right * rayOffsetX, direction,
+                rayLength)) return false;
+            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.right * rayOffsetX, direction,
+                rayLength)) return false;
+        }
+        else if (Vector3.Equals(Vector3.left, direction) || Vector3.Equals(Vector3.right, direction))
+        {
+            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.forward * rayOffsetZ, direction,
+                rayLength)) return false;
+            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.forward * rayOffsetZ, direction,
+                rayLength)) return false;
+        }
+        return true;
     }
+
+
+    private void move()
+    {
+        if (Vector3.Distance(enemyStartPosition, transform.position) > 1f)
+        {
+            transform.position = enemyTargetPosition;
+            moving = false;
+            return;
+        }
+
+        transform.position += (enemyTargetPosition - enemyStartPosition) * speed * Time.deltaTime;
+        return;
+    }
+
+    private void moveUp()
+    {
+        if (canMove(Vector3.forward))
+        {
+            enemyTargetPosition = transform.position + Vector3.forward;
+            enemyStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveDown()
+    {
+        if (canMove(Vector3.back))
+        {
+            enemyTargetPosition = transform.position + Vector3.back;
+            enemyStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveLeft()
+    {
+        if (canMove(Vector3.left))
+        {
+            enemyTargetPosition = transform.position + Vector3.left;
+            enemyStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+    private void moveRight()
+    {
+        if (canMove(Vector3.right))
+        {
+            enemyTargetPosition = transform.position + Vector3.right;
+            enemyStartPosition = transform.position;
+            moving = true;
+        }
+    }
+
+}
