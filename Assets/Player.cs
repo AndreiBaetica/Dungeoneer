@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class Player : MonoBehaviour
 
     public HealthBar healthBar;
     public ManaBar manaBar;
+
+    private IInteractable interactable;
     
     // Start is called before the first frame update
     void Start()
@@ -67,5 +70,33 @@ public class Player : MonoBehaviour
     {
         currentMana += mana;
         manaBar.SetMana(currentMana);
+    }
+
+    public void Interact()
+    {
+        if (interactable != null)
+        {
+            interactable.Interact();
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            interactable = collision.GetComponent<IInteractable>();
+        }
+    }
+    
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Interactable")
+        {
+            if (interactable != null)
+            {
+                interactable.StopInteract();
+                interactable = null;
+            }
+        }
     }
 }
