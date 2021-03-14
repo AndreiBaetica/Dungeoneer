@@ -16,15 +16,15 @@ public class GridTesting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            TestGridObject testGridObject = grid.GetGridObject(2, 2);
-            if (testGridObject != null)
-            {
-                //modify object values here
-                testGridObject.SetValue(69);
-            }
-        }
+        // if (Input.GetMouseButtonDown(0))
+        // {
+        //     TestGridObject testGridObject = grid.GetGridObject(2, 2);
+        //     if (testGridObject != null)
+        //     {
+        //         //modify object values here
+        //         testGridObject.SetValue(69);
+        //     }
+        // }
     }
 
     public class TestGridObject
