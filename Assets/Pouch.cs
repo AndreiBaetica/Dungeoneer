@@ -15,12 +15,13 @@ public class Pouch : MonoBehaviour, IInteractable
         else
         {
             isOpen = true;
-            Debug.Log("Opening Pouch!");
+            Debug.Log("Opening Pouch!"); // TODO : Remove
+            // Open Pouch slots UI
         }
     }
 
     public void StopInteract()
     {
-        
+        // Close Pouch slots UI
     }
 }

@@ -80,16 +80,20 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("yay"); // TODO : Remove
+        
         if (collision.tag == "Interactable")
         {
             interactable = collision.GetComponent<IInteractable>();
         }
     }
-    
-    public void OnTriggerExit2D(Collider2D collision)
+
+    public void OnTriggerExit(Collider collision)
     {
+        Debug.Log("bye"); // TODO : Remove
+        
         if (collision.tag == "Interactable")
         {
             if (interactable != null)
