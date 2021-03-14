@@ -82,22 +82,20 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("yay"); // TODO : Remove
-        
         if (collision.tag == "Interactable")
         {
+            Debug.Log("Player has entered the interaction zone of an interactable object."); // TODO : Remove
             interactable = collision.GetComponent<IInteractable>();
         }
     }
 
     public void OnTriggerExit(Collider collision)
     {
-        Debug.Log("bye"); // TODO : Remove
-        
         if (collision.tag == "Interactable")
         {
             if (interactable != null)
             {
+                Debug.Log("Player has left the interaction zone of an interactable object."); // TODO : Remove
                 interactable.StopInteract();
                 interactable = null;
             }
