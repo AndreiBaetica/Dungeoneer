@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private playerDir dirFacing = playerDir.Up;
 
     public Animator animator;
-    //public bool isTurn;
+    public bool isTurn;
     
     enum playerDir
     {
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-       // if (isTurn){
+        if (isTurn){
             if (moving)
             {
                 move();
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-       // }
+        }
         
     }
 //raycasts the corners of the player cube

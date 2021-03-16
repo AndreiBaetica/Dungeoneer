@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 	#endregion
 
 	public GameObject enemy;
-	//public bool isTurn = false;
+	public static bool isTurn = false;
 
 	void Start()
 	{

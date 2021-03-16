@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -19,7 +20,7 @@ public class EnemyController : MonoBehaviour
 
 
     public Animator animator;
-    //public bool isTurn;
+    public bool isTurn;
 
     enum enemyDir
     {
@@ -48,52 +49,54 @@ public class EnemyController : MonoBehaviour
 
 
         float distance = Vector3.Distance(target.position, transform.position);
-        Debug.Log("Distance: " + distance);
-        Debug.Log("Radius: " + lookRadius);
+        //Debug.Log("Distance: " + distance);
+        //Debug.Log("Radius: " + lookRadius);
 
-        if (distance <= lookRadius )//&& isTurn==true)
+        if (distance <= lookRadius && isTurn==true)
         {
             //agent.SetDestination(target.position);
-            Debug.Log("target pos: " + target.position);
-            Debug.Log("enemy pos: " + transform.position);
+            //Debug.Log("target pos: " + target.position);
+            //Debug.Log("enemy pos: " + transform.position);
 
 
             if (moving)
             {
                 move();
             }
-            if (transform.position.x == target.position.x && transform.position.z < target.position.z)
+            if (Math.Round(transform.position.z) < Math.Round(target.position.z))
             { //Player is above
-                animator.SetInteger("intDirection", 4);
-                dirFacing = enemyDir.Up;
-                moveUp();
-                agent.Move(enemyTargetPosition);
-                //isTurn = false;
-            }
-            else if (transform.position.x < target.position.x && transform.position.z == target.position.z)
-            { //Player is to the right
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.Right;
-                moveRight();
-                agent.Move(enemyTargetPosition);
-                //isTurn = false;
-            }
-            else if (transform.position.x == target.position.x && transform.position.z > target.position.z)
-            { //Player is below
                 animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Down;
-                moveDown();
-                agent.Move(enemyTargetPosition);
-               // isTurn = false;
+                moveUp();
+
+                //agent.Move(enemyTargetPosition);
+                //isTurn = false;
             }
-            else if (transform.position.x > target.position.x && transform.position.z == target.position.z)
-            { //Player is to the left
+             if (Math.Round(transform.position.x) < Math.Round(target.position.x))
+            { //Player is to the right
                 animator.SetInteger("intDirection", 4);
+                dirFacing = enemyDir.Right;
+                moveRight();
+                //agent.Move(enemyTargetPosition);
+                //isTurn = false;
+            }
+             if (Math.Round(transform.position.z) > Math.Round(target.position.z))
+            { //Player is below
+                animator.SetInteger("intDirection", 4);
+                dirFacing = enemyDir.Up;
+                moveDown();
+
+                //agent.Move(enemyTargetPosition);
+                // isTurn = false;
+            } if (Math.Round(transform.position.x) > Math.Round(target.position.x))
+            { //Player is to the left
+                animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Left;
                 moveLeft();
-                agent.Move(enemyTargetPosition);
-               // isTurn = false;
+                //agent.Move(enemyTargetPosition);
+                // isTurn = false;
             }
+
 
 
         }
@@ -126,7 +129,7 @@ public class EnemyController : MonoBehaviour
 
     private void move()
     {
-        if (Vector3.Distance(enemyStartPosition, transform.position) > 1f)
+        if (Vector3.Distance(enemyStartPosition, transform.position) > 0.1f)
         {
             transform.position = enemyTargetPosition;
             moving = false;
