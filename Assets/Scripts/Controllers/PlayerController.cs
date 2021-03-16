@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isTurn){
+        //if (isTurn){
             if (moving)
             {
                 move();
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
 
                 }
             }
-        }
+       // }
         
     }
 //raycasts the corners of the player cube

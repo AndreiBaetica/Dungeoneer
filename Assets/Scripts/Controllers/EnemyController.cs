@@ -49,15 +49,9 @@ public class EnemyController : MonoBehaviour
 
 
         float distance = Vector3.Distance(target.position, transform.position);
-        //Debug.Log("Distance: " + distance);
-        //Debug.Log("Radius: " + lookRadius);
 
-        if (distance <= lookRadius && isTurn==true)
+        if (distance <= lookRadius )//&& isTurn==true)
         {
-            //agent.SetDestination(target.position);
-            //Debug.Log("target pos: " + target.position);
-            //Debug.Log("enemy pos: " + transform.position);
-
 
             if (moving)
             {
@@ -69,7 +63,6 @@ public class EnemyController : MonoBehaviour
                 dirFacing = enemyDir.Down;
                 moveUp();
 
-                //agent.Move(enemyTargetPosition);
                 //isTurn = false;
             }
              if (Math.Round(transform.position.x) < Math.Round(target.position.x))
@@ -77,7 +70,6 @@ public class EnemyController : MonoBehaviour
                 animator.SetInteger("intDirection", 4);
                 dirFacing = enemyDir.Right;
                 moveRight();
-                //agent.Move(enemyTargetPosition);
                 //isTurn = false;
             }
              if (Math.Round(transform.position.z) > Math.Round(target.position.z))
@@ -86,14 +78,12 @@ public class EnemyController : MonoBehaviour
                 dirFacing = enemyDir.Up;
                 moveDown();
 
-                //agent.Move(enemyTargetPosition);
                 // isTurn = false;
             } if (Math.Round(transform.position.x) > Math.Round(target.position.x))
             { //Player is to the left
                 animator.SetInteger("intDirection", 2);
                 dirFacing = enemyDir.Left;
                 moveLeft();
-                //agent.Move(enemyTargetPosition);
                 // isTurn = false;
             }
 
