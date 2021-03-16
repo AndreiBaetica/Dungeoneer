@@ -61,7 +61,10 @@
      <Compile Include="Assets\Scripts\Controllers\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Controllers\TurnController.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\GridSystem.cs" />
+     <Compile Include="Assets\Scripts\GridTesting.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\TextUtils.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
@@ -658,6 +661,9 @@
  </Reference>
  <Reference Include="com.unity.quicksearch">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
