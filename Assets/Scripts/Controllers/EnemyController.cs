@@ -4,34 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MovementController
 {
     [SerializeField] private float speed = 10f;
 
-    private enemyDir dirFacing = enemyDir.Up;
     private float lookRadius = 4.5f;
     Transform target;
-    private bool moving;
-    private float rayLength = 1.4f;
-    private float rayOffsetX = 0.4f;
-    private float rayOffsetY = 0.4f;
-    private float rayOffsetZ = 0.4f;
-
-
-    public Animator animator;
-    public bool isTurn;
-
-    enum enemyDir
-    {
-        Up,
-        Down,
-        Left,
-        Right
-    }
-
-
-    private Vector3 enemyTargetPosition;
-    private Vector3 enemyStartPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -43,125 +21,31 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if (distance <= lookRadius )//&& isTurn==true)
+        if (distance <= lookRadius )
         {
+            if (moving) snapToGridSquare();
 
-            if (moving)
-            {
-                move();
-            }
             if (Math.Round(transform.position.z) < Math.Round(target.position.z))
             { //Player is above
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.Down;
                 moveUp();
-
-                //isTurn = false;
             }
              if (Math.Round(transform.position.x) < Math.Round(target.position.x))
             { //Player is to the right
-                animator.SetInteger("intDirection", 4);
-                dirFacing = enemyDir.Right;
                 moveRight();
-                //isTurn = false;
             }
              if (Math.Round(transform.position.z) > Math.Round(target.position.z))
             { //Player is below
-                animator.SetInteger("intDirection", 4);
-                dirFacing = enemyDir.Up;
                 moveDown();
 
-                // isTurn = false;
             } if (Math.Round(transform.position.x) > Math.Round(target.position.x))
             { //Player is to the left
-                animator.SetInteger("intDirection", 2);
-                dirFacing = enemyDir.Left;
                 moveLeft();
-                // isTurn = false;
             }
-
-
-
-        }
-
-
-        }
-
-    private bool canMove(Vector3 direction)
-    {
-        if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
-        {
-            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.right * rayOffsetX, direction,
-                rayLength)) return false;
-            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.right * rayOffsetX, direction,
-                rayLength)) return false;
-        }
-        else if (Vector3.Equals(Vector3.left, direction) || Vector3.Equals(Vector3.right, direction))
-        {
-            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.forward * rayOffsetZ, direction,
-                rayLength)) return false;
-            if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.forward * rayOffsetZ, direction,
-                rayLength)) return false;
-        }
-        return true;
-    }
-
-
-    private void move()
-    {
-        if (Vector3.Distance(enemyStartPosition, target.position) > 1f)
-        {
-            transform.position = enemyTargetPosition;
-            moving = false;
-            return;
-        }
-
-        transform.position += (enemyTargetPosition - enemyStartPosition) * speed * Time.deltaTime; //Whats exactly this code do?
-        return;
-    }
-
-    private void moveUp()
-    {
-        if (canMove(Vector3.forward))
-        {
-            enemyTargetPosition = transform.position + Vector3.forward;
-            enemyStartPosition = transform.position;
-            moving = true;
         }
     }
 
-    private void moveDown()
-    {
-        if (canMove(Vector3.back))
-        {
-            enemyTargetPosition = transform.position + Vector3.back;
-            enemyStartPosition = transform.position;
-            moving = true;
-        }
-    }
 
-    private void moveLeft()
-    {
-        if (canMove(Vector3.left))
-        {
-            enemyTargetPosition = transform.position + Vector3.left;
-            enemyStartPosition = transform.position;
-            moving = true;
-        }
-    }
-
-    private void moveRight()
-    {
-        if (canMove(Vector3.right))
-        {
-            enemyTargetPosition = transform.position + Vector3.right;
-            enemyStartPosition = transform.position;
-            moving = true;
-        }
-    }
 
 }
