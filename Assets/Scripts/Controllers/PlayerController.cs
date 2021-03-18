@@ -10,9 +10,9 @@ public class PlayerController : MovementController
     {
             if (moving) snapToGridSquare();
             
-            if (Input.GetKeyDown("w")) moveUp();
-            if (Input.GetKeyDown("a")) moveLeft();
-            if (Input.GetKeyDown("s")) moveDown();
-            if (Input.GetKeyDown("d")) moveRight();
+            if (Input.GetKeyDown("w")) MoveForward();
+            if (Input.GetKeyDown("a")) MoveLeft();
+            if (Input.GetKeyDown("s")) MoveBack();
+            if (Input.GetKeyDown("d")) MoveRight();
     }
 }

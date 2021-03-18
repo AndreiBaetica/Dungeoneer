@@ -40,7 +40,7 @@ public class MovementController : MonoBehaviour
     }
     
     //raycasts the corners of the character cube to check for collision
-    private bool canMove(Vector3 direction)
+    public bool canMove(Vector3 direction)
     {
         if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
         {
@@ -73,7 +73,7 @@ public class MovementController : MonoBehaviour
         return;
     }
 
-    public void moveUp()
+    public void MoveForward()
     {
         
         if (dirFacing != playerDir.Up)
@@ -93,7 +93,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void moveDown()
+    public void MoveBack()
     {
         if (dirFacing != playerDir.Down)
         {
@@ -112,7 +112,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void moveLeft()
+    public void MoveLeft()
     {
         if (dirFacing != playerDir.Left)
         {
@@ -131,7 +131,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    public void moveRight()
+    public void MoveRight()
     {
         if (dirFacing != playerDir.Right)
         {
