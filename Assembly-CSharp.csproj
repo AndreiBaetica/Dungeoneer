@@ -638,6 +638,9 @@
  <Reference Include="Unity.2D.Sprite.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VisualEffectGraph.Editor">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.VisualEffectGraph.Editor.dll</HintPath>
  </Reference>
@@ -661,9 +664,6 @@
  </Reference>
  <Reference Include="com.unity.quicksearch">
  <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/com.unity.quicksearch.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>C:/Users/Carlos/Desktop/Unity Project/Dungeoneer/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

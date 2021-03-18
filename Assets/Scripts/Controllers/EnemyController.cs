@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     private enemyDir dirFacing = enemyDir.Up;
     private float lookRadius = 4.5f;
     Transform target;
-    NavMeshAgent agent;
     private bool moving;
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
@@ -39,8 +38,6 @@ public class EnemyController : MonoBehaviour
     {
         target = PlayerManager.instance.player.transform; //target.position player Position; transform.position for enemy position
         animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
     }
 
     // Update is called once per frame
@@ -91,10 +88,7 @@ public class EnemyController : MonoBehaviour
 
         }
 
-        if (distance <= agent.stoppingDistance)
-            {
-                //do somethin;
-            }
+
         }
 
     private bool canMove(Vector3 direction)
@@ -119,14 +113,14 @@ public class EnemyController : MonoBehaviour
 
     private void move()
     {
-        if (Vector3.Distance(enemyStartPosition, transform.position) > 0.1f)
+        if (Vector3.Distance(enemyStartPosition, target.position) > 1f)
         {
             transform.position = enemyTargetPosition;
             moving = false;
             return;
         }
 
-        transform.position += (enemyTargetPosition - enemyStartPosition) * speed * Time.deltaTime;
+        transform.position += (enemyTargetPosition - enemyStartPosition) * speed * Time.deltaTime; //Whats exactly this code do?
         return;
     }
 
