@@ -130,7 +130,6 @@ public class EnemyController : MovementController
                 shortestDistanceToPlayer = distanceToPlayer;
                 bestMovement = "fwd";
             }
-            //Debug.Log(Vector3.Distance((transform.position + Vector3.up), target.position));
         }
         //down
         if (canMove(Vector3.back))
@@ -141,7 +140,6 @@ public class EnemyController : MovementController
                 shortestDistanceToPlayer = distanceToPlayer;
                 bestMovement = "back";
             }
-            //Debug.Log(Vector3.Distance((transform.position), target.position));
         }
         //left
         if (canMove(Vector3.left))
@@ -153,7 +151,6 @@ public class EnemyController : MovementController
                 shortestDistanceToPlayer = distanceToPlayer;
                 bestMovement = "left";
             }
-            //Debug.Log(Vector3.Distance((transform.position), target.position));
         }
         //right
         if (canMove(Vector3.right))
@@ -163,7 +160,6 @@ public class EnemyController : MovementController
             {
                 bestMovement = "right";
             }
-            //Debug.Log(Vector3.Distance((transform.position), target.position));
         }
 
         return bestMovement;
