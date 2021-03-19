@@ -21,7 +21,8 @@ public class EnemyController : MovementController
     // Start is called before the first frame update
     void Start()
     {
-        target = PlayerManager.instance.player.transform; //target.position player Position; transform.position for enemy position
+        //target.position player Position; transform.position for enemy position
+        target = PlayerManager.instance.player.transform; 
         animator = GetComponent<Animator>();
     }
 
@@ -50,37 +51,6 @@ public class EnemyController : MovementController
                 else if (direction.Equals("right")) MoveRight();
             }
             
-            /*float distance = Vector3.Distance(target.position, transform.position);
-
-            if (distance <= lookRadius)
-            {
-                if (moving) snapToGridSquare();
-
-                if (Math.Round(transform.position.z) < Math.Round(target.position.z))
-                {
-                    //Player is above
-                    moveUp();
-                }
-
-                if (Math.Round(transform.position.x) < Math.Round(target.position.x))
-                {
-                    //Player is to the right
-                    moveRight();
-                }
-
-                if (Math.Round(transform.position.z) > Math.Round(target.position.z))
-                {
-                    //Player is below
-                    moveDown();
-
-                }
-
-                if (Math.Round(transform.position.x) > Math.Round(target.position.x))
-                {
-                    //Player is to the left
-                    moveLeft();
-                }
-            }*/
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
