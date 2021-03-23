@@ -2,7 +2,7 @@
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public class CharacterController : MonoBehaviour
+public class CharController : MonoBehaviour
 {
     protected new String name = "Character";
 
@@ -164,8 +164,8 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-
-    protected void MeleeAttack()
+    private Collider[] tmp;
+    protected void MeleeAttack(LayerMask mask)
     {
         Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
         int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
@@ -192,13 +192,15 @@ public class CharacterController : MonoBehaviour
             default:
                 throw new InvalidOperationException("Character has no facing.");
         }
-        //TODO: CHARACTER LAYER
-        Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape);
+        Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape, Quaternion.identity, mask);
+        tmp = targetsHit;
         
         //deal damage
         foreach (Collider target in targetsHit)
         {
-            target.GetComponent<CharacterController>().TakeDamage(actualMeleeDamage);
+            //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
+            //target.GetComponent<Rigidbody>().detectCollisions = false;
+            target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
         }
     }
 

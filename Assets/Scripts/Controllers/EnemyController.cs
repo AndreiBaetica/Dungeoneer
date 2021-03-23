@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : CharacterController
+public class EnemyController : CharController
 {
     private float lookRadius = 4.5f;
     private Transform target;

@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : CharacterController
+public class PlayerController : CharController
 {
+    private LayerMask NPCMask;
     protected new void Start()
     {
+        NPCMask= LayerMask.GetMask("NPC");
         name = "Player";
         maxHealth = 100;
         base.Start();
@@ -20,6 +22,6 @@ public class PlayerController : CharacterController
             if (Input.GetKeyDown("d")) MoveRight();
             
             //attack
-            if (Input.GetKeyDown("q")) MeleeAttack();
+            if (Input.GetKeyDown("q")) MeleeAttack(NPCMask);
     }
 }
