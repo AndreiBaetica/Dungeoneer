@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Bag", menuName = "Items/Bag", order = 1)]
-public class Bag : Item
+public class Bag : Item, IUsable
 {
     private int slots;
 
@@ -31,6 +31,7 @@ public class Bag : Item
     {
         if (InventoryScript.MyInstance.CanAddBag) // Limit of only 1 bag for now
         {
+            Remove();
             MyBagScript = Instantiate(bagPrefab, InventoryScript.MyInstance.transform).GetComponent<BagScript>();
             MyBagScript.AddSlots(slots);
             InventoryScript.MyInstance.AddBag(this);

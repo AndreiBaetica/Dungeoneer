@@ -12,19 +12,27 @@ public abstract class Item : ScriptableObject
 
     private SlotScript slot;
 
-    protected SlotScript Slot
+    public Sprite MyIcon
     {
-        get => slot;
-        set => slot = value;
+        get => icon;
     }
 
     public int StackSize
     {
         get => stackSize;
     }
-
-    public Sprite Icon
+    
+    public SlotScript MySlot
     {
-        get => icon;
+        get => slot;
+        set => slot = value;
+    }
+
+    public void Remove()
+    {
+        if (MySlot != null)
+        {
+            MySlot.RemoveItem(this);
+        }
     }
 }

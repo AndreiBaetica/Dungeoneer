@@ -29,6 +29,12 @@ public class InventoryScript : MonoBehaviour
     //For debugging only
     [SerializeField]
     private Item[] items;
+    
+    public bool CanAddBag
+    {
+        get { return bags.Count < 1; } // Limit to 1 bag for now. Change limit here if you want more than 1 bag. 
+        //IMPORTANT: REQUIRED to add more bag buttons in the scene if you want to have more than 1 bag, because AddBag relies on it to properly add the bags to the inventory
+    }
 
     private void Awake()
     {
@@ -50,9 +56,16 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
-    public bool CanAddBag
+    public void AddItem(Item item)
     {
-        get { return bags.Count < 1; } // Limit to 1 bag for now
+        foreach (Bag bag in bags)
+        {
+            if (bag.MyBagScript.AddItem(item))
+            {
+                return; // Item added to this bag
+            }
+        }
+        
     }
 
     // Test add a bag to the player (not used for now since we are keeping the player to 1 bag limit)
@@ -63,6 +76,19 @@ public class InventoryScript : MonoBehaviour
             Bag bag = (Bag) Instantiate(items[0]);
             bag.Initialize(16);
             bag.Use();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Bag bag = (Bag) Instantiate(items[0]);
+            bag.Initialize(16);
+            AddItem(bag);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            HealthPotion potion = (HealthPotion)Instantiate(items[1]);
+            AddItem(potion);
         }
     }
 

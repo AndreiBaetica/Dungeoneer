@@ -5,10 +5,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public int maxMana = 10;
-    public int currentMana;
+    public static Player instance;
+
+    public static Player MyInstance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Player>();
+            }
+
+            return instance;
+        }
+    }
+    
+    private int maxHealth = 100;
+    private int currentHealth;
+    private int maxMana = 10;
+    private int currentMana;
 
     public HealthBar healthBar;
     public ManaBar manaBar;
@@ -48,25 +63,25 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
     
-    void Heal(int heal)
+    public void Heal(int heal)
     {
         currentHealth += heal;
         healthBar.SetHealth(currentHealth);
     }
     
-    void SpendMana(int mana)
+    public void SpendMana(int mana)
     {
         currentMana -= mana;
         manaBar.SetMana(currentMana);
     }
     
-    void RegenMana(int mana)
+    public void RegenMana(int mana)
     {
         currentMana += mana;
         manaBar.SetMana(currentMana);
@@ -100,5 +115,29 @@ public class Player : MonoBehaviour
                 interactable = null;
             }
         }
+    }
+
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
+
+    public int MaxMana
+    {
+        get => maxMana;
+        set => maxMana = value;
+    }
+
+    public int CurrentMana
+    {
+        get => currentMana;
+        set => currentMana = value;
     }
 }
