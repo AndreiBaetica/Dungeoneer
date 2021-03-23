@@ -3,17 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : CharacterController
 {
-    protected override void Start()
+    protected new void Start()
     {
         name = "Player";
         maxHealth = 100;
         base.Start();
     }
 
-    protected override void Update()
+    protected new void Update()
     {
             //movement
-            if (moving) snapToGridSquare();
+            if (moving) SnapToGridSquare();
             if (Input.GetKeyDown("w")) MoveForward();
             if (Input.GetKeyDown("a")) MoveLeft();
             if (Input.GetKeyDown("s")) MoveBack();

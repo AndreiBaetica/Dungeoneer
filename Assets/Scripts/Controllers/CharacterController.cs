@@ -1,27 +1,24 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class CharacterController : MonoBehaviour
 {
-    public String name = "Character";
-    
-    private float speed = 10f;
-    public int maxHealth = 100;
-    private int currentHealth;
+    protected new String name = "Character";
+
+    private const float Speed = 10f;
+    protected int maxHealth = 100;
+    private int _currentHealth;
     
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
-    public bool moving;
-    private CharacterDir dirFacing = CharacterDir.Up;
-    
-    enum CharacterDir
+    protected bool moving;
+    private CharacterDir _dirFacing = CharacterDir.Up;
+
+    private enum CharacterDir
     {
         Up,
         Down,
@@ -29,8 +26,8 @@ public class CharacterController : MonoBehaviour
         Right
     }
 
-    private Vector3 targetPosition;
-    private Vector3 startPosition;
+    private Vector3 _targetPosition;
+    private Vector3 _startPosition;
     
     //can be used to hit multiple grid squares
     private Vector3 meleeAttackShape = new Vector3(0.5f, 0.5f, 0.5f);
@@ -38,27 +35,27 @@ public class CharacterController : MonoBehaviour
 
     private int base_melee_damage = 1;
     private int melee_damage_multiplier = 1;
-    
-    public Animator animator;
+
+    protected Animator animator;
     
     
     
     // Start is called before the first frame update
-    protected virtual void Start()
+    protected void Start()
     {
         animator = GetComponent<Animator>();
-        currentHealth = maxHealth;
+        _currentHealth = maxHealth;
 
     }
 
     // Update is called once per frame
-    protected virtual void Update()
+    protected void Update()
     {
 
     }
     
     //raycasts the corners of the character cube to check for collision
-    public bool canMove(Vector3 direction)
+    protected bool CanMove(Vector3 direction)
     {
         if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
         {
@@ -78,98 +75,97 @@ public class CharacterController : MonoBehaviour
     }
 
     //snaps character to the precise final position at the end of a movement.
-    public void snapToGridSquare()
+    protected void SnapToGridSquare()
     {
-        if (Vector3.Distance(startPosition, transform.position) > 1f)
+        if (Vector3.Distance(_startPosition, transform.position) > 1f)
         {
-            transform.position = targetPosition;
+            transform.position = _targetPosition;
             moving = false;
             return;
         }
 
-        transform.position += (targetPosition - startPosition) * speed * Time.deltaTime;
-        return;
+        transform.position += (_targetPosition - _startPosition) * Speed * Time.deltaTime;
     }
 
-    public void MoveForward()
+    protected void MoveForward()
     {
         
-        if (dirFacing != CharacterDir.Up)
+        if (_dirFacing != CharacterDir.Up)
         {
             //look up
-            dirFacing = CharacterDir.Up;
+            _dirFacing = CharacterDir.Up;
             animator.SetInteger("intDirection", 4);
         }
         else
         {
-            if (canMove(Vector3.forward))
+            if (CanMove(Vector3.forward))
             {
-                targetPosition = transform.position + Vector3.forward;
-                startPosition = transform.position;
+                _targetPosition = transform.position + Vector3.forward;
+                _startPosition = transform.position;
                 moving = true;
             }
         }
     }
 
-    public void MoveBack()
+    protected void MoveBack()
     {
-        if (dirFacing != CharacterDir.Down)
+        if (_dirFacing != CharacterDir.Down)
         {
             //look down
-            dirFacing = CharacterDir.Down;
+            _dirFacing = CharacterDir.Down;
             animator.SetInteger("intDirection", 2);
         }
         else
         {
-            if (canMove(Vector3.back))
+            if (CanMove(Vector3.back))
             {
-                targetPosition = transform.position + Vector3.back;
-                startPosition = transform.position;
+                _targetPosition = transform.position + Vector3.back;
+                _startPosition = transform.position;
                 moving = true;
             }
         }
     }
 
-    public void MoveLeft()
+    protected void MoveLeft()
     {
-        if (dirFacing != CharacterDir.Left)
+        if (_dirFacing != CharacterDir.Left)
         {
             //look left
-            dirFacing = CharacterDir.Left;
+            _dirFacing = CharacterDir.Left;
             animator.SetInteger("intDirection", 2);
         }
         else
         {
-            if (canMove(Vector3.left))
+            if (CanMove(Vector3.left))
             {
-                targetPosition = transform.position + Vector3.left;
-                startPosition = transform.position;
+                _targetPosition = transform.position + Vector3.left;
+                _startPosition = transform.position;
                 moving = true;
             }
         }
     }
 
-    public void MoveRight()
+    protected void MoveRight()
     {
-        if (dirFacing != CharacterDir.Right)
+        if (_dirFacing != CharacterDir.Right)
         {
             //look right
-            dirFacing = CharacterDir.Right;
+            _dirFacing = CharacterDir.Right;
             animator.SetInteger("intDirection", 4);
         }
         else
         {
-            if (canMove(Vector3.right))
+            if (CanMove(Vector3.right))
             {
-                targetPosition = transform.position + Vector3.right;
-                startPosition = transform.position;
+                _targetPosition = transform.position + Vector3.right;
+                _startPosition = transform.position;
                 moving = true;
             }
         }
     }
 
 
-    public void MeleeAttack()
+    protected void MeleeAttack()
     {
         Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
         int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
@@ -179,7 +175,7 @@ public class CharacterController : MonoBehaviour
         
         //detect enemy
         Vector3 attackCenter;
-        switch (dirFacing)
+        switch (_dirFacing)
         {
             case CharacterDir.Up:
                 attackCenter = transform.position + Vector3.forward;
@@ -209,14 +205,14 @@ public class CharacterController : MonoBehaviour
     private void TakeDamage(int damage)
     {
         //TODO: play hurt animation
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        _currentHealth -= damage;
+        if (_currentHealth <= 0)
         {
             Die();
         }
     }
 
-    public void Die()
+    private void Die()
     {
         //TODO: play death animation
 
