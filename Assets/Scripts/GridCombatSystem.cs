@@ -29,10 +29,10 @@ public class GridCombatSystem : MonoBehaviour
         grid = new GridSystem<EmptyGridObject>(mapWidth, mapHeight, cellSize, origin,
             (GridSystem<EmptyGridObject> g, int x, int y) => new EmptyGridObject(g, x, y));
 
-        movementTilemap = new MovementTilemap(mapWidth, mapHeight, cellSize, origin);
+        //movementTilemap = new MovementTilemap(mapWidth, mapHeight, cellSize, origin);
         
-        movementTilemap.SetTilemapVisual(movementTilemapVisual);
-        movementTilemap.SetAllTilemapSprite(MovementTilemap.TilemapObject.TilemapSprite.Move);
+        //movementTilemap.SetTilemapVisual(movementTilemapVisual);
+        //movementTilemap.SetAllTilemapSprite(MovementTilemap.TilemapObject.TilemapSprite.Move);
     }
 
     // Update is called once per frame
@@ -68,8 +68,9 @@ public class GridCombatSystem : MonoBehaviour
             Debug.DrawLine(worldPos10, worldPos11, Color.white, 999f);
         }
 
-        public override string ToString() {
-            return "";
+        public override string ToString()
+        {
+            return "test";
         }
     }
     

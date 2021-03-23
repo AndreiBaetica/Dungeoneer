@@ -39,7 +39,7 @@ public class GridSystem<TGridObject>
             }
         }
 
-        bool showDebug = true; // show debug
+        bool showDebug = false; // show debug
         if (showDebug)
         {
 
@@ -53,6 +53,7 @@ public class GridSystem<TGridObject>
                 {
                     
                     //draw text in grid tile
+                    //Debug.Log("test");
                     //debugTextArray[x,y] =TextUtils.CreateWorldText(gridArray[x, y]?.ToString(), null, GetWorldPosition(x, y) + new Vector3(cellSize,0,cellSize) * 0.5f, 5, Color.white,TextAnchor.MiddleCenter);
 
                     //Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);

@@ -39,10 +39,6 @@ public class MovementTilemap {
         tilemapVisual.SetGrid(this, grid);
     }
     
-    
-    /*
-     * Represents a single Tilemap Object that exists in each Grid Cell Position
-     * */
     public class TilemapObject {
 
         public enum TilemapSprite {
