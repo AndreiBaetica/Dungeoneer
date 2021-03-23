@@ -1,19 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
-public class MovementController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    public String name = "Character";
+    
+    private float speed = 10f;
+    public int maxHealth = 100;
+    private int currentHealth;
+    
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     public bool moving;
-    private playerDir dirFacing = playerDir.Up;
+    private CharacterDir dirFacing = CharacterDir.Up;
     
-    enum playerDir
+    enum CharacterDir
     {
         Up,
         Down,
@@ -23,18 +31,28 @@ public class MovementController : MonoBehaviour
 
     private Vector3 targetPosition;
     private Vector3 startPosition;
+    
+    //can be used to hit multiple grid squares
+    private Vector3 meleeAttackShape = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 meleeAttackMultiplier = new Vector3(1f, 1f, 1f);
 
-
+    private int base_melee_damage = 1;
+    private int melee_damage_multiplier = 1;
+    
     public Animator animator;
+    
+    
+    
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
 
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
 
     }
@@ -76,10 +94,10 @@ public class MovementController : MonoBehaviour
     public void MoveForward()
     {
         
-        if (dirFacing != playerDir.Up)
+        if (dirFacing != CharacterDir.Up)
         {
             //look up
-            dirFacing = playerDir.Up;
+            dirFacing = CharacterDir.Up;
             animator.SetInteger("intDirection", 4);
         }
         else
@@ -95,10 +113,10 @@ public class MovementController : MonoBehaviour
 
     public void MoveBack()
     {
-        if (dirFacing != playerDir.Down)
+        if (dirFacing != CharacterDir.Down)
         {
             //look down
-            dirFacing = playerDir.Down;
+            dirFacing = CharacterDir.Down;
             animator.SetInteger("intDirection", 2);
         }
         else
@@ -114,10 +132,10 @@ public class MovementController : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (dirFacing != playerDir.Left)
+        if (dirFacing != CharacterDir.Left)
         {
             //look left
-            dirFacing = playerDir.Left;
+            dirFacing = CharacterDir.Left;
             animator.SetInteger("intDirection", 2);
         }
         else
@@ -133,10 +151,10 @@ public class MovementController : MonoBehaviour
 
     public void MoveRight()
     {
-        if (dirFacing != playerDir.Right)
+        if (dirFacing != CharacterDir.Right)
         {
             //look right
-            dirFacing = playerDir.Right;
+            dirFacing = CharacterDir.Right;
             animator.SetInteger("intDirection", 4);
         }
         else
@@ -148,5 +166,66 @@ public class MovementController : MonoBehaviour
                 moving = true;
             }
         }
+    }
+
+
+    public void MeleeAttack()
+    {
+        Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
+        int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
+
+        //TODO
+        //play animation
+        
+        //detect enemy
+        Vector3 attackCenter;
+        switch (dirFacing)
+        {
+            case CharacterDir.Up:
+                attackCenter = transform.position + Vector3.forward;
+                break;
+            case CharacterDir.Down:
+                attackCenter = transform.position + Vector3.back;
+                break;
+            case CharacterDir.Left:
+                attackCenter = transform.position + Vector3.left;
+                break;
+            case CharacterDir.Right:
+                attackCenter = transform.position + Vector3.right;
+                break;
+            default:
+                throw new InvalidOperationException("Character has no facing.");
+        }
+        //TODO: CHARACTER LAYER
+        Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape);
+        
+        //deal damage
+        foreach (Collider target in targetsHit)
+        {
+            target.GetComponent<CharacterController>().TakeDamage(actualMeleeDamage);
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+        //TODO: play hurt animation
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        //TODO: play death animation
+
+        this.enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+        
+        Debug.Log(name + " has died.");
+        
     }
 }

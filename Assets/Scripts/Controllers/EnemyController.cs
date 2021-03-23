@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MovementController
+public class EnemyController : CharacterController
 {
     private float lookRadius = 4.5f;
     private Transform target;
@@ -19,15 +19,16 @@ public class EnemyController : MovementController
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
+        base.Start();
         //target.position player Position; transform.position for enemy position
         target = PlayerManager.instance.player.transform; 
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         //We absolutely can't have these methods being called once per frame.
         //Leaving them here until we have a timer system. Then we will only call them once per turn.
