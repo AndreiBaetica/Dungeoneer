@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MovementController
+public class EnemyController : CharController
 {
     private float lookRadius = 4.5f;
     private Transform target;
+    private LayerMask PlayerMask;
     
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
 
@@ -19,15 +20,17 @@ public class EnemyController : MovementController
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected new void Start()
     {
+        PlayerMask = LayerMask.GetMask("Player");
+        base.Start();
         //target.position player Position; transform.position for enemy position
-        target = PlayerManager.instance.player.transform; 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected new void Update()
     {
         //We absolutely can't have these methods being called once per frame.
         //Leaving them here until we have a timer system. Then we will only call them once per turn.
@@ -41,7 +44,7 @@ public class EnemyController : MovementController
         {
             //Chase behaviour
 
-            if (moving) snapToGridSquare();
+            if (moving) SnapToGridSquare();
             else
             {
                 string direction = FindBestMovement();
@@ -54,6 +57,7 @@ public class EnemyController : MovementController
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
+            MeleeAttack(PlayerMask);
         }
     }
 
@@ -92,7 +96,7 @@ public class EnemyController : MovementController
         float shortestDistanceToPlayer = 5f;
         
         //up
-        if (canMove(Vector3.forward))
+        if (CanMove(Vector3.forward))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.forward), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)
@@ -102,7 +106,7 @@ public class EnemyController : MovementController
             }
         }
         //down
-        if (canMove(Vector3.back))
+        if (CanMove(Vector3.back))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.back), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)
@@ -112,7 +116,7 @@ public class EnemyController : MovementController
             }
         }
         //left
-        if (canMove(Vector3.left))
+        if (CanMove(Vector3.left))
         {
             
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.left), target.position);
@@ -123,7 +127,7 @@ public class EnemyController : MovementController
             }
         }
         //right
-        if (canMove(Vector3.right))
+        if (CanMove(Vector3.right))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.right), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)
