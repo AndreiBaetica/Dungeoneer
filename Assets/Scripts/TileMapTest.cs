@@ -38,10 +38,10 @@ public class TileMapTest : MonoBehaviour
     { 
         if (Input.GetKeyUp("p"))
         {
-            Debug.Log("buttondown");
+            
             if (isTileShown)
             {
-                Debug.Log("ishown");
+                
                 for (int y = -10; y < blockTempDataMap.GetLength(0); y++)
                 {
                     for (int x = -10; x < blockTempDataMap.GetLength(1); x++)
@@ -55,7 +55,7 @@ public class TileMapTest : MonoBehaviour
             }
             else
             {
-                Debug.Log("isNothShown");
+                
                 for (int y = -10; y < blockTempDataMap.GetLength(0); y++)
                 {
                     for (int x = -10; x < blockTempDataMap.GetLength(1); x++)
