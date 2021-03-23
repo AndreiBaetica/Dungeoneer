@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour
 	public int currentHealth;
 	public int maxMana = 10;
 	public int currentMana;
+    public Transform damageTransform;
+    public GameObject damageIndicator;
+
 
 	public HealthBar healthBar;
 	public ManaBar manaBar;
@@ -65,6 +68,8 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        GameObject damageGameObject = (GameObject)Instantiate(damageIndicator,damageTransform.position,damageTransform.rotation);
+        damageGameObject.GetComponentInChildren().text = damage.ToString();
     }
 
     void Heal(int heal)
