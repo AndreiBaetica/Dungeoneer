@@ -58,11 +58,26 @@ public class InventoryScript : MonoBehaviour
     // Test add a bag to the player (not used for now since we are keeping the player to 1 bag limit)
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             Bag bag = (Bag) Instantiate(items[0]);
             bag.Initialize(16);
             bag.Use();
+        }
+    }
+
+    //Open/close all bags. Kinda unnecessary for now since we only use 1 bag
+    public void OpenClose()
+    {
+        bool closedBag = bags.Find(x => !x.MyBagScript.isOpen); 
+        // true = we have at least 1 closed bag, so open all closed bags
+        // false = we have all bags opened, so close all bags
+        foreach (Bag bag in bags)
+        {
+            if (bag.MyBagScript.isOpen != closedBag)
+            {
+                bag.MyBagScript.OpenClose();
+            }
         }
     }
 }
