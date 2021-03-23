@@ -8,6 +8,7 @@ public class EnemyController : CharController
 {
     private float lookRadius = 4.5f;
     private Transform target;
+    private LayerMask PlayerMask;
     
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
 
@@ -21,9 +22,10 @@ public class EnemyController : CharController
     // Start is called before the first frame update
     protected new void Start()
     {
+        PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position
-        target = PlayerManager.instance.player.transform; 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
     }
 
@@ -55,6 +57,7 @@ public class EnemyController : CharController
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
+            MeleeAttack(PlayerMask);
         }
     }
 

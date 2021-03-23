@@ -7,7 +7,7 @@ public class Bandit : EnemyController
     // Start is called before the first frame update
     protected new void Start()
     {
-        maxHealth = 20;
+        maxHealth = 5;
         name = "Bandit";
         base.Start();
     }

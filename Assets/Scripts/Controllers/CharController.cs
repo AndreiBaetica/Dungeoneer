@@ -8,7 +8,7 @@ public class CharController : MonoBehaviour
 
     private const float Speed = 10f;
     protected int maxHealth = 100;
-    private int _currentHealth;
+    protected int currentHealth;
     
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
@@ -44,7 +44,7 @@ public class CharController : MonoBehaviour
     protected void Start()
     {
         animator = GetComponent<Animator>();
-        _currentHealth = maxHealth;
+        currentHealth = maxHealth;
 
     }
 
@@ -207,8 +207,8 @@ public class CharController : MonoBehaviour
     private void TakeDamage(int damage)
     {
         //TODO: play hurt animation
-        _currentHealth -= damage;
-        if (_currentHealth <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
             Die();
         }
