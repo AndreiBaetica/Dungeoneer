@@ -1,6 +1,6 @@
 - name: Unity - Builder
   uses: game-ci/unity-builder@v2.0-alpha-6
-on:
+- on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   push:
@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - main
-env:
+- env:
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
   with:
     targetPlatform: WebGL
