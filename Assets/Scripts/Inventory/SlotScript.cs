@@ -86,6 +86,7 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler, IClickable
       }
    }
 
+   //Called when slot is clicked
    public void OnPointerClick(PointerEventData eventData)
    {
       if (eventData.button == PointerEventData.InputButton.Right) // Right click to use item

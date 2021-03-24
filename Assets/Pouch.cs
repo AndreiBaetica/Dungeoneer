@@ -5,6 +5,9 @@ using UnityEngine;
 public class Pouch : MonoBehaviour, IInteractable
 {
     private bool isOpen;
+
+    [SerializeField]
+    private CanvasGroup canvasGroup;
     
     public void Interact()
     {
@@ -16,12 +19,16 @@ public class Pouch : MonoBehaviour, IInteractable
         {
             isOpen = true;
             Debug.Log("Opening Pouch!"); // TODO : Remove
-            // Open Pouch slots UI
+            canvasGroup.alpha = 1; // sets to visible
+            canvasGroup.blocksRaycasts = true; // allows clicking on it
         }
     }
 
     public void StopInteract()
     {
-        // Close Pouch slots UI
+        isOpen = false;
+        Debug.Log("Closing Pouch!"); // TODO : Remove
+        canvasGroup.blocksRaycasts = false;
+        canvasGroup.alpha = 0;
     }
 }
