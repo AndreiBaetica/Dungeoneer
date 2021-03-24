@@ -1,17 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+/* Keeps track of the player */
+
+public class PlayerManager : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public int maxMana = 10;
-    public int currentMana;
 
-    public HealthBar healthBar;
-    public ManaBar manaBar;
-    
+	#region Singleton
+
+	public static PlayerManager instance;
+
+	void Awake()
+	{
+		instance = this;
+	}
+
+	#endregion
+
+	public GameObject player;
+    public static bool isTurn = true;
+	public int maxHealth = 100;
+	public int currentHealth;
+	public int maxMana = 10;
+	public int currentMana;
+
+	public HealthBar healthBar;
+	public ManaBar manaBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +49,12 @@ public class Player : MonoBehaviour
         {
             Heal(5);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.J) && currentMana > 0)
         {
             SpendMana(2);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.K) && currentMana < maxMana)
         {
             RegenMana(1);
@@ -50,19 +66,19 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
-    
+
     void Heal(int heal)
     {
         currentHealth += heal;
         healthBar.SetHealth(currentHealth);
     }
-    
+
     void SpendMana(int mana)
     {
         currentMana -= mana;
         manaBar.SetMana(currentMana);
     }
-    
+
     void RegenMana(int mana)
     {
         currentMana += mana;
