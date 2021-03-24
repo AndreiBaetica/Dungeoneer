@@ -12,7 +12,7 @@ public class BagScript : MonoBehaviour
     private CanvasGroup canvasGroup;
 
     private List<SlotScript> slots = new List<SlotScript>();
-
+    
     public bool isOpen
     {
         get
@@ -20,6 +20,15 @@ public class BagScript : MonoBehaviour
             return canvasGroup.alpha > 0;
         }
     }
+    
+    public List<SlotScript> MySlots
+    {
+        get
+        {
+            return slots;
+        }
+    }
+
 
     private void Awake()
     {
