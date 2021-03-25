@@ -9,7 +9,6 @@ public class EnemyController : CharController
     private float lookRadius = 4.5f;
     private Transform target;
     private LayerMask PlayerMask;
-    
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
 
     private enum BehaviourState

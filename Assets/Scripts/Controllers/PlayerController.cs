@@ -8,7 +8,6 @@ public class PlayerController : CharController
     public ManaBar manaBar;
     
     private LayerMask NPCMask;
-
     private int maxMana = 10;
     private int currentMana;
     protected new void Start()

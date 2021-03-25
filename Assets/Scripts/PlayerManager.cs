@@ -25,7 +25,6 @@ public class PlayerManager : MonoBehaviour
 	public int currentHealth;
 	public int maxMana = 10;
 	public int currentMana;
-    [SerializeField] private GameObject damageIndicator;
 
 
 	public HealthBar healthBar;
@@ -67,7 +66,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
+        //DamageIndicator.Create(transform.position, damage, damageIndicator);
     }
 
     void Heal(int heal)
