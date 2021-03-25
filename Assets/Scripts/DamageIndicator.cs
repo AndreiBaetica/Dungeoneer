@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class DamageIndicator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    public static void Create(Vector3 position, int damage, GameObject damageIndicatorPrefab)
+{
+
+            GameObject prefab = Instantiate(damageIndicatorPrefab, position, Quaternion.identity);
+            prefab.GetComponentInChildren<TextMesh>().text = damage.ToString();
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

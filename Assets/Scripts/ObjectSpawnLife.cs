@@ -5,25 +5,16 @@ using UnityEngine;
 // Destroy the gameObject or component after a timer
 public class ObjectSpawnLife : MonoBehaviour
 {
-    // Object can be a GameObject or a component
-    public Object myGameObjectOrComponent;
-    public float timer;
+
+    [SerializeField] private float secondsToDespawn = 1f;
 
     // Start is called before the first frame update
- void Start(){
-  // Default is the gameObject
-  if (myGameObjectOrComponent == null)
-   myGameObjectOrComponent = gameObject;
+     void Start(){
+      // Default is the gameObject
 
-  // Destroy works with GameObjects and Components
-  Destroy(myGameObjectOrComponent, timer);
- }
-
-}
-
-public class SetLifeSpawn : MonoBehaviour {
-
-
+          // Destroy works with GameObjects and Components
+          Destroy(gameObject, secondsToDespawn);
+     }
 
 
 }
