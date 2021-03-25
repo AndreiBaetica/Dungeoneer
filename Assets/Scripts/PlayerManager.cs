@@ -61,25 +61,25 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
-    void Heal(int heal)
+    public void Heal(int heal)
     {
         currentHealth += heal;
         healthBar.SetHealth(currentHealth);
     }
 
-    void SpendMana(int mana)
+    public void SpendMana(int mana)
     {
         currentMana -= mana;
         manaBar.SetMana(currentMana);
     }
 
-    void RegenMana(int mana)
+    public void RegenMana(int mana)
     {
         currentMana += mana;
         manaBar.SetMana(currentMana);
