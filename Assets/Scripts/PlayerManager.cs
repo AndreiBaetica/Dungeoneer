@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
 	public int maxMana = 10;
 	public int currentMana;
 
+
 	public HealthBar healthBar;
 	public ManaBar manaBar;
     // Start is called before the first frame update
@@ -65,6 +66,7 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+        //DamageIndicator.Create(transform.position, damage, damageIndicator);
     }
 
     void Heal(int heal)
