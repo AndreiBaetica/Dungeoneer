@@ -31,11 +31,13 @@ public class EnemyController : CharController
     // Update is called once per frame
     protected new void Update()
     {
-        //We absolutely can't have these methods being called once per frame.
-        //Leaving them here until we have a timer system. Then we will only call them once per turn.
+    }
+
+    public override bool Action()
+    {
+        bool isFree = false;
         StateSwitch();
         Debug.Log(currentBehaviourState);
-
         if (currentBehaviourState == BehaviourState.Idle)
         {
             //Idle behaviour
@@ -47,10 +49,10 @@ public class EnemyController : CharController
             else
             {
                 string direction = FindBestMovement();
-                if (direction.Equals("fwd")) MoveForward();
-                else if (direction.Equals("back")) MoveBack();
-                else if (direction.Equals("left")) MoveLeft();
-                else if (direction.Equals("right")) MoveRight();
+                if (direction.Equals("fwd")) isFree = Move(Vector3.forward);
+                else if (direction.Equals("back")) isFree = Move(Vector3.back);
+                else if (direction.Equals("left")) isFree = Move(Vector3.left);
+                else if (direction.Equals("right")) isFree = Move(Vector3.right);
             }
             
         } else if (currentBehaviourState == BehaviourState.Attack)
@@ -58,6 +60,8 @@ public class EnemyController : CharController
             //attack behaviour
             MeleeAttack(PlayerMask);
         }
+
+        return isFree;
     }
 
     private void StateSwitch()
