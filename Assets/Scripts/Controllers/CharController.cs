@@ -231,4 +231,16 @@ public class CharController : MonoBehaviour
         Debug.Log(name + " has died.");
         
     }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
 }
