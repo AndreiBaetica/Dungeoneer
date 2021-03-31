@@ -7,11 +7,19 @@ using UnityEditor.UIElements;
 public delegate void UpdateStackEvent();
 
 //Used to raise events, and update other things such as slot number based on them
-class ObservableStack<T> : Stack<T>
+public class ObservableStack<T> : Stack<T>
 {
     public event UpdateStackEvent OnPush;
     public event UpdateStackEvent OnPop;
     public event UpdateStackEvent OnClear;
+
+    public ObservableStack(ObservableStack<T> items) : base(items) // Instantiate a stack with an amount of items
+    {
+    }
+
+    public ObservableStack()
+    {
+    }
 
     public new void Push(T item)
     {

@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
 
     private void ClickTarget()
     {
-        if (Input.GetMouseButtonDown(1)) // Removed " && !EventSystem.current.IsPointerOverGameObject()"
+        if (Input.GetKeyDown(KeyCode.E)) // TODO: Refactor with better logic at some point
         {
-            Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = camera.ScreenPointToRay(Input.mousePosition); 
             RaycastHit hit;
             
             if (Physics.Raycast(ray, out hit, interactableLayerMask)){

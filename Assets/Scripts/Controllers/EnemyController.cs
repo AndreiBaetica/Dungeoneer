@@ -35,7 +35,7 @@ public class EnemyController : CharController
         //We absolutely can't have these methods being called once per frame.
         //Leaving them here until we have a timer system. Then we will only call them once per turn.
         StateSwitch();
-        Debug.Log(currentBehaviourState);
+        //Debug.Log(currentBehaviourState); // TODO: uncomment this
 
         if (currentBehaviourState == BehaviourState.Idle)
         {

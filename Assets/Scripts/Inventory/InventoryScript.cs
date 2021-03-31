@@ -20,6 +20,8 @@ public class InventoryScript : MonoBehaviour
         }
     }
 
+    private SlotScript fromSlot; // Used to know what slot we are taking an item from
+
     //List of bag, will only use 1 bag for now however
     private List<Bag> bags = new List<Bag>();
         
@@ -34,6 +36,19 @@ public class InventoryScript : MonoBehaviour
     {
         get { return bags.Count < 1; } // Limit to 1 bag for now. Change limit here if you want more than 1 bag. 
         //IMPORTANT: REQUIRED to add more bag buttons in the scene if you want to have more than 1 bag, because AddBag relies on it to properly add the bags to the inventory
+    }
+
+    public SlotScript FromSlot
+    {
+        get => fromSlot;
+        set
+        {
+            fromSlot = value;
+            if (value != null)
+            {
+                fromSlot.MyIcon.color = Color.gray;
+            }
+        }
     }
 
     private void Awake()
