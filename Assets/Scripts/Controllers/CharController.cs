@@ -6,6 +6,7 @@ using Debug = UnityEngine.Debug;
 public class CharController : MonoBehaviour
 {
     protected new String name = "Character";
+    public bool doneTurn;
 
     private const float Speed = 10f;
     protected int maxHealth = 100;
@@ -323,6 +324,8 @@ public class CharController : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.detectCollisions = false;
+        doneTurn = true;
+        
         
         Debug.Log(name + " has died.");
         

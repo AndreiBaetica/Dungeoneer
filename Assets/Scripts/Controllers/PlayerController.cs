@@ -24,15 +24,23 @@ public class PlayerController : CharController
 
     protected new void Update()
     {
+        healthBar.SetHealth(currentHealth);
+        manaBar.SetMana(currentMana);
 
+        if (GameManager.GetPlayerTurn() && !doneTurn)
+        {
+            doneTurn = !Action();
+            if (doneTurn)
+            {
+                GameManager.SetPlayerTurn(false);
+                doneTurn = false;
+            }
+        }
     }
 
     public override bool Action()
     {
-        bool isFree = false;
-        healthBar.SetHealth(currentHealth);
-        manaBar.SetMana(currentMana);
-
+        bool isFree = true;
         //movement
         if (moving) SnapToGridSquare();
             if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
@@ -41,9 +49,12 @@ public class PlayerController : CharController
             if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
             
         //attack
-        if (Input.GetKeyDown("q")) MeleeAttack(NPCMask);
+        if (Input.GetKeyDown("q"))
+        {
+            MeleeAttack(NPCMask);
+            isFree = false;
+        }
 
-        if (!Input.anyKey) isFree = true;
         return isFree;
     }
     

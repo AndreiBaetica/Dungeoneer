@@ -5,60 +5,34 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private CharController[] activeChars;
+    public static GameManager instance = null;
+    //private static CharController[] activeChars;
 
+    private static bool isPlayerTurn = true;
 
 
     
     // Start is called before the first frame update
     void Start()
     {
-        activeChars = FindObjectsOfType<CharController>();
-        //StartCoroutine(GameLoop());
-
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameLoopTest();
+        Debug.Log("playerturn" + isPlayerTurn);
     }
 
-    private IEnumerator GameLoop()
+    public static bool GetPlayerTurn()
     {
-        bool isFree = false;
-
-        while (true)
-        {
-            foreach (var activeChar in activeChars)
-            {
-                //maybe better to remove from array entirely once script gets disabled
-                //TODO: check for performance difference ^
-                if (!activeChar.enabled) continue;
-                isFree = activeChar.Action();
-                /*while (isFree)
-                {
-                    isFree = activeChar.Action();
-                }*/
-            }
-            yield return new WaitForSeconds(1f);
-        }
+        return isPlayerTurn;
     }
-    
-    private void GameLoopTest()
+
+    public static void SetPlayerTurn(bool playerTurn)
     {
-        bool isFree = false;
-
-            foreach (var activeChar in activeChars)
-            {
-                //maybe better to remove from array entirely once script gets disabled
-                //TODO: check for performance difference ^
-                if (!activeChar.enabled) continue;
-                isFree = activeChar.Action();
-                /*while (isFree)
-                {
-                    isFree = activeChar.Action();
-                }*/
-            }
+        isPlayerTurn = playerTurn;
     }
+
 }

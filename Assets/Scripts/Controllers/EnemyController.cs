@@ -31,15 +31,26 @@ public class EnemyController : CharController
     // Update is called once per frame
     protected new void Update()
     {
+        if (!GameManager.GetPlayerTurn() && !doneTurn)
+        {
+            doneTurn = !Action();
+            if (doneTurn)
+            {
+                GameManager.SetPlayerTurn(true);
+                doneTurn = false;
+            }
+        }
     }
 
     public override bool Action()
     {
-        bool isFree = false;
+        
+        bool isFree = true;
         StateSwitch();
         if (currentBehaviourState == BehaviourState.Idle)
         {
             //Idle behaviour
+            isFree = false;
         } else if (currentBehaviourState == BehaviourState.Chase)
         {
             //Chase behaviour
@@ -58,6 +69,7 @@ public class EnemyController : CharController
         {
             //attack behaviour
             MeleeAttack(PlayerMask);
+            isFree = false;
         }
 
         return isFree;
