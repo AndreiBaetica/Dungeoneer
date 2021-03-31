@@ -37,7 +37,6 @@ public class EnemyController : CharController
     {
         bool isFree = false;
         StateSwitch();
-        Debug.Log(currentBehaviourState);
         if (currentBehaviourState == BehaviourState.Idle)
         {
             //Idle behaviour

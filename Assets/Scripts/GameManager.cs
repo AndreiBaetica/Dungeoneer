@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,13 +14,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         activeChars = FindObjectsOfType<CharController>();
-        StartCoroutine(GameLoop());
+        //StartCoroutine(GameLoop());
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameLoopTest();
     }
 
     private IEnumerator GameLoop()
@@ -30,7 +32,6 @@ public class GameManager : MonoBehaviour
         {
             foreach (var activeChar in activeChars)
             {
-                Debug.Log(activeChar.GetType().ToString());
                 //maybe better to remove from array entirely once script gets disabled
                 //TODO: check for performance difference ^
                 if (!activeChar.enabled) continue;
@@ -42,5 +43,22 @@ public class GameManager : MonoBehaviour
             }
             yield return new WaitForSeconds(1f);
         }
+    }
+    
+    private void GameLoopTest()
+    {
+        bool isFree = false;
+
+            foreach (var activeChar in activeChars)
+            {
+                //maybe better to remove from array entirely once script gets disabled
+                //TODO: check for performance difference ^
+                if (!activeChar.enabled) continue;
+                isFree = activeChar.Action();
+                /*while (isFree)
+                {
+                    isFree = activeChar.Action();
+                }*/
+            }
     }
 }
