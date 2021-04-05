@@ -17,7 +17,7 @@ public class BagButton : MonoBehaviour, IPointerClickHandler
         {
             if (value != null)
             {
-                GetComponent<Image>().sprite = open; // TODO: change this to full if the player starts with the bag closed instead of open
+                GetComponent<Image>().sprite = full; // TODO: change this to full if the player starts with the bag closed instead of open
             }
             else
             {

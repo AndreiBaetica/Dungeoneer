@@ -129,7 +129,7 @@ public class InventoryScript : MonoBehaviour
             AddItem(bag);
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.K)) // Changed keybind from p to k to not interfere with the grid visual toggle
         {
             HealthPotion potion = (HealthPotion)Instantiate(items[1]);
             AddItem(potion);
