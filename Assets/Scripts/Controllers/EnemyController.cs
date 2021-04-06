@@ -31,14 +31,20 @@ public class EnemyController : CharController
     // Update is called once per frame
     protected new void Update()
     {
-        //We absolutely can't have these methods being called once per frame.
-        //Leaving them here until we have a timer system. Then we will only call them once per turn.
+        if (!GameLoopManager.GetPlayerTurn() && !doneTurn)
+        {
+            doneTurn = !Action();
+        }
+    }
+    public override bool Action()
+    {
+        
+        bool isFree = true;
         StateSwitch();
-        Debug.Log(currentBehaviourState);
-
         if (currentBehaviourState == BehaviourState.Idle)
         {
             //Idle behaviour
+            isFree = false;
         } else if (currentBehaviourState == BehaviourState.Chase)
         {
             //Chase behaviour
@@ -47,17 +53,19 @@ public class EnemyController : CharController
             else
             {
                 string direction = FindBestMovement();
-                if (direction.Equals("fwd")) MoveForward();
-                else if (direction.Equals("back")) MoveBack();
-                else if (direction.Equals("left")) MoveLeft();
-                else if (direction.Equals("right")) MoveRight();
+                if (direction.Equals("fwd")) isFree = Move(Vector3.forward);
+                else if (direction.Equals("back")) isFree = Move(Vector3.back);
+                else if (direction.Equals("left")) isFree = Move(Vector3.left);
+                else if (direction.Equals("right")) isFree = Move(Vector3.right);
             }
             
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
-            MeleeAttack(PlayerMask);
+            if (!moving) isFree = MeleeAttack(PlayerMask);
         }
+
+        return isFree;
     }
 
     private void StateSwitch()
@@ -70,10 +78,10 @@ public class EnemyController : CharController
             }
         } else if (currentBehaviourState == BehaviourState.Chase)
         {
-            if (Vector3.Distance(target.position, transform.position) > lookRadius)
+            if (Vector3.Distance(target.position, transform.position) > lookRadius && !moving)
             {
                 currentBehaviourState = BehaviourState.Idle;
-            } else if (Vector3.Distance(target.position, transform.position) <= 1f)
+            } else if (Vector3.Distance(target.position, transform.position) <= 1f && !moving)
             {
                 currentBehaviourState = BehaviourState.Attack;
             }
