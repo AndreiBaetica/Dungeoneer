@@ -34,11 +34,6 @@ public class EnemyController : CharController
         if (!GameManager.GetPlayerTurn() && !doneTurn)
         {
             doneTurn = !Action();
-            if (doneTurn)
-            {
-                GameManager.SetPlayerTurn(true);
-                doneTurn = false;
-            }
         }
     }
 
@@ -68,8 +63,7 @@ public class EnemyController : CharController
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
-            MeleeAttack(PlayerMask);
-            isFree = false;
+            if (!moving) isFree = MeleeAttack(PlayerMask);
         }
 
         return isFree;
@@ -85,10 +79,10 @@ public class EnemyController : CharController
             }
         } else if (currentBehaviourState == BehaviourState.Chase)
         {
-            if (Vector3.Distance(target.position, transform.position) > lookRadius)
+            if (Vector3.Distance(target.position, transform.position) > lookRadius && !moving)
             {
                 currentBehaviourState = BehaviourState.Idle;
-            } else if (Vector3.Distance(target.position, transform.position) <= 1f)
+            } else if (Vector3.Distance(target.position, transform.position) <= 1f && !moving)
             {
                 currentBehaviourState = BehaviourState.Attack;
             }

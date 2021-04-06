@@ -187,121 +187,54 @@ public class CharController : MonoBehaviour
 
             return isFree;
     }
-    protected void MoveForward()
+
+
+    protected bool MeleeAttack(LayerMask mask)
     {
-        
-        if (_dirFacing != CharacterDir.Up)
+        bool attackUnsuccessful = true;
+
+        if (!moving)
         {
-            //look up
-            _dirFacing = CharacterDir.Up;
-            animator.SetInteger("intDirection", 4);
-        }
-        else
-        {
-            if (CanMove(Vector3.forward))
+            Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
+            int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
+
+            //TODO
+            //play animation
+
+            //detect enemy
+            Vector3 attackCenter;
+            switch (_dirFacing)
             {
-                _targetPosition = transform.position + Vector3.forward;
-                _startPosition = transform.position;
-                moving = true;
+                case CharacterDir.Up:
+                    attackCenter = transform.position + Vector3.forward;
+                    break;
+                case CharacterDir.Down:
+                    attackCenter = transform.position + Vector3.back;
+                    break;
+                case CharacterDir.Left:
+                    attackCenter = transform.position + Vector3.left;
+                    break;
+                case CharacterDir.Right:
+                    attackCenter = transform.position + Vector3.right;
+                    break;
+                default:
+                    throw new InvalidOperationException("Character has no facing.");
             }
-        }
-    }
 
-    protected void MoveBack()
-    {
-        if (_dirFacing != CharacterDir.Down)
-        {
-            //look down
-            _dirFacing = CharacterDir.Down;
-            animator.SetInteger("intDirection", 2);
-        }
-        else
-        {
-            if (CanMove(Vector3.back))
+            Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape, Quaternion.identity, mask);
+
+            //deal damage
+            foreach (Collider target in targetsHit)
             {
-                _targetPosition = transform.position + Vector3.back;
-                _startPosition = transform.position;
-                moving = true;
+                //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
+                //target.GetComponent<Rigidbody>().detectCollisions = false;
+                target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
             }
-        }
-    }
 
-    protected void MoveLeft()
-    {
-        if (_dirFacing != CharacterDir.Left)
-        {
-            //look left
-            _dirFacing = CharacterDir.Left;
-            animator.SetInteger("intDirection", 2);
-        }
-        else
-        {
-            if (CanMove(Vector3.left))
-            {
-                _targetPosition = transform.position + Vector3.left;
-                _startPosition = transform.position;
-                moving = true;
-            }
-        }
-    }
-
-    protected void MoveRight()
-    {
-        if (_dirFacing != CharacterDir.Right)
-        {
-            //look right
-            _dirFacing = CharacterDir.Right;
-            animator.SetInteger("intDirection", 4);
-        }
-        else
-        {
-            if (CanMove(Vector3.right))
-            {
-                _targetPosition = transform.position + Vector3.right;
-                _startPosition = transform.position;
-                moving = true;
-            }
-        }
-    }
-
-    protected void MeleeAttack(LayerMask mask)
-    {
-        Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
-        int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
-
-        //TODO
-        //play animation
-        
-        //detect enemy
-        Vector3 attackCenter;
-        switch (_dirFacing)
-        {
-            case CharacterDir.Up:
-                attackCenter = transform.position + Vector3.forward;
-                break;
-            case CharacterDir.Down:
-                attackCenter = transform.position + Vector3.back;
-                break;
-            case CharacterDir.Left:
-                attackCenter = transform.position + Vector3.left;
-                break;
-            case CharacterDir.Right:
-                attackCenter = transform.position + Vector3.right;
-                break;
-            default:
-                throw new InvalidOperationException("Character has no facing.");
-        }
-        Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape, Quaternion.identity, mask);
-        
-        //deal damage
-        foreach (Collider target in targetsHit)
-        {
-            //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
-            //target.GetComponent<Rigidbody>().detectCollisions = false;
-            target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
-
+            attackUnsuccessful = false;
         }
 
+        return attackUnsuccessful;
     }
 
     private void TakeDamage(int damage)
