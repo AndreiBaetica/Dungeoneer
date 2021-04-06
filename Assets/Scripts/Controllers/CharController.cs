@@ -9,7 +9,8 @@ public class CharController : MonoBehaviour
     private const float Speed = 10f;
     protected int maxHealth = 100;
     protected int currentHealth;
-    
+    [SerializeField] private GameObject damageIndicator;
+
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
@@ -201,13 +202,17 @@ public class CharController : MonoBehaviour
             //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
             //target.GetComponent<Rigidbody>().detectCollisions = false;
             target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
+
         }
+
     }
 
     private void TakeDamage(int damage)
     {
         //TODO: play hurt animation
         currentHealth -= damage;
+        DamageIndicator.Create(transform.position, damage, damageIndicator);
+
         if (currentHealth <= 0)
         {
             Die();
@@ -225,5 +230,17 @@ public class CharController : MonoBehaviour
         
         Debug.Log(name + " has died.");
         
+    }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
     }
 }
