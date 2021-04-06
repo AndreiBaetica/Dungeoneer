@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        projectPath:
-          - test-Dungeoneer
+        #projectPath:
+        #  - test-Dungeoneer
         testMode:
           - playmode
           - editmode
