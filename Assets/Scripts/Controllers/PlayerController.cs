@@ -38,15 +38,35 @@ public class PlayerController : CharController
     {
         healthBar.SetHealth(currentHealth);
         manaBar.SetMana(currentMana);
-        //movement
+
         if (moving) SnapToGridSquare();
-        if (Input.GetKeyDown("w")) MoveForward();
-        if (Input.GetKeyDown("a")) MoveLeft();
-        if (Input.GetKeyDown("s")) MoveBack();
-        if (Input.GetKeyDown("d")) MoveRight();
+        if (GameLoopManager.GetPlayerTurn() && !doneTurn)
+        {
+            doneTurn = !Action();
+            if (doneTurn)
+            {
+                GameLoopManager.SetPlayerTurn(false);
+            }
+        }
+    }
+    
+    public override bool Action()
+    {
+        bool isFree = true;
+        //movement
         
+        if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
+        if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
+        if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
+        if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
+            
         //attack
-        if (Input.GetKeyDown("q")) MeleeAttack(NPCMask);
+        if (Input.GetKeyDown("q"))
+        {
+            isFree = MeleeAttack(NPCMask);
+        }
+
+        return isFree;
     }
     
     public void Heal(int heal)
