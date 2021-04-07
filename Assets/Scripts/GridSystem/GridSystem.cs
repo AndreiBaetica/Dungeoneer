@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+//A Generic Grid System can hold an array of objects on the game board
 public class GridSystem<TGridObject>
 {
 

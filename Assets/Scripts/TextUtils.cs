@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//A utility class for displaying text in game
 public static class TextUtils
 {
 
