@@ -7,6 +7,7 @@ public class CharController : MonoBehaviour
 {
     protected new String name = "Character";
     public bool doneTurn;
+
     private const float Speed = 10f;
     protected int maxHealth = 100;
     protected int currentHealth;
@@ -55,12 +56,11 @@ public class CharController : MonoBehaviour
     {
 
     }
-    
+
     public virtual bool Action()
     {
         return false;
     }
-    
     //raycasts the corners of the character cube to check for collision
     protected bool CanMove(Vector3 direction)
     {
@@ -94,7 +94,7 @@ public class CharController : MonoBehaviour
         transform.position += (_targetPosition - _startPosition) * Speed * Time.deltaTime;
     }
 
-
+    //better to use an emum for direction
     protected bool Move(Vector3 direction)
     {
         //done flag allows for rotation without wasting a turn
@@ -259,19 +259,8 @@ public class CharController : MonoBehaviour
         rb.detectCollisions = false;
         doneTurn = true;
         
+        
         Debug.Log(name + " has died.");
         
-    }
-    
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
-    }
-
-    public int CurrentHealth
-    {
-        get => currentHealth;
-        set => currentHealth = value;
     }
 }

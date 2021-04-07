@@ -31,11 +31,12 @@ public class EnemyController : CharController
     // Update is called once per frame
     protected new void Update()
     {
-        if (!GameLoopManager.GetPlayerTurn() && !doneTurn)
+        if (!GameManager.GetPlayerTurn() && !doneTurn)
         {
             doneTurn = !Action();
         }
     }
+
     public override bool Action()
     {
         
