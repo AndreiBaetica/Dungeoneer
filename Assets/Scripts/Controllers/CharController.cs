@@ -2,10 +2,11 @@
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
+//Name shortened to not conflict with Unity's default CharacterController
 public class CharController : MonoBehaviour
 {
     protected new String name = "Character";
-
+    public bool doneTurn;
     private const float Speed = 10f;
     protected int maxHealth = 100;
     protected int currentHealth;
@@ -55,6 +56,11 @@ public class CharController : MonoBehaviour
 
     }
     
+    public virtual bool Action()
+    {
+        return false;
+    }
+    
     //raycasts the corners of the character cube to check for collision
     protected bool CanMove(Vector3 direction)
     {
@@ -88,123 +94,147 @@ public class CharController : MonoBehaviour
         transform.position += (_targetPosition - _startPosition) * Speed * Time.deltaTime;
     }
 
-    protected void MoveForward()
+
+    protected bool Move(Vector3 direction)
     {
+        //done flag allows for rotation without wasting a turn
+        bool isFree = true;
         
-        if (_dirFacing != CharacterDir.Up)
-        {
-            //look up
-            _dirFacing = CharacterDir.Up;
-            animator.SetInteger("intDirection", 4);
-        }
-        else
-        {
-            if (CanMove(Vector3.forward))
+            //fwd
+            if (direction.Equals(Vector3.forward))
             {
-                _targetPosition = transform.position + Vector3.forward;
-                _startPosition = transform.position;
-                moving = true;
+                if (_dirFacing != CharacterDir.Up)
+                {
+                    //look up
+                    _dirFacing = CharacterDir.Up;
+                    animator.SetInteger("intDirection", 4);
+                }
+                else
+                {
+                    if (CanMove(Vector3.forward))
+                    {
+                        _targetPosition = transform.position + Vector3.forward;
+                        _startPosition = transform.position;
+                        moving = true;
+                        isFree = false;
+                    }
+                }
             }
-        }
+            //back
+            else if (direction.Equals(Vector3.back))
+            {
+                if (_dirFacing != CharacterDir.Down)
+                {
+                    //look down
+                    _dirFacing = CharacterDir.Down;
+                    animator.SetInteger("intDirection", 2);
+                }
+                else
+                {
+                    if (CanMove(Vector3.back))
+                    {
+                        _targetPosition = transform.position + Vector3.back;
+                        _startPosition = transform.position;
+                        moving = true;
+                        isFree = false;
+                    }
+                }
+            }
+            //left
+            else if (direction.Equals(Vector3.left))
+            {
+                if (_dirFacing != CharacterDir.Left)
+                {
+                    //look left
+                    _dirFacing = CharacterDir.Left;
+                    animator.SetInteger("intDirection", 2);
+                }
+                else
+                {
+                    if (CanMove(Vector3.left))
+                    {
+                        _targetPosition = transform.position + Vector3.left;
+                        _startPosition = transform.position;
+                        moving = true;
+                        isFree = false;
+                    }
+                }
+            }
+            //right
+            else if (direction.Equals(Vector3.right))
+            {
+                if (_dirFacing != CharacterDir.Right)
+                {
+                    //look right
+                    _dirFacing = CharacterDir.Right;
+                    animator.SetInteger("intDirection", 4);
+                }
+                else
+                {
+                    if (CanMove(Vector3.right))
+                    {
+                        _targetPosition = transform.position + Vector3.right;
+                        _startPosition = transform.position;
+                        moving = true;
+                        isFree = false;
+                    }
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException("Invalid move direction.");
+            }
+
+            return isFree;
     }
 
-    protected void MoveBack()
+
+    protected bool MeleeAttack(LayerMask mask)
     {
-        if (_dirFacing != CharacterDir.Down)
+        bool attackUnsuccessful = true;
+
+        if (!moving)
         {
-            //look down
-            _dirFacing = CharacterDir.Down;
-            animator.SetInteger("intDirection", 2);
-        }
-        else
-        {
-            if (CanMove(Vector3.back))
+            Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
+            int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
+
+            //TODO
+            //play animation
+
+            //detect enemy
+            Vector3 attackCenter;
+            switch (_dirFacing)
             {
-                _targetPosition = transform.position + Vector3.back;
-                _startPosition = transform.position;
-                moving = true;
+                case CharacterDir.Up:
+                    attackCenter = transform.position + Vector3.forward;
+                    break;
+                case CharacterDir.Down:
+                    attackCenter = transform.position + Vector3.back;
+                    break;
+                case CharacterDir.Left:
+                    attackCenter = transform.position + Vector3.left;
+                    break;
+                case CharacterDir.Right:
+                    attackCenter = transform.position + Vector3.right;
+                    break;
+                default:
+                    throw new InvalidOperationException("Character has no facing.");
             }
-        }
-    }
 
-    protected void MoveLeft()
-    {
-        if (_dirFacing != CharacterDir.Left)
-        {
-            //look left
-            _dirFacing = CharacterDir.Left;
-            animator.SetInteger("intDirection", 2);
-        }
-        else
-        {
-            if (CanMove(Vector3.left))
+            Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape, Quaternion.identity, mask);
+
+            //deal damage
+            foreach (Collider target in targetsHit)
             {
-                _targetPosition = transform.position + Vector3.left;
-                _startPosition = transform.position;
-                moving = true;
+                //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
+                //target.GetComponent<Rigidbody>().detectCollisions = false;
+                target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
             }
-        }
-    }
 
-    protected void MoveRight()
-    {
-        if (_dirFacing != CharacterDir.Right)
-        {
-            //look right
-            _dirFacing = CharacterDir.Right;
-            animator.SetInteger("intDirection", 4);
-        }
-        else
-        {
-            if (CanMove(Vector3.right))
-            {
-                _targetPosition = transform.position + Vector3.right;
-                _startPosition = transform.position;
-                moving = true;
-            }
-        }
-    }
-
-    private Collider[] tmp;
-    protected void MeleeAttack(LayerMask mask)
-    {
-        Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
-        int actualMeleeDamage = base_melee_damage * melee_damage_multiplier;
-
-        //TODO
-        //play animation
-        
-        //detect enemy
-        Vector3 attackCenter;
-        switch (_dirFacing)
-        {
-            case CharacterDir.Up:
-                attackCenter = transform.position + Vector3.forward;
-                break;
-            case CharacterDir.Down:
-                attackCenter = transform.position + Vector3.back;
-                break;
-            case CharacterDir.Left:
-                attackCenter = transform.position + Vector3.left;
-                break;
-            case CharacterDir.Right:
-                attackCenter = transform.position + Vector3.right;
-                break;
-            default:
-                throw new InvalidOperationException("Character has no facing.");
-        }
-        Collider[] targetsHit = Physics.OverlapBox(attackCenter, actualAttackShape, Quaternion.identity, mask);
-        tmp = targetsHit;
-        
-        //deal damage
-        foreach (Collider target in targetsHit)
-        {
-            //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
-            //target.GetComponent<Rigidbody>().detectCollisions = false;
-            target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
-
+            attackUnsuccessful = false;
         }
 
+        return attackUnsuccessful;
     }
 
     private void TakeDamage(int damage)
@@ -223,12 +253,25 @@ public class CharController : MonoBehaviour
     {
         //TODO: play death animation
 
-        this.enabled = false;
+        enabled = false;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.detectCollisions = false;
+        doneTurn = true;
         
         Debug.Log(name + " has died.");
         
+    }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
     }
 }
