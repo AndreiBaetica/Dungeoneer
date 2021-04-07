@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//A utility class for rendering meshes in game
+
 public static class MeshUtils {
     
     private static readonly Vector3 Vector3zero = Vector3.zero;

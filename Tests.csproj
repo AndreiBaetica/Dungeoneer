@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\Tests\PlaymodeTests.cs" />
      <None Include="Assets\Tests\Tests.asmdef" />
+     <None Include="Assets\Tests\README.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/JetBrains/JetBrains Rider 2020.3.2/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
