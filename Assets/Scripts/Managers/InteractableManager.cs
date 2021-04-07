@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Experimental.TerrainAPI;
 
-public class ClickableManager : MonoBehaviour
+public class InteractableManager : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
 
