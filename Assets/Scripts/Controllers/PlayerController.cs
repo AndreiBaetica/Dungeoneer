@@ -72,6 +72,10 @@ public class PlayerController : CharController
     public void Heal(int heal)
     {
         currentHealth += heal;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         healthBar.SetHealth(currentHealth);
     }
     
