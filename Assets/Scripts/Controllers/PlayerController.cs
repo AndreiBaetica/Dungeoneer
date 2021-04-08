@@ -27,7 +27,7 @@ public class PlayerController : CharController
     {
         NPCMask= LayerMask.GetMask("NPC");
         name = "Player";
-        maxHealth = 100;
+        maxHealth = 15;
         base.Start();
         healthBar.SetMaxHealth(maxHealth);
         currentMana = maxMana;

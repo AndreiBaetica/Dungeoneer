@@ -25,7 +25,6 @@ public class EnemyController : CharController
         base.Start();
         //target.position player Position; transform.position for enemy position
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
