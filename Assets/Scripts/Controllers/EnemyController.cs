@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -37,9 +38,8 @@ public class EnemyController : CharController
     }
     public override bool Action()
     {
-        
         bool isFree = true;
-        StateSwitch();
+        if (!moving) StateSwitch();
         if (currentBehaviourState == BehaviourState.Idle)
         {
             //Idle behaviour
@@ -61,7 +61,16 @@ public class EnemyController : CharController
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
             //attack behaviour
-            if (!moving) isFree = MeleeAttack(PlayerMask);
+            if (!moving)
+            {
+                //rotate to face player, if not already facing
+                if ((target.position - transform.position) == Vector3.left) Rotate(Vector3.left);
+                else if ((target.position - transform.position) == Vector3.right) Rotate(Vector3.right);
+                else if ((target.position - transform.position) == Vector3.forward) Rotate(Vector3.forward);
+                else if ((target.position - transform.position) == Vector3.back) Rotate(Vector3.back);
+                
+                isFree = MeleeAttack(PlayerMask);
+            }
         }
 
         return isFree;

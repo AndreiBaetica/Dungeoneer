@@ -18,12 +18,12 @@ public class CharController : MonoBehaviour
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     protected bool moving;
-    private CharacterDir _dirFacing = CharacterDir.Down;
+    protected CharacterDir _dirFacing = CharacterDir.Back;
 
-    private enum CharacterDir
+    protected enum CharacterDir
     {
-        Up,
-        Down,
+        Forward,
+        Back,
         Left,
         Right
     }
@@ -103,11 +103,10 @@ public class CharController : MonoBehaviour
             //fwd
             if (direction.Equals(Vector3.forward))
             {
-                if (_dirFacing != CharacterDir.Up)
+                if (_dirFacing != CharacterDir.Forward)
                 {
-                    //look up
-                    _dirFacing = CharacterDir.Up;
-                    animator.SetInteger("intDirection", 0);
+                    //look forward
+                    Rotate(direction);
                 }
                 else
                 {
@@ -123,11 +122,10 @@ public class CharController : MonoBehaviour
             //back
             else if (direction.Equals(Vector3.back))
             {
-                if (_dirFacing != CharacterDir.Down)
+                if (_dirFacing != CharacterDir.Back)
                 {
-                    //look down
-                    _dirFacing = CharacterDir.Down;
-                    animator.SetInteger("intDirection", 2);
+                    //look back
+                    Rotate(direction);
                 }
                 else
                 {
@@ -146,8 +144,7 @@ public class CharController : MonoBehaviour
                 if (_dirFacing != CharacterDir.Left)
                 {
                     //look left
-                    _dirFacing = CharacterDir.Left;
-                    animator.SetInteger("intDirection", 3);
+                    Rotate(direction);
                 }
                 else
                 {
@@ -166,8 +163,7 @@ public class CharController : MonoBehaviour
                 if (_dirFacing != CharacterDir.Right)
                 {
                     //look right
-                    _dirFacing = CharacterDir.Right;
-                    animator.SetInteger("intDirection", 1);
+                    Rotate(direction);
                 }
                 else
                 {
@@ -188,6 +184,42 @@ public class CharController : MonoBehaviour
             return isFree;
     }
 
+    protected void Rotate(Vector3 direction)
+    {
+        //fwd
+        if (direction.Equals(Vector3.forward))
+        {
+            //look up
+            _dirFacing = CharacterDir.Forward;
+            animator.SetInteger("intDirection", 0);
+            
+        }
+        //back
+        else if (direction.Equals(Vector3.back))
+        {
+            //look down
+            _dirFacing = CharacterDir.Back;
+            animator.SetInteger("intDirection", 2);
+            
+        }
+        //left
+        else if (direction.Equals(Vector3.left))
+        {
+            //look left
+            _dirFacing = CharacterDir.Left;
+            animator.SetInteger("intDirection", 3);
+            
+        }
+        //right
+        else if (direction.Equals(Vector3.right))
+        {
+            //look right
+            _dirFacing = CharacterDir.Right;
+            animator.SetInteger("intDirection", 1);
+            
+        }
+    }
+
 
     protected bool MeleeAttack(LayerMask mask)
     {
@@ -205,10 +237,10 @@ public class CharController : MonoBehaviour
             Vector3 attackCenter;
             switch (_dirFacing)
             {
-                case CharacterDir.Up:
+                case CharacterDir.Forward:
                     attackCenter = transform.position + Vector3.forward;
                     break;
-                case CharacterDir.Down:
+                case CharacterDir.Back:
                     attackCenter = transform.position + Vector3.back;
                     break;
                 case CharacterDir.Left:
