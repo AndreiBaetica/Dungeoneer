@@ -18,7 +18,7 @@ public class CharController : MonoBehaviour
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     protected bool moving;
-    private CharacterDir _dirFacing = CharacterDir.Up;
+    private CharacterDir _dirFacing = CharacterDir.Down;
 
     private enum CharacterDir
     {
@@ -45,7 +45,7 @@ public class CharController : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
 
     }
@@ -107,7 +107,7 @@ public class CharController : MonoBehaviour
                 {
                     //look up
                     _dirFacing = CharacterDir.Up;
-                    animator.SetInteger("intDirection", 4);
+                    animator.SetInteger("intDirection", 0);
                 }
                 else
                 {
@@ -147,7 +147,7 @@ public class CharController : MonoBehaviour
                 {
                     //look left
                     _dirFacing = CharacterDir.Left;
-                    animator.SetInteger("intDirection", 2);
+                    animator.SetInteger("intDirection", 3);
                 }
                 else
                 {
@@ -167,7 +167,7 @@ public class CharController : MonoBehaviour
                 {
                     //look right
                     _dirFacing = CharacterDir.Right;
-                    animator.SetInteger("intDirection", 4);
+                    animator.SetInteger("intDirection", 1);
                 }
                 else
                 {
@@ -230,7 +230,7 @@ public class CharController : MonoBehaviour
                 //target.GetComponent<Rigidbody>().detectCollisions = false;
                 target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
             }
-
+            animator.SetTrigger("attack");
             attackUnsuccessful = false;
         }
 
@@ -252,7 +252,7 @@ public class CharController : MonoBehaviour
     private void Die()
     {
         //TODO: play death animation
-
+        animator.SetBool("isDead", true);
         enabled = false;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
