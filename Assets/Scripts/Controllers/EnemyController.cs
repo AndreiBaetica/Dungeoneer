@@ -68,23 +68,7 @@ public class EnemyController : CharController
                 else if ((target.position - transform.position) == Vector3.right) Rotate(Vector3.right);
                 else if ((target.position - transform.position) == Vector3.forward) Rotate(Vector3.forward);
                 else if ((target.position - transform.position) == Vector3.back) Rotate(Vector3.back);
-                /*switch (_dirFacing)
-                {
-                    case CharacterDir.Forward:
-                        if (target.position.Equals(transform.position + Vector3.forward)) Rotate(Vector3.forward);
-                        break;
-                    case CharacterDir.Back:
-                        if (target.position.Equals(transform.position + Vector3.back)) Rotate(Vector3.back);
-                        break;
-                    case CharacterDir.Left:
-                        if (target.position.Equals(transform.position + Vector3.left)) Rotate(Vector3.left);
-                        break;
-                    case CharacterDir.Right:
-                        if (target.position.Equals(transform.position + Vector3.right)) Rotate(Vector3.right);
-                        break;
-                    default:
-                        throw new InvalidOperationException("Character has no facing.");
-                }*/
+                
                 isFree = MeleeAttack(PlayerMask);
             }
         }
