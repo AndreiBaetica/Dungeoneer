@@ -32,7 +32,7 @@ public class CharController : MonoBehaviour
     private Vector3 _startPosition;
     
     //can be used to hit multiple grid squares
-    private Vector3 meleeAttackShape = new Vector3(0.5f, 0.5f, 0.5f);
+    private Vector3 meleeAttackShape = new Vector3(0.4f, 0.4f, 0.4f);
     private Vector3 meleeAttackMultiplier = new Vector3(1f, 1f, 1f);
 
     private int base_melee_damage = 1;
