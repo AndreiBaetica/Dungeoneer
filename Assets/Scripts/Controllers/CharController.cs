@@ -97,91 +97,31 @@ public class CharController : MonoBehaviour
 
     protected bool Move(Vector3 direction)
     {
-        //done flag allows for rotation without wasting a turn
         bool isFree = true;
-        
-            //fwd
-            if (direction.Equals(Vector3.forward))
-            {
-                if (_dirFacing != CharacterDir.Forward)
-                {
-                    //look forward
-                    Rotate(direction);
-                }
-                else
-                {
-                    if (CanMove(Vector3.forward))
-                    {
-                        _targetPosition = transform.position + Vector3.forward;
-                        _startPosition = transform.position;
-                        moving = true;
-                        isFree = false;
-                    }
-                }
-            }
-            //back
-            else if (direction.Equals(Vector3.back))
-            {
-                if (_dirFacing != CharacterDir.Back)
-                {
-                    //look back
-                    Rotate(direction);
-                }
-                else
-                {
-                    if (CanMove(Vector3.back))
-                    {
-                        _targetPosition = transform.position + Vector3.back;
-                        _startPosition = transform.position;
-                        moving = true;
-                        isFree = false;
-                    }
-                }
-            }
-            //left
-            else if (direction.Equals(Vector3.left))
-            {
-                if (_dirFacing != CharacterDir.Left)
-                {
-                    //look left
-                    Rotate(direction);
-                }
-                else
-                {
-                    if (CanMove(Vector3.left))
-                    {
-                        _targetPosition = transform.position + Vector3.left;
-                        _startPosition = transform.position;
-                        moving = true;
-                        isFree = false;
-                    }
-                }
-            }
-            //right
-            else if (direction.Equals(Vector3.right))
-            {
-                if (_dirFacing != CharacterDir.Right)
-                {
-                    //look right
-                    Rotate(direction);
-                }
-                else
-                {
-                    if (CanMove(Vector3.right))
-                    {
-                        _targetPosition = transform.position + Vector3.right;
-                        _startPosition = transform.position;
-                        moving = true;
-                        isFree = false;
-                    }
-                }
-            }
-            else
-            {
-                throw new InvalidOperationException("Invalid move direction.");
-            }
 
-            return isFree;
+        bool isFacingDirection = false;
+        
+        if (direction.Equals(Vector3.forward) && _dirFacing == CharacterDir.Forward) isFacingDirection = true;
+        else if (direction.Equals(Vector3.right) && _dirFacing == CharacterDir.Right) isFacingDirection = true;
+        else if (direction.Equals(Vector3.back) && _dirFacing == CharacterDir.Back) isFacingDirection = true;
+        else if (direction.Equals(Vector3.left) && _dirFacing == CharacterDir.Left) isFacingDirection = true;
+
+        if (isFacingDirection)
+        {
+            if (CanMove(direction))
+            {
+                _targetPosition = transform.position + direction;
+                _startPosition = transform.position;
+                moving = true;
+                isFree = false;
+            }
+        }
+        else
+        {
+            Rotate(direction);
+        }
+
+        return isFree;
     }
 
     protected void Rotate(Vector3 direction)
