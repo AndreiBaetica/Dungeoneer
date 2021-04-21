@@ -8,7 +8,7 @@ public class GameLoopManager : MonoBehaviour
 {
     public static GameLoopManager instance = null;
     private static List<CharController> activeChars;
-
+    public static List<Vector3> reservedPositions = new List<Vector3>();
     private static bool isPlayerTurn = true;
 
 
@@ -48,13 +48,10 @@ public class GameLoopManager : MonoBehaviour
             if (!activeChars[i].enabled) activeChars.RemoveAt(i);
             else if (!activeChars[i].doneTurn) allDone = false;
         }
-        /*foreach (var activeChar in activeChars)
-        {
-            if (!activeChar.doneTurn) allDone = false;
-        }*/
 
         if (allDone)
         {
+            reservedPositions.Clear();
             Debug.Log("setting player turn true");
             SetPlayerTurn(true);
             foreach (var activeChar in activeChars)

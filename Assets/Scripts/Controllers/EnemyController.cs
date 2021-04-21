@@ -111,7 +111,7 @@ public class EnemyController : CharController
         float shortestDistanceToPlayer = 5f;
         
         //up
-        if (CanMove(Vector3.forward))
+        if (CanMove(Vector3.forward) && !GameLoopManager.reservedPositions.Contains(transform.position + Vector3.forward))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.forward), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)
@@ -121,7 +121,7 @@ public class EnemyController : CharController
             }
         }
         //down
-        if (CanMove(Vector3.back))
+        if (CanMove(Vector3.back) && !GameLoopManager.reservedPositions.Contains(transform.position + Vector3.back))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.back), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)
@@ -131,7 +131,7 @@ public class EnemyController : CharController
             }
         }
         //left
-        if (CanMove(Vector3.left))
+        if (CanMove(Vector3.left) && !GameLoopManager.reservedPositions.Contains(transform.position + Vector3.left))
         {
             
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.left), target.position);
@@ -142,7 +142,7 @@ public class EnemyController : CharController
             }
         }
         //right
-        if (CanMove(Vector3.right))
+        if (CanMove(Vector3.right) && !GameLoopManager.reservedPositions.Contains(transform.position + Vector3.right))
         {
             distanceToPlayer = Vector3.Distance((transform.position + Vector3.right), target.position);
             if (distanceToPlayer < shortestDistanceToPlayer)

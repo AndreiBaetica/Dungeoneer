@@ -108,9 +108,10 @@ public class CharController : MonoBehaviour
 
         if (isFacingDirection)
         {
-            if (CanMove(direction))
+            _targetPosition = transform.position + direction;
+            if (CanMove(direction) && !GameLoopManager.reservedPositions.Contains(_targetPosition))
             {
-                _targetPosition = transform.position + direction;
+                GameLoopManager.reservedPositions.Add(_targetPosition);
                 _startPosition = transform.position;
                 moving = true;
                 isFree = false;
