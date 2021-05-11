@@ -40,14 +40,14 @@ public class CharController : MonoBehaviour
 
     protected Animator animator;
     
-    
+    public LayerMask playerLayerMask;
     
     // Start is called before the first frame update
     protected void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
-
+        playerLayerMask = LayerMask.GetMask("Player");
     }
 
     // Update is called once per frame
@@ -67,16 +67,16 @@ public class CharController : MonoBehaviour
         if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
         {
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.right * rayOffsetX, direction,
-                rayLength)) return false;
+                rayLength, playerLayerMask)) return false;
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.right * rayOffsetX, direction,
-                rayLength)) return false;
+                rayLength, playerLayerMask)) return false;
         }
         else if (Vector3.Equals(Vector3.left, direction) || Vector3.Equals(Vector3.right, direction))
         {
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.forward * rayOffsetZ, direction,
-                rayLength)) return false;
+                rayLength, playerLayerMask)) return false;
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.forward * rayOffsetZ, direction,
-                rayLength)) return false;
+                rayLength, playerLayerMask)) return false;
         }
         return true;
     }
