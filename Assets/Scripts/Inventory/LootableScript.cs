@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PouchScript : BagScript
+public class LootableScript : BagScript
 {
     //Remove once pouch and player inventory can more easily share items
     [SerializeField]
