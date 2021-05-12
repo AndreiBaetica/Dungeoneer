@@ -7,7 +7,12 @@ public class Card : ScriptableObject
 {
     [SerializeField]
     private Sprite image;
-    
+    //template
+    public new string name;
+    public string description;
+    public Sprite artwork;
+    public int manaCost;
+
     //add card ability here
 
     public CardScript MyCardScript
@@ -15,4 +20,11 @@ public class Card : ScriptableObject
         get;
         set;
     }
+    
+    //template
+    public void Print()
+    {
+        Debug.Log(name + ": " + description + " The card costs: " + manaCost);
+    }
+    
 }
