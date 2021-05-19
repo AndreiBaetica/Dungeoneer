@@ -74,6 +74,11 @@ public class Room
         return Position;
     }
 
+    public RoomType GetRoomType()
+    {
+        return Type;
+    }
+
     public new String ToString()
     {
         return Type.ToString();
