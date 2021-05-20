@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
 using UnityEngine;
 using Random = System.Random;
 
@@ -10,16 +9,17 @@ public class DungeonGenerator : MonoBehaviour
     private static int _minRooms = 4;
 
     //arbitrary dimensions to avoid index weirdness around board borders
-    private Room[,] _board = new Room[_minRooms * 5, _minRooms * 5];
+    private readonly Room[,] _board = new Room[_minRooms * 5, _minRooms * 5];
 
-    private RoomType[] _leafRooms = {RoomType.YNNN, RoomType.NYNN, RoomType.NNYN, RoomType.NNNY};
+    private readonly RoomType[] _leafRooms = {RoomType.YNNN, RoomType.NYNN, RoomType.NNYN, RoomType.NNNY};
 
-    private RoomType[] _internalRooms =
+    private readonly RoomType[] _internalRooms =
     {
         RoomType.YYNN, RoomType.YNYN, RoomType.YNNY, RoomType.NYYN, RoomType.NYNY, RoomType.NNYY, RoomType.YYYN,
         RoomType.YYNY, RoomType.YNYY, RoomType.NYYY, RoomType.YYYY
     };
 
+    //validNeighbors exists only for debug purposes
     private List<Room> _validNeighbors = new List<Room>();
     private List<Room> _invalidNeighbors = new List<Room>();
 
@@ -34,12 +34,8 @@ public class DungeonGenerator : MonoBehaviour
     
     private void GenerateLevel()
     {
-        int i;
-        Room currentRoom;
-        (int, int) currentRoomPosition;
-        
         //chose first room
-        Room firstRoom = new Room(ChooseRandomRoom(_internalRooms), (6, 6));
+        var firstRoom = new Room(ChooseRandomRoom(_internalRooms), (6, 6));
         _invalidNeighbors.Add(firstRoom);
         //center of board
         _board[_minRooms, _minRooms] = firstRoom;
@@ -49,31 +45,22 @@ public class DungeonGenerator : MonoBehaviour
         while (_invalidNeighbors.Any())
         {
             //choose a random unfinished room and add to it
-            i = _random.Next(_invalidNeighbors.Count);
-            currentRoom = _invalidNeighbors[i];
-            currentRoomPosition = currentRoom.getPosition();
-            if (_minRooms > 0)
-            {
-                //add more internal rooms
-                AddNeighbors(currentRoom, true);
-            }
-            else
-            {
-                //finish off invalid doorways with leaf rooms
-                AddNeighbors(currentRoom, false);
-                
-            }
+            var i = _random.Next(_invalidNeighbors.Count);
+            var currentRoom = _invalidNeighbors[i];
+            AddNeighbors(currentRoom);
         }
     }
 
-    private void AddNeighbors(Room currentRoom, bool preferInternalRoom)
+    private void AddNeighbors(Room currentRoom)
     {
-        (int, int) currentRoomPosition = currentRoom.getPosition();
+        var currentRoomPosition = currentRoom.getPosition();
+        var preferInternalRoom = true;
 
         //add north room
         if (currentRoom.HasNorthConnection() &&
             _board[currentRoomPosition.Item1, currentRoomPosition.Item2 + 1] == null)
         {
+            if (_minRooms < 0) preferInternalRoom = false;
             AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 + 1), preferInternalRoom);
             _minRooms -= 1;
         }
@@ -81,6 +68,7 @@ public class DungeonGenerator : MonoBehaviour
         if (currentRoom.HasEastConnection() &&
             _board[currentRoomPosition.Item1 + 1, currentRoomPosition.Item2] == null)
         {
+            if (_minRooms < 0) preferInternalRoom = false;
             AddRoom((currentRoomPosition.Item1 + 1, currentRoomPosition.Item2), preferInternalRoom);
             _minRooms -= 1;
         }
@@ -88,6 +76,7 @@ public class DungeonGenerator : MonoBehaviour
         if (currentRoom.HasSouthConnection() &&
             _board[currentRoomPosition.Item1, currentRoomPosition.Item2 - 1] == null)
         {
+            if (_minRooms < 0) preferInternalRoom = false;
             AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 - 1), preferInternalRoom);
             _minRooms -= 1;
         }
@@ -95,6 +84,7 @@ public class DungeonGenerator : MonoBehaviour
         if (currentRoom.HasWestConnection() &&
             _board[currentRoomPosition.Item1 - 1, currentRoomPosition.Item2] == null)
         {
+            if (_minRooms < 0) preferInternalRoom = false;
             AddRoom((currentRoomPosition.Item1 - 1, currentRoomPosition.Item2), preferInternalRoom);
             _minRooms -= 1;
         }
@@ -109,15 +99,12 @@ public class DungeonGenerator : MonoBehaviour
 
     private void AddRoom((int, int) position, bool preferInternalRoom)
     {
-        List<RoomType> leafSelection = _leafRooms.ToList();
-        List<RoomType> internalSelection = _internalRooms.ToList();
-        Room room;
-        Room neighbor;
-
+        var leafSelection = _leafRooms.ToList();
+        var internalSelection = _internalRooms.ToList();
+        
         //check neighbor in N E S W and eliminate options  accordingly
-
         //check north
-        neighbor = _board[position.Item1, position.Item2 + 1];
+        var neighbor = _board[position.Item1, position.Item2 + 1];
         if (neighbor != null)
         {
             if (neighbor.HasSouthConnection())
@@ -230,32 +217,38 @@ public class DungeonGenerator : MonoBehaviour
                 internalSelection.Remove(RoomType.YYYY);
             }
         }
-
+        
+        Room room;
         if (preferInternalRoom && internalSelection.Any())
         {
             room = new Room(ChooseRandomRoom(internalSelection), position);
             _board[position.Item1, position.Item2] = room;
             if (ValidateNeighbors(room)) _validNeighbors.Add(room);
             else _invalidNeighbors.Add(room);
-            
         }
-        else
+        else if (!preferInternalRoom && leafSelection.Any())
         {
             room = new Room(ChooseRandomRoom(leafSelection), position);
             _board[position.Item1, position.Item2] = room;
             _validNeighbors.Add(room);
         }
+        else
+        {
+            room = new Room(ChooseRandomRoom(internalSelection), position);
+            if (ValidateNeighbors(room)) _validNeighbors.Add(room);
+            else _invalidNeighbors.Add(room);
+        }
     }
     
     private RoomType ChooseRandomRoom(RoomType[] selection)
     {
-        int i = _random.Next(selection.Length);
+        var i = _random.Next(selection.Length);
         return selection[i];
     }
     
     private RoomType ChooseRandomRoom(List<RoomType> selection)
     {
-        int i = _random.Next(selection.Count);
+        var i = _random.Next(selection.Count);
         return selection[i];
     }
     
