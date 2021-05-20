@@ -9,7 +9,7 @@ public class DungeonGenerator : MonoBehaviour
     private static int _minRooms = 4;
 
     //arbitrary dimensions to avoid index weirdness around board borders
-    private readonly Room[,] _board = new Room[_minRooms * 5, _minRooms * 5];
+    private readonly Room[,] _board = new Room[_minRooms * 4, _minRooms * 4];
 
     private readonly RoomType[] _leafRooms = {RoomType.YNNN, RoomType.NYNN, RoomType.NNYN, RoomType.NNNY};
 
@@ -35,10 +35,10 @@ public class DungeonGenerator : MonoBehaviour
     private void GenerateLevel()
     {
         //chose first room
-        var firstRoom = new Room(ChooseRandomRoom(_internalRooms), (6, 6));
+        var firstRoom = new Room(ChooseRandomRoom(_internalRooms), (_minRooms * 2, _minRooms * 2));
         _invalidNeighbors.Add(firstRoom);
         //center of board
-        _board[_minRooms, _minRooms] = firstRoom;
+        _board[_minRooms * 2, _minRooms * 2] = firstRoom;
         
         _minRooms -= 1;
 
@@ -234,7 +234,7 @@ public class DungeonGenerator : MonoBehaviour
         }
         else
         {
-            room = new Room(ChooseRandomRoom(internalSelection), position);
+            room = new Room(ChooseRandomRoom(leafSelection), position);
             if (ValidateNeighbors(room)) _validNeighbors.Add(room);
             else _invalidNeighbors.Add(room);
         }
