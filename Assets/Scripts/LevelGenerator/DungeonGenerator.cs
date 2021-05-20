@@ -7,9 +7,10 @@ using Random = System.Random;
 
 public class DungeonGenerator : MonoBehaviour
 { 
-    [SerializeField] private int _minRooms = 4;
+    private static int _minRooms = 4;
 
-    private Room[,] _board = new Room[11, 11];
+    //arbitrary dimensions to avoid index weirdness around board borders
+    private Room[,] _board = new Room[_minRooms * 5, _minRooms * 5];
 
     private RoomType[] _leafRooms = {RoomType.YNNN, RoomType.NYNN, RoomType.NNYN, RoomType.NNNY};
 
@@ -28,8 +29,7 @@ public class DungeonGenerator : MonoBehaviour
     protected void Start()
     {
         GenerateLevel();
-        string output = PrintBoard();
-        Debug.Log(output);
+        Debug.Log("level generated successfully");
     }
     
     private void GenerateLevel()
@@ -41,92 +41,70 @@ public class DungeonGenerator : MonoBehaviour
         //chose first room
         Room firstRoom = new Room(ChooseRandomRoom(_internalRooms), (6, 6));
         _invalidNeighbors.Add(firstRoom);
-        _board[6, 6] = firstRoom;
+        //center of board
+        _board[_minRooms, _minRooms] = firstRoom;
         
         _minRooms -= 1;
 
         while (_invalidNeighbors.Any())
         {
             //choose a random unfinished room and add to it
-            i = _random.Next(0, _invalidNeighbors.Count);
+            i = _random.Next(_invalidNeighbors.Count);
             currentRoom = _invalidNeighbors[i];
             currentRoomPosition = currentRoom.getPosition();
             if (_minRooms > 0)
             {
                 //add more internal rooms
-                //add north room
-                if (currentRoom.HasNorthConnection() &&
-                    _board[currentRoomPosition.Item1, currentRoomPosition.Item2 + 1] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 + 1), true);
-                    _minRooms -= 1;
-                }
-                //add east room
-                if (currentRoom.HasEastConnection() &&
-                    _board[currentRoomPosition.Item1 + 1, currentRoomPosition.Item2] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1 + 1, currentRoomPosition.Item2), true);
-                    _minRooms -= 1;
-                }
-                //add south room
-                if (currentRoom.HasSouthConnection() &&
-                    _board[currentRoomPosition.Item1, currentRoomPosition.Item2 - 1] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 - 1), true);
-                    _minRooms -= 1;
-                }
-                //add west room
-                if (currentRoom.HasWestConnection() &&
-                    _board[currentRoomPosition.Item1 - 1, currentRoomPosition.Item2] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1 - 1, currentRoomPosition.Item2), true);
-                    _minRooms -= 1;
-                }
-
-                if (ValidateNeighbors(currentRoom))
-                {
-                    _invalidNeighbors.Remove(currentRoom);
-                    _validNeighbors.Add(currentRoom);
-                }
-                else throw new Exception("Invalid room at " + currentRoom.getPosition() + " of type " + currentRoom.GetRoomType());
+                AddNeighbors(currentRoom, true);
             }
             else
             {
                 //finish off invalid doorways with leaf rooms
-                //add north room
-                if (currentRoom.HasNorthConnection() &&
-                    _board[currentRoomPosition.Item1, currentRoomPosition.Item2 + 1] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 + 1), false);
-                }
-                //add east room
-                if (currentRoom.HasEastConnection() &&
-                    _board[currentRoomPosition.Item1 + 1, currentRoomPosition.Item2] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1 + 1, currentRoomPosition.Item2), false);
-                }
-                //add south room
-                if (currentRoom.HasSouthConnection() &&
-                    _board[currentRoomPosition.Item1, currentRoomPosition.Item2 - 1] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 - 1), false);
-                }
-                //add west room
-                if (currentRoom.HasWestConnection() &&
-                    _board[currentRoomPosition.Item1 - 1, currentRoomPosition.Item2] == null)
-                {
-                    AddRoom((currentRoomPosition.Item1 - 1, currentRoomPosition.Item2), false);
-                }
-
-                if (ValidateNeighbors(currentRoom))
-                {
-                    _invalidNeighbors.Remove(currentRoom);
-                    _validNeighbors.Add(currentRoom);
-                }
-                else throw new Exception("Invalid room at " + currentRoom.getPosition() + " of type " + currentRoom.GetRoomType());
+                AddNeighbors(currentRoom, false);
                 
             }
         }
+    }
+
+    private void AddNeighbors(Room currentRoom, bool preferInternalRoom)
+    {
+        (int, int) currentRoomPosition = currentRoom.getPosition();
+
+        //add north room
+        if (currentRoom.HasNorthConnection() &&
+            _board[currentRoomPosition.Item1, currentRoomPosition.Item2 + 1] == null)
+        {
+            AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 + 1), preferInternalRoom);
+            _minRooms -= 1;
+        }
+        //add east room
+        if (currentRoom.HasEastConnection() &&
+            _board[currentRoomPosition.Item1 + 1, currentRoomPosition.Item2] == null)
+        {
+            AddRoom((currentRoomPosition.Item1 + 1, currentRoomPosition.Item2), preferInternalRoom);
+            _minRooms -= 1;
+        }
+        //add south room
+        if (currentRoom.HasSouthConnection() &&
+            _board[currentRoomPosition.Item1, currentRoomPosition.Item2 - 1] == null)
+        {
+            AddRoom((currentRoomPosition.Item1, currentRoomPosition.Item2 - 1), preferInternalRoom);
+            _minRooms -= 1;
+        }
+        //add west room
+        if (currentRoom.HasWestConnection() &&
+            _board[currentRoomPosition.Item1 - 1, currentRoomPosition.Item2] == null)
+        {
+            AddRoom((currentRoomPosition.Item1 - 1, currentRoomPosition.Item2), preferInternalRoom);
+            _minRooms -= 1;
+        }
+
+        if (ValidateNeighbors(currentRoom))
+        {
+            _invalidNeighbors.Remove(currentRoom);
+            _validNeighbors.Add(currentRoom);
+        }
+        else throw new Exception("Invalid room at " + currentRoom.getPosition() + " of type " + currentRoom.GetRoomType());
     }
 
     private void AddRoom((int, int) position, bool preferInternalRoom)
@@ -271,13 +249,13 @@ public class DungeonGenerator : MonoBehaviour
     
     private RoomType ChooseRandomRoom(RoomType[] selection)
     {
-        int i = _random.Next(0, selection.Length);
+        int i = _random.Next(selection.Length);
         return selection[i];
     }
     
     private RoomType ChooseRandomRoom(List<RoomType> selection)
     {
-        int i = _random.Next(0, selection.Count);
+        int i = _random.Next(selection.Count);
         return selection[i];
     }
     
@@ -300,23 +278,5 @@ public class DungeonGenerator : MonoBehaviour
             if (_board[room.getPosition().Item1 - 1, room.getPosition().Item2] == null) return false;
         }
         return true;
-    }
-
-    private string PrintBoard()
-    {
-        string output = "";
-        int rowLength = _board.GetLength(0);
-        int colLength = _board.GetLength(1);
-
-        for (int i = 0; i < rowLength; i++)
-        {
-            for (int j = 0; j < colLength; j++)
-            {
-                if (_board[i, j] != null) output += string.Format("{0} ", _board[i, j].GetRoomType());
-            }
-            output += (Environment.NewLine + Environment.NewLine);
-        }
-
-        return output;
     }
 }

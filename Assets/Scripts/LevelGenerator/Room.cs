@@ -4,83 +4,81 @@ using NUnit.Compatibility;
 
 public class Room
 {
-    protected RoomType Type;
+    private RoomType type;
     
     //for debug purposes
-    protected (int, int) Position;
-
-    protected bool ValidNeighbors = false;
-
+    private (int, int) position;
+    
     public Room(RoomType type, (int, int) position)
     {
-        Type = type;
-        Position = position;
+        this.type = type;
+        this.position = position;
     }
 
     public bool HasNorthConnection()
     {
-        if (Type.Equals(RoomType.YNNN)
-        || Type.Equals(RoomType.YYNN)
-        || Type.Equals(RoomType.YNYN)
-        || Type.Equals(RoomType.YNNY)
-        || Type.Equals(RoomType.YYYN)
-        || Type.Equals(RoomType.YYNY)
-        || Type.Equals(RoomType.YNYY)
-        || Type.Equals(RoomType.YYYY)) return true;
+        if (type.Equals(RoomType.YNNN)
+        || type.Equals(RoomType.YYNN)
+        || type.Equals(RoomType.YNYN)
+        || type.Equals(RoomType.YNNY)
+        || type.Equals(RoomType.YYYN)
+        || type.Equals(RoomType.YYNY)
+        || type.Equals(RoomType.YNYY)
+        || type.Equals(RoomType.YYYY)) return true;
         return false;
     }
     
     public bool HasEastConnection()
     {
-        if (Type.Equals(RoomType.NYNN)
-            || Type.Equals(RoomType.YYNN)
-            || Type.Equals(RoomType.NYYN)
-            || Type.Equals(RoomType.NYNY)
-            || Type.Equals(RoomType.YYYN)
-            || Type.Equals(RoomType.YYNY)
-            || Type.Equals(RoomType.NYYY)
-            || Type.Equals(RoomType.YYYY)) return true;
+        if (type.Equals(RoomType.NYNN)
+            || type.Equals(RoomType.YYNN)
+            || type.Equals(RoomType.NYYN)
+            || type.Equals(RoomType.NYNY)
+            || type.Equals(RoomType.YYYN)
+            || type.Equals(RoomType.YYNY)
+            || type.Equals(RoomType.NYYY)
+            || type.Equals(RoomType.YYYY)) return true;
         return false;
     }
     
     public bool HasSouthConnection()
     {
-        if (Type.Equals(RoomType.NNYN)
-            || Type.Equals(RoomType.YNYN)
-            || Type.Equals(RoomType.NYYN)
-            || Type.Equals(RoomType.NNYY)
-            || Type.Equals(RoomType.YYYN)
-            || Type.Equals(RoomType.YNYY)
-            || Type.Equals(RoomType.NYYY)
-            || Type.Equals(RoomType.YYYY)) return true;
+        if (type.Equals(RoomType.NNYN)
+            || type.Equals(RoomType.YNYN)
+            || type.Equals(RoomType.NYYN)
+            || type.Equals(RoomType.NNYY)
+            || type.Equals(RoomType.YYYN)
+            || type.Equals(RoomType.YNYY)
+            || type.Equals(RoomType.NYYY)
+            || type.Equals(RoomType.YYYY)) return true;
         return false;
     }
     
     public bool HasWestConnection()
     {
-        if (Type.Equals(RoomType.NNNY)
-            || Type.Equals(RoomType.YNNY)
-            || Type.Equals(RoomType.NYNY)
-            || Type.Equals(RoomType.NNYY)
-            || Type.Equals(RoomType.YYNY)
-            || Type.Equals(RoomType.YNYY)
-            || Type.Equals(RoomType.NYYY)
-            || Type.Equals(RoomType.YYYY)) return true;
+        if (type.Equals(RoomType.NNNY)
+            || type.Equals(RoomType.YNNY)
+            || type.Equals(RoomType.NYNY)
+            || type.Equals(RoomType.NNYY)
+            || type.Equals(RoomType.YYNY)
+            || type.Equals(RoomType.YNYY)
+            || type.Equals(RoomType.NYYY)
+            || type.Equals(RoomType.YYYY)) return true;
         return false;
     }
 
     public (int, int) getPosition()
     {
-        return Position;
+        return position;
     }
 
     public RoomType GetRoomType()
     {
-        return Type;
+        return type;
     }
 
     public new String ToString()
     {
-        return Type.ToString();
+        return type.ToString();
     }
 }
