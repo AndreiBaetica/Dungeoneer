@@ -234,7 +234,8 @@ public class DungeonGenerator : MonoBehaviour
         }
         else
         {
-            room = new Room(ChooseRandomRoom(leafSelection), position);
+            var anySelection = leafSelection.Union(internalSelection).ToList();
+            room = new Room(ChooseRandomRoom(anySelection), position);
             if (ValidateNeighbors(room)) _validNeighbors.Add(room);
             else _invalidNeighbors.Add(room);
         }
