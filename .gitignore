@@ -12,6 +12,7 @@ sysinfo.txt
 /Assets/AssetStoreTools*
 *.apk
 *.unitypackage
+*.cache
 Assembly-CSharp.csproj
 obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
  
