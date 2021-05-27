@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.402739, g: 0.41065317, b: 0.37797984, a: 1}
+  m_IndirectSpecularColor: {r: 0.3944443, g: 0.40206492, b: 0.37232098, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2588,10 +2588,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637941124}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &637941126
@@ -2612,6 +2612,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 264dcaa4d52494b49b323f290e47b0b6, type: 2}
+  - {fileID: 2100000, guid: 264dcaa4d52494b49b323f290e47b0b6, type: 2}
   - {fileID: 2100000, guid: 264dcaa4d52494b49b323f290e47b0b6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -2648,13 +2650,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 637941124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.016123962, y: 0.38262516, z: -0.0066787633, w: 0.9237389}
   m_LocalPosition: {x: -33.7, y: 0.49, z: -17.830864}
   m_LocalScale: {x: 20, y: 1, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 59
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2, y: 45, z: 0}
 --- !u!1001 &685874965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4699,7 +4701,7 @@ PrefabInstance:
     - target: {fileID: 1953130941278476573, guid: 0ab979bfa882254438636f638d427bba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1953130941278476573, guid: 0ab979bfa882254438636f638d427bba,
         type: 3}
@@ -7075,7 +7077,7 @@ PrefabInstance:
     - target: {fileID: 1953130941278476573, guid: 0ab979bfa882254438636f638d427bba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1953130941278476573, guid: 0ab979bfa882254438636f638d427bba,
         type: 3}
