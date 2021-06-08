@@ -1,0 +1,1 @@
+Game Assets, such as Code, Art, Scenes, etc can be found here in their Respective folders
