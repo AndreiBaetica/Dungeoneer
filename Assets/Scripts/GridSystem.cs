@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+/// <summary>Class <c>GridSystem>TGridObject</c> models a 2-dimensional plane in a 3-dimensional world that only allows 
+///up, down, left, or right movements.</summary>
 public class GridSystem<TGridObject>
 {
 
@@ -16,11 +18,24 @@ public class GridSystem<TGridObject>
         public int y;
     }
     
+    /// <summary>Instance variable <c>width</c> represents how many squares wide the grid is.</summary>
     private int width;
+    
+    /// <summary>Instance variable <c>height</c> represents how many squares high the grid is.</summary>
     private int height;
+    
     private float cellSize;
+    
     private Vector3 origin;
+    
     private TGridObject[,] gridArray;
+    
+    /// <summary>Method <c>GridSystem</c> Creates the 2-dimensional TGridObject of certain height,
+    /// width, and cellSize.</summary>
+    /// <param name="width">the new x-coordinate.</param>
+    /// <param name="height">the new x-coordinate.</param>
+    /// <param name="cellSize">the new x-coordinate.</param>
+    /// <param name="origin">the new x-coordinate.</param>
 
     public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<GridSystem<TGridObject>, int, int, TGridObject> createGridObject)
     {
