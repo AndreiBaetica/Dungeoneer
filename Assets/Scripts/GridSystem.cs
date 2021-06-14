@@ -5,10 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-/// <summary>Class <c>GridSystem>TGridObject</c> models a 2-dimensional plane in a 3-dimensional world that only allows 
-///up, down, left, or right movements.</summary>
+/// <summary>Class <c>GridSystem</c> models a 2-dimensional plane in a 3-dimensional world that only allows 
+///up, down, left, or right movementsff.</summary>
 public class GridSystem<TGridObject>
-{
+{;
+
+;
 
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
 
@@ -18,10 +20,10 @@ public class GridSystem<TGridObject>
         public int y;
     }
     
-    /// <summary>Instance variable <c>width</c> represents how many squares wide the grid is.</summary>
-    private int width;
+/// <summary>Instance variable <c>width</c> represents how many squares high the grid is.</summary>
+private int width;
     
-    /// <summary>Instance variable <c>height</c> represents how many squares high the grid is.</summary>
+/// <summary>Instance variable <c>height</c> represents how many squares high the grid is.</summary>
     private int height;
     
     private float cellSize;
@@ -30,14 +32,18 @@ public class GridSystem<TGridObject>
     
     private TGridObject[,] gridArray;
     
-    /// <summary>Method <c>GridSystem</c> Creates the 2-dimensional TGridObject of certain height,
-    /// width, and cellSize.</summary>
-    /// <param name="width">the new x-coordinate.</param>
-    /// <param name="height">the new x-coordinate.</param>
-    /// <param name="cellSize">the new x-coordinate.</param>
-    /// <param name="origin">the new x-coordinate.</param>
-
-    public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<GridSystem<TGridObject>, int, int, TGridObject> createGridObject)
+    /// <summary>Constructor Creates the 2-dimensional TGridObject of certain height,
+    /// width, and cellSize.
+    /// </summary>
+    /// <param name="width">Width of the grid to be created.</param>
+    /// <param name="height">Height of the grid to be created.</param>
+    /// <param name="cellSize">Pixel size of each grid square.</param>
+    /// <param name="origin">The vector3 object representating the vector where the player begins.</param>
+    /// <param name="Func<GridSystem<TGridObject>">??????????????</param>
+    /// <param name="int">??????????????</param>
+    /// <param name="int">??????????????</param>
+    /// <typeparam name="TGridObject> createGridObject">??????????????</param>
+public GridSystem(int width, int height, float cellSize, Vector3 origin, Func<GridSystem<TGridObject>, int, int, TGridObject> createGridObject)
     {
         this.width = width;
         this.height = height;
@@ -86,27 +92,51 @@ public class GridSystem<TGridObject>
         }
     }
 
+
+/// <summary>
+/// Method <c>GetWidth</c> calculates the width of the main GridSystem once created.
+/// </summary>
+/// <returns>The width (or number of squares) in the horizontal portion of the grid.</returns>
     public int GetWidth()
     {
         return width;
     }
 
+/// <summary>
+/// Method <c>GetHeight</c> calculates the height of the main GridSystem once created.
+/// </summary>
+/// <returns>The Height (or number of squares) in the vertical portion of the grid.</returns>
     public int GetHeight()
     {
         return height;
     }
 
+/// <summary>
+/// Method <c>GetCellSize</c> calculates the side length of each grid square.
+/// </summary>
+/// <returns>The cellSize of each grid square in pixels.</returns>
     public float GetCellSize()
     {
         return cellSize;
     }
     
-    public Vector3 GetWorldPosition(float x, float y)
+/// <summary>
+/// Method <c>GetWorldPosition</c> creates a Vector3 using on <paramref name="=x"/> and <paramref name="y"/> and returns the new object.
+/// </summary>
+/// <returns>The sum of the new Vector3 object (multiplied by the cellSize) and the Vector3 origin.</returns>
+/// <param name="x">A float precision number.</param>
+/// <param name="y">A float precision number.</param>
+public Vector3 GetWorldPosition(float x, float y)
     {
         //we are actually using the x and z plane
         return new Vector3(x,0,y) * cellSize + origin;
     }
 
+/// <summary>
+/// Method <c>GetXY</c> Calculates and sets the x and y coordinates for  and returns the new object.
+/// </summary>
+/// <typeparam name="out int">An integer x and y calcualted from <paramref name="worldPosition".</param>
+/// <param name="worldPositiob">A Vector3 Position where the main character is?.</param>???????????
     public void GetXY(Vector3 worldPosition, out int x, out int y)
     {
         x = Mathf.FloorToInt((worldPosition - origin).x / cellSize);
