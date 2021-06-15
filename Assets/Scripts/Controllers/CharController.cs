@@ -40,14 +40,11 @@ public class CharController : MonoBehaviour
 
     protected Animator animator;
     
-    public LayerMask playerLayerMask;
-    
     // Start is called before the first frame update
     protected void Start()
     {
         animator = GetComponentInChildren<Animator>();
         currentHealth = maxHealth;
-        playerLayerMask = LayerMask.GetMask("Player");
     }
 
     // Update is called once per frame
@@ -64,19 +61,20 @@ public class CharController : MonoBehaviour
     //raycasts the corners of the character cube to check for collision
     protected bool CanMove(Vector3 direction)
     {
+        LayerMask everyLayerButInteractableLayerMask =~ LayerMask.GetMask("Interactable");
         if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
         {
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.right * rayOffsetX, direction,
-                rayLength, playerLayerMask)) return false;
+                rayLength, everyLayerButInteractableLayerMask)) return false;
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.right * rayOffsetX, direction,
-                rayLength, playerLayerMask)) return false;
+                rayLength, everyLayerButInteractableLayerMask)) return false;
         }
         else if (Vector3.Equals(Vector3.left, direction) || Vector3.Equals(Vector3.right, direction))
         {
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.forward * rayOffsetZ, direction,
-                rayLength, playerLayerMask)) return false;
+                rayLength, everyLayerButInteractableLayerMask)) return false;
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY - Vector3.forward * rayOffsetZ, direction,
-                rayLength, playerLayerMask)) return false;
+                rayLength, everyLayerButInteractableLayerMask)) return false;
         }
         return true;
     }
