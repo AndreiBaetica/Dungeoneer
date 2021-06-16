@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Card", menuName = "Items/Card", order = 1)]
-public class Card : ScriptableObject
+public abstract class CardSchema : ScriptableObject
 {
     [SerializeField]
-    private Sprite image;
-    //template
     public new string name;
+    public new string manaCost;
+    public new string powerCost;
     public string description;
+    public Sprite rarity;
+    public Sprite type;
+    public Sprite powerType;
     public Sprite artwork;
-    public int manaCost;
 
-    //add card ability here
-
-    public CardScript MyCardScript
-    {
-        get;
-        set;
-    }
-    
     //template
     public void Print()
     {
         Debug.Log(name + ": " + description + " The card costs: " + manaCost);
     }
-    
+
+    public abstract void cardAction();
 }
