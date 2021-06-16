@@ -26,7 +26,7 @@ public class GameLoopManager : MonoBehaviour
     void Update()
     {
         UpdateTurn();
-        //Debug.Log("playerturn" + isPlayerTurn);
+        Debug.Log("playerturn" + isPlayerTurn);
     }
 
     public static bool GetPlayerTurn()
