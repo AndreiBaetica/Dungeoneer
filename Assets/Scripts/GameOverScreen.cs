@@ -16,11 +16,11 @@ public class GameOverScreen : MonoBehaviour
 
         public void RestartButton()
         {
-            SceneManager.LoadScene("Scenes/SampleScene");
+            SceneManager.LoadScene("Scenes/Home");
         }
 
         public void ExitButton()
         {
-            SceneManager.LoadScene("Scenes/Home");
+            SceneManager.LoadScene("Scenes/SampleScene");
         }
     }

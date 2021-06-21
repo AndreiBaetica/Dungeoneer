@@ -20,7 +20,7 @@ public class PlayerController : CharController
     private LayerMask NPCMask;
     private int maxMana = 10;
     private int currentMana;
-    
+    private int dungeonCount = 4;
     private IInteractable interactable;
     
     protected new void Start()
@@ -45,7 +45,11 @@ public class PlayerController : CharController
             doneTurn = !Action();
             if (doneTurn)
             {
+                if (healthBar.current)
                 GameLoopManager.SetPlayerTurn(false);
+            }else if(healthBar.health==0);
+            {
+                death();
             }
         }
     }
@@ -108,7 +112,11 @@ public class PlayerController : CharController
             }
         }
     }
-    
+
+    public void death();
+    {
+        GameOverScreen.Setup(HealthBar.health);
+    }
     public int MaxMana
     {
         get => maxMana;
