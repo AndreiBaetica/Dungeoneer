@@ -11,7 +11,7 @@ public class GameOverScreen : MonoBehaviour
         public void Setup(int score)
         {
             gameObject.SetActive(true);
-            pointsText.text = score.ToString() + " POINTS";
+            pointsText.text = "YOU MADE IT TO DUNGEON "+ score.ToString() ;
         }
 
         public void RestartButton()
