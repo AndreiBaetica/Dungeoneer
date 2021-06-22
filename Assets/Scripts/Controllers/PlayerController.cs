@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.ComponentModel.Design;
+using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : CharController
@@ -16,7 +18,7 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    public GameOverScene GameOverScene;
+    public GameOverScreen GameOverScreen;
     
     private LayerMask NPCMask;
     private int maxMana = 10;
@@ -46,13 +48,13 @@ public class PlayerController : CharController
             doneTurn = !Action();
             if (doneTurn)
             {
-                if (healthBar.current)
-                GameLoopManager.SetPlayerTurn(false);
-            }else if(healthBar.health==0);
-
-            {
-                GameOverScene.Setup(dungeonCount);
-                //death();
+                if (healthBar.health > 0)
+                {
+                    GameLoopManager.SetPlayerTurn(false);
+                }else if (healthBar.health <= 0)
+                {
+                    GameOverScreen.Setup(dungeonCount);
+                }
             }
         }
     }

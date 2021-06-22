@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 198749368}
   - component: {fileID: 198749367}
   - component: {fileID: 198749366}
+  - component: {fileID: 198749370}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -225,6 +226,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &198749370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198749365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc57853018936984286f57b8053a434f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doneTurn: 0
+  damageIndicator: {fileID: 0}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!1 &200323144
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +881,7 @@ GameObject:
   - component: {fileID: 890434068}
   - component: {fileID: 890434067}
   - component: {fileID: 890434066}
+  - component: {fileID: 890434069}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -970,6 +989,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 890434064}
   m_CullTransparentMesh: 0
+--- !u!114 &890434069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890434064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c336ef78550e47919828af0f93ca0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1104301697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1295,7 @@ GameObject:
   - component: {fileID: 1610216385}
   - component: {fileID: 1610216384}
   - component: {fileID: 1610216386}
+  - component: {fileID: 1610216387}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -1322,6 +1354,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bad53f4891684f888edc31cdfa3a2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1610216387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610216383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc57853018936984286f57b8053a434f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doneTurn: 0
+  damageIndicator: {fileID: 0}
+  healthBar: {fileID: 0}
+  manaBar: {fileID: 0}
+  GameOverScreen: {fileID: 0}
 --- !u!1 &1715378375
 GameObject:
   m_ObjectHideFlags: 0
