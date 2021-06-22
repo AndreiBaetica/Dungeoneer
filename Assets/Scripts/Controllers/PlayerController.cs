@@ -16,6 +16,7 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
+    public GameOverScene GameOverScene;
     
     private LayerMask NPCMask;
     private int maxMana = 10;
@@ -48,8 +49,10 @@ public class PlayerController : CharController
                 if (healthBar.current)
                 GameLoopManager.SetPlayerTurn(false);
             }else if(healthBar.health==0);
+
             {
-                death();
+                GameOverScene.Setup(dungeonCount);
+                //death();
             }
         }
     }
@@ -113,10 +116,7 @@ public class PlayerController : CharController
         }
     }
 
-    public void death();
-    {
-        GameOverScreen.Setup(HealthBar.health);
-    }
+
     public int MaxMana
     {
         get => maxMana;
