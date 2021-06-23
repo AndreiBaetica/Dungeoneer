@@ -11,6 +11,7 @@ public class CharController : MonoBehaviour
     protected int maxHealth = 100;
     protected int currentHealth;
     [SerializeField] private GameObject damageIndicator;
+    public GameOverScreen GameOverScreen;
 
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
@@ -229,7 +230,13 @@ public class CharController : MonoBehaviour
         rb.isKinematic = true;
         rb.detectCollisions = false;
         doneTurn = true;
+        int dungeonCount = 5;
+        FindObjectOfType<GameOverScreen>(); 
         
+        
+        //GameOverScreen.Setup(dungeonCount);
+        Destroy(this.gameObject);
+
         Debug.Log(name + " has died.");
         
     }

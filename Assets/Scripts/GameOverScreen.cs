@@ -18,8 +18,8 @@ public class GameOverScreen : MonoBehaviour
 
         public void RestartButton()
         {
-            //Destroy(this.gameObject);
-            SceneManager.LoadScene("Scences/Home");
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("Scences/SampleScene");
             Console.WriteLine(SceneManager.sceneCountInBuildSettings);
         }
 
