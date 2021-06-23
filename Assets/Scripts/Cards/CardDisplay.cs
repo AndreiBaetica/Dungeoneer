@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardDisplay : MonoBehaviour
+public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public CardSchema card;
 
@@ -27,6 +28,12 @@ public class CardDisplay : MonoBehaviour
         background.sprite = card.type;
         powerGem.sprite = card.powerType;
         artworkImage.sprite = card.artwork;
+    }
+    
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        card.Print();
+        card.cardAction();
     }
     
 }

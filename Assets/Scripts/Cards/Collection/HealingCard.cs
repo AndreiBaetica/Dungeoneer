@@ -8,6 +8,6 @@ public class HealingCard : CardSchema
     public override void cardAction()
     {
         // ABILITY ACTION GOES HERE (ROSS)
-        Debug.Log("used fireball");
+        Debug.Log("used healing card");
     }
 }

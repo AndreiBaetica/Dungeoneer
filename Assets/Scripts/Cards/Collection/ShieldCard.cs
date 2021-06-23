@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireballCard : CardSchema 
+[CreateAssetMenu(fileName = "Card", menuName = "Items/Card/Shield", order = 1)]
+public class ShieldCard : CardSchema 
 {
     public override void cardAction()
     {
         // ABILITY ACTION GOES HERE (ROSS)
-        Debug.Log("used fireball card");
+        Debug.Log("used shield card");
     }
 }
