@@ -1,13 +1,19 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
-public class GameOverScreen : MonoBehaviour
+namespace Managers
+{
+    public class GameManager : MonoBehaviour
     {
         public Text pointsText;
+
+        void EndGame(int score)
+        {
+            Debug.Log("GAME OVER: " + score.ToString() );
+        }
+        
 
         public void Setup(int score)
         {
@@ -31,3 +37,4 @@ public class GameOverScreen : MonoBehaviour
 
         }
     }
+}
