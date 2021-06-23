@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.Design;
 using JetBrains.Annotations;
+using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,11 +19,11 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
+    public GameManager GameManager;
     
     private LayerMask NPCMask;
     private int maxMana = 10;
     private int currentMana;
-    private int dungeonCount = 4;
     private IInteractable interactable;
     
     protected new void Start()
@@ -50,7 +51,11 @@ public class PlayerController : CharController
                 if (healthBar.health > 0)
                 {
                     GameLoopManager.SetPlayerTurn(false);
-                } 
+                }
+                else
+                {
+                    PlayerDeath(10);
+                }
             }
         }
     }
@@ -112,6 +117,13 @@ public class PlayerController : CharController
                 interactable = null;
             }
         }
+    }
+
+
+    public void PlayerDeath(int maxHealth)
+    {
+        Debug.Log("PLAYER HAS DIED");
+        GameManager.Setup(maxHealth);
     }
 
 
