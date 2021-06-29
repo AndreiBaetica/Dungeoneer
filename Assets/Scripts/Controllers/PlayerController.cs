@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : CharController
@@ -119,5 +120,23 @@ public class PlayerController : CharController
     {
         get => currentMana;
         set => currentMana = value;
+    }
+
+    public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)
+    {
+        // Add attack card action on actual game here (ROSS)
+        Debug.Log("Used attack type card");
+    }
+
+    public static void healingCardAction(int heal)
+    {
+        // Add healing card action on actual game here (ROSS)
+        Debug.Log("Used healing type card");
+    }
+
+    public static void shieldingCardAction(int shield)
+    {
+        // Add shielding card action on actual game here (ROSS)
+        Debug.Log("Used shielding type card");
     }
 }

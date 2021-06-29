@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a45bc0c7b8ec40c680dbc47666692832, type: 3}
-  m_Name: Shield Card
+  m_Script: {fileID: 11500000, guid: a109a935d5254ee9bc02e2f0736075e5, type: 3}
+  m_Name: Shielding
   m_EditorClassIdentifier: 
-  name: Shield
+  name: Shielding
   manaCost: 2
-  powerCost: 2
-  description: Shields the player for 30 armor
+  powerCost: 7
+  description: Shields the player for 10 shield power
   rarity: {fileID: 21300000, guid: 9d9912efd6ed42c4aa9c95e83d391c0f, type: 3}
   type: {fileID: 21300000, guid: 527a5e89411d55d43961212c1cc4b8e9, type: 3}
   powerType: {fileID: 21300000, guid: 2a584368b64783a4e91955b2052db888, type: 3}
   artwork: {fileID: 21300000, guid: 7882e5d81bc475c49895acbd461a74e8, type: 3}
+  shield: 10
