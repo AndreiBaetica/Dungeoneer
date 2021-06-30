@@ -79,6 +79,10 @@ public class PlayerController : CharController
         {
             isFree = MeleeAttack(NPCMask);
         }
+        
+        //Pause
+        if (Input.GetKeyDown(KeyCode.Escape)) isFree = gameManager.pauseGame();
+
 
         return isFree;
     }
