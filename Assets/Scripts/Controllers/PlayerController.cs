@@ -131,7 +131,13 @@ public class PlayerController : CharController
     protected override void Die()
     {                    
         GameLoopManager.SetPlayerTurn(false);
-        
+        //TODO: play death animation
+        animator.SetBool("isDead", true);
+        enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+        doneTurn = true;
         
         Debug.Log("PLAYER HAS DIED");
         gameManager.EndGame();
