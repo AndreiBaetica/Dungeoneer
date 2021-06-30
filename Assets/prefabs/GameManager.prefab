@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2010075999962701841}
   - component: {fileID: 2010075999962701934}
   - component: {fileID: 2010075999962701935}
-  - component: {fileID: 8789184618063666899}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,7 +46,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010075999962701932}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -100,18 +99,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8789184618063666899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010075999962701932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04a33d40a44e4596a54c4c9a3b9b6a00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6524332491832550754
 PrefabInstance:
   m_ObjectHideFlags: 0

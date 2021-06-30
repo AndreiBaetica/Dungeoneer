@@ -221,7 +221,7 @@ public class CharController : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         //TODO: play death animation
         animator.SetBool("isDead", true);

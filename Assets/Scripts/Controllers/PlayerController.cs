@@ -19,26 +19,30 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    public GameManager GameManager;
     
     private LayerMask NPCMask;
     private int maxMana = 10;
     private int currentMana;
     private IInteractable interactable;
-    
+
+    public GameManager gameManager;
     protected new void Start()
     {
-        NPCMask= LayerMask.GetMask("NPC");
-        name = "Player";
-        maxHealth = 15;
-        base.Start();
-        healthBar.SetMaxHealth(maxHealth);
-        currentMana = maxMana;
-        manaBar.SetMaxMana(maxMana);
-    }
+        gameManager = gameObject.AddComponent<GameManager>();
+        gameManager.finalRoomScore = 6;
+
+        NPCMask = LayerMask.GetMask("NPC");
+            name = "Player";
+            maxHealth = 15;
+            base.Start();
+            healthBar.SetMaxHealth(maxHealth);
+            currentMana = maxMana;
+            manaBar.SetMaxMana(maxMana);
+        }
 
     protected new void Update()
     {
+
         healthBar.SetHealth(5);
         manaBar.SetMana(currentMana);
 
@@ -54,7 +58,7 @@ public class PlayerController : CharController
                 }
                 else
                 {
-                    PlayerDeath(10);
+                    Die();
                 }
             }
         }
@@ -98,7 +102,7 @@ public class PlayerController : CharController
     }
 
     public void OnTriggerEnter(Collider collision)
-    {
+    {  
         if (collision.tag == "Interactable")
         {
             Debug.Log("Player has entered the interaction zone of an interactable object."); // TODO : Remove
@@ -120,10 +124,13 @@ public class PlayerController : CharController
     }
 
 
-    public void PlayerDeath(int maxHealth)
-    {
+    protected override void Die()
+    {                    
+        GameLoopManager.SetPlayerTurn(false);
+        
+        
         Debug.Log("PLAYER HAS DIED");
-        GameManager.Setup(maxHealth);
+        gameManager.EndGame();
     }
 
 
