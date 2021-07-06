@@ -25,11 +25,11 @@ public class PlayerController : CharController
     private int currentMana;
     private IInteractable interactable;
 
-    public GameManager gameManager;
+   // public OverlayManager overlayManager;
     protected new void Start()
     {
-        gameManager = gameObject.AddComponent<GameManager>();
-        gameManager.finalRoomScore = 6;
+        //gameManager = gameObject.AddComponent<OverlayManager>();
+        OverlayManager.FinalRoomScore = 6;
 
         NPCMask = LayerMask.GetMask("NPC");
             name = "Player";
@@ -80,8 +80,6 @@ public class PlayerController : CharController
             isFree = MeleeAttack(NPCMask);
         }
         
-        //Pause
-        if (Input.GetKeyDown(KeyCode.Escape)) isFree = gameManager.pauseGame();
 
 
         return isFree;
@@ -140,7 +138,7 @@ public class PlayerController : CharController
         doneTurn = true;
         
         Debug.Log("PLAYER HAS DIED");
-        gameManager.EndGame();
+        OverlayManager.EndGame();
     }
 
 

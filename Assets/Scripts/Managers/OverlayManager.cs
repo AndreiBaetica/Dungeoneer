@@ -9,32 +9,33 @@ using Unity.Collections.LowLevel.Unsafe;
 
 namespace Managers
 {
-    public class GameManager : MonoBehaviour
+    public class OverlayManager : MonoBehaviour
     {
         
         #region Singleton
 
-        private static GameManager instance;
+        private static OverlayManager instance;
 
-        void Awake()
+        void Awake()   
         {
             instance = this;
         }
         
         #endregion
         
-        public Text[] pointsText;
+        public static Text[] pointsText;
         public Canvas[] gameUICanvas;
-        public Canvas gameOverScreen;
-        public Canvas gameUI;
-        public Canvas pauseMenu;
-        public int finalRoomScore;
+        private static Canvas gameOverScreen;
+        private static Canvas gameUI;
+        private static Canvas pauseMenu;
+        public static int FinalRoomScore;
+        private static bool acceptingInput;
         void Start()
         {
             gameUICanvas = FindObjectsOfType<Canvas>();
             for (int i = 0; i < gameUICanvas.Length; i++)
             {
-                if (gameUICanvas[i].name == "GameManager")
+                if (gameUICanvas[i].name == "GameOverMenu")
                 {
                     gameOverScreen = gameUICanvas[i];
                 }
@@ -49,14 +50,16 @@ namespace Managers
 
             }
 
-            gameOverScreen.enabled = false;
-            gameUI.enabled = true;
-            pauseMenu.enabled = false;
+           // gameOverScreen.enabled = false;
+           // gameUI.enabled = true;
+           // pauseMenu.enabled = false;
+            resumeGame();
         }
         
-        public void EndGame()
+        public static void EndGame()
         {
             pauseGameTime();
+            acceptingInput = false;
             gameOverScreen.enabled = true;
             gameUI.enabled = false;
             pauseMenu.enabled = false;
@@ -67,7 +70,7 @@ namespace Managers
            {
                if (pointsText[i].name == "SCORE")
                {
-                   pointsText[i].text = "YOU MADE IT TO DUNGEON "+ finalRoomScore.ToString();
+                   pointsText[i].text = "YOU MADE IT TO DUNGEON "+ FinalRoomScore.ToString();
                    foundTextIndex = i;
                }
            }
@@ -76,7 +79,7 @@ namespace Managers
         }
 
 
-        public bool pauseGame()
+        public static bool pauseGame()
         {
             bool isFree;
             if (isFrozen())
@@ -97,8 +100,9 @@ namespace Managers
         }
 
 
-        public bool resumeGame()
+        public static bool resumeGame()
         {
+            acceptingInput = true;
             resumeGameTime();
             gameOverScreen.enabled = false;
             gameUI.enabled = true;
@@ -107,17 +111,17 @@ namespace Managers
             return isFree;
         }
         
-        public void pauseGameTime()
+        private static void pauseGameTime()
         {
             Time.timeScale = 0;
         }
 
-        public void resumeGameTime()
+        private static void resumeGameTime()
         {
             Time.timeScale = 1;
         }
 
-        public bool isFrozen()
+        private static bool isFrozen()
         {
             return Time.timeScale.Equals(0);
         }
@@ -125,9 +129,12 @@ namespace Managers
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (acceptingInput)
             {
-                pauseGame();
+                if (Input.GetKeyDown(KeyCode.Escape)) //?????????????
+                {
+                    pauseGame();
+                }
             }
 
         }
