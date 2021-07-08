@@ -39,7 +39,7 @@ namespace Managers
                 {
                     gameOverScreen = gameUICanvas[i];
                 }
-                if (gameUICanvas[i].name == "Canvas")
+                if (gameUICanvas[i].name == "GameMenu")
                 {
                     gameUI = gameUICanvas[i];
                 }
@@ -50,9 +50,6 @@ namespace Managers
 
             }
 
-           // gameOverScreen.enabled = false;
-           // gameUI.enabled = true;
-           // pauseMenu.enabled = false;
             resumeGame();
         }
         
@@ -85,6 +82,7 @@ namespace Managers
             if (isFrozen())
             {
                 isFree = resumeGame();
+                GameLoopManager.SetPlayerTurn(true);
                 return isFree;
             }
             else
@@ -94,6 +92,7 @@ namespace Managers
                 gameUI.enabled = false;
                 pauseMenu.enabled = true;
                 isFree = false;
+                GameLoopManager.SetPlayerTurn(false);
                 return isFree;
             }
            
@@ -131,7 +130,7 @@ namespace Managers
         {
             if (acceptingInput)
             {
-                if (Input.GetKeyDown(KeyCode.Escape)) //?????????????
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     pauseGame();
                 }
