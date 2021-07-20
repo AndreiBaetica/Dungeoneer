@@ -1,4 +1,3 @@
-using Managers;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -22,25 +21,23 @@ public class PlayerController : CharController
     private int currentMana;
     private IInteractable interactable;
 
-   // public OverlayManager overlayManager;
     protected new void Start()
     {
-        //gameManager = gameObject.AddComponent<OverlayManager>();
-        OverlayManager.FinalRoomScore = 6;
+        UIManager.FinalRoomScore = 6;
 
         NPCMask = LayerMask.GetMask("NPC");
-            name = "Player";
-            maxHealth = 15;
-            base.Start();
-            healthBar.SetMaxHealth(maxHealth);
-            currentMana = maxMana;
-            manaBar.SetMaxMana(maxMana);
+        name = "Player";
+        maxHealth = 15;
+        base.Start();
+        healthBar.SetMaxHealth(maxHealth);
+        currentMana = maxMana;
+        manaBar.SetMaxMana(maxMana);
         }
 
     protected new void Update()
     {
 
-        healthBar.SetHealth(5);
+        healthBar.SetHealth(currentHealth);
         manaBar.SetMana(currentMana);
 
         if (moving) SnapToGridSquare();
@@ -49,14 +46,7 @@ public class PlayerController : CharController
             doneTurn = !Action();
             if (doneTurn)
             {
-                if (healthBar.health > 0)
-                {
-                    GameLoopManager.SetPlayerTurn(false);
-                }
-                else
-                {
-                    Die();
-                }
+                GameLoopManager.SetPlayerTurn(false);
             }
         }
     }
@@ -65,18 +55,19 @@ public class PlayerController : CharController
     {
         bool isFree = true;
         //movement
-        
-        if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
-        if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
-        if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
-        if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
-            
-        //attack
-        if (Input.GetKeyDown("q"))
+        if (UIManager.IsFrozen() == false)
         {
-            isFree = MeleeAttack(NPCMask);
+            if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
+            if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
+            if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
+            if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
+            
+            //attack
+            if (Input.GetKeyDown("q"))
+            {
+                isFree = MeleeAttack(NPCMask);
+            }
         }
-        
 
 
         return isFree;
@@ -117,15 +108,13 @@ public class PlayerController : CharController
             {
                 Debug.Log("Player has left the interaction zone of an interactable object."); // TODO : Remove
                 interactable.StopInteract();
-                interactable = null;
+                 interactable = null;
             }
         }
     }
-
-
+    
     protected override void Die()
     {                    
-        GameLoopManager.SetPlayerTurn(false);
         //TODO: play death animation
         animator.SetBool("isDead", true);
         enabled = false;
@@ -135,10 +124,9 @@ public class PlayerController : CharController
         doneTurn = true;
         
         Debug.Log("PLAYER HAS DIED");
-        OverlayManager.EndGame();
+        UIManager.EndGame();
     }
-
-
+    
     public int MaxMana
     {
         get => maxMana;

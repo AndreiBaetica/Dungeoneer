@@ -13,8 +13,6 @@ namespace Managers
         {
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
-            OverlayManager.resumeGame();
-
         }
     }
 }
