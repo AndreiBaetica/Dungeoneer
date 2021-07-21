@@ -1,6 +1,4 @@
-﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : CharController
 {
@@ -21,22 +19,24 @@ public class PlayerController : CharController
     private LayerMask NPCMask;
     private int maxMana = 10;
     private int currentMana;
-    
     private IInteractable interactable;
-    
+
     protected new void Start()
     {
-        NPCMask= LayerMask.GetMask("NPC");
+        UIManager.FinalRoomScore = 6;
+
+        NPCMask = LayerMask.GetMask("NPC");
         name = "Player";
         maxHealth = 15;
         base.Start();
         healthBar.SetMaxHealth(maxHealth);
         currentMana = maxMana;
         manaBar.SetMaxMana(maxMana);
-    }
+        }
 
     protected new void Update()
     {
+
         healthBar.SetHealth(currentHealth);
         manaBar.SetMana(currentMana);
 
@@ -55,17 +55,20 @@ public class PlayerController : CharController
     {
         bool isFree = true;
         //movement
-        
-        if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
-        if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
-        if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
-        if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
-            
-        //attack
-        if (Input.GetKeyDown("q"))
+        if (UIManager.IsFrozen() == false)
         {
-            isFree = MeleeAttack(NPCMask);
+            if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
+            if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
+            if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
+            if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
+            
+            //attack
+            if (Input.GetKeyDown("q"))
+            {
+                isFree = MeleeAttack(NPCMask);
+            }
         }
+
 
         return isFree;
     }
@@ -89,7 +92,7 @@ public class PlayerController : CharController
     }
 
     public void OnTriggerEnter(Collider collision)
-    {
+    {  
         if (collision.tag == "Interactable")
         {
             Debug.Log("Player has entered the interaction zone of an interactable object."); // TODO : Remove
@@ -105,9 +108,23 @@ public class PlayerController : CharController
             {
                 Debug.Log("Player has left the interaction zone of an interactable object."); // TODO : Remove
                 interactable.StopInteract();
-                interactable = null;
+                 interactable = null;
             }
         }
+    }
+    
+    protected override void Die()
+    {                    
+        //TODO: play death animation
+        animator.SetBool("isDead", true);
+        enabled = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+        doneTurn = true;
+        
+        Debug.Log("PLAYER HAS DIED");
+        UIManager.EndGame();
     }
     
     public int MaxMana
