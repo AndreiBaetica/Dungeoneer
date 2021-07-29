@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <!-- Rooms -->
+    <minRooms>4</minRooms>
+    <theme>"medieval/wood"</theme>
+    
+    <!-- Spawns -->
+</config>

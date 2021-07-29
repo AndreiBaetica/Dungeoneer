@@ -4,12 +4,11 @@ using System.Linq;
 using UnityEngine;
 using Random = System.Random;
 
-public class DungeonGenerator : MonoBehaviour
-{ 
-    private static int _minRooms = 4;
+public class DungeonGenerator
+{
+    private static int _minRooms;
 
-    //arbitrary dimensions to avoid index weirdness around board borders
-    private readonly Room[,] _board = new Room[_minRooms * 4, _minRooms * 4];
+    private Room[,] _board;
 
     private readonly RoomType[] _leafRooms = {RoomType.YNNN, RoomType.NYNN, RoomType.NNYN, RoomType.NNNY};
 
@@ -25,14 +24,15 @@ public class DungeonGenerator : MonoBehaviour
 
     private Random _random = new Random();
 
-
-    protected void Start()
+    public Room[,] GenerateLevel(int minRooms)
     {
-        GenerateLevel();
-        Debug.Log("level generated successfully");
+        _minRooms = minRooms;
+        //arbitrary dimensions to avoid index weirdness around board borders
+        _board = new Room[_minRooms * 4, _minRooms * 4];
+        return PopulateBoard();
     }
     
-    private void GenerateLevel()
+    private Room[,] PopulateBoard()
     {
         //chose first room
         var firstRoom = new Room(ChooseRandomRoom(_internalRooms), (_minRooms * 2, _minRooms * 2));
@@ -49,6 +49,8 @@ public class DungeonGenerator : MonoBehaviour
             var currentRoom = _invalidNeighbors[i];
             AddNeighbors(currentRoom);
         }
+
+        return _board;
     }
 
     private void AddNeighbors(Room currentRoom)
