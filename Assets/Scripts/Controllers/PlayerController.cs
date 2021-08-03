@@ -32,7 +32,7 @@ public class PlayerController : CharController
         healthBar.SetMaxHealth(maxHealth);
         currentMana = maxMana;
         manaBar.SetMaxMana(maxMana);
-        }
+    }
 
     protected new void Update()
     {
@@ -108,22 +108,15 @@ public class PlayerController : CharController
             {
                 Debug.Log("Player has left the interaction zone of an interactable object."); // TODO : Remove
                 interactable.StopInteract();
-                 interactable = null;
+                interactable = null;
             }
         }
     }
     
     protected override void Die()
-    {                    
-        //TODO: play death animation
-        animator.SetBool("isDead", true);
-        enabled = false;
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.detectCollisions = false;
-        doneTurn = true;
-        
+    {
         Debug.Log("PLAYER HAS DIED");
+        base.Die();
         UIManager.EndGame();
     }
     
