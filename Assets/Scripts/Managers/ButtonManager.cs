@@ -14,5 +14,17 @@ namespace Managers
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
         }
+
+        public void ExitGame()
+        {
+            SceneManager.UnloadSceneAsync("SampleScene");
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        public void PlayNewGame()
+        {
+            SceneManager.UnloadSceneAsync("MainMenu");
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }
