@@ -18,12 +18,14 @@ public class PlayerController : CharController
     
     private LayerMask NPCMask;
     private int maxMana = 10;
-    private int currentMana;
+    [SerializeField]public int currentMana;
     private IInteractable interactable;
+    [SerializeField]public int currentLevel;
 
     protected new void Start()
     {
-        UIManager.FinalRoomScore = 6;
+        currentLevel = 0;
+        UIManager.FinalRoomScore = currentLevel;
 
         NPCMask = LayerMask.GetMask("NPC");
         name = "Player";

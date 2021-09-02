@@ -1,4 +1,6 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 namespace Managers
 {
@@ -17,14 +19,21 @@ namespace Managers
 
         public void ExitGame()
         {
-            SceneManager.UnloadSceneAsync("SampleScene");
             SceneManager.LoadScene("MainMenu");
         }
 
         public void PlayNewGame()
         {
-            SceneManager.UnloadSceneAsync("MainMenu");
             SceneManager.LoadScene("SampleScene");
+        }
+
+        public void SaveGame()
+        {
+
+            GameObject sel = EventSystem.current.currentSelectedGameObject;            
+            n++;
+            Debug.Log("Button clicked " + n + " times.");
+            SaveSystem.SavePlayer(PlayerController.instance);
         }
     }
 }

@@ -9,7 +9,7 @@ public class CharController : MonoBehaviour
     public bool doneTurn;
     private const float Speed = 10f;
     protected int maxHealth = 100;
-    protected int currentHealth;
+    [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
