@@ -8,7 +8,6 @@ namespace Managers
 
     public class ButtonManager : MonoBehaviour {
         int n;
-        [SerializeField] private GameObject savedGameIndicator;
 
         public void OnButtonPress(){
             n++;
@@ -30,12 +29,8 @@ namespace Managers
             SceneManager.LoadScene("SampleScene");
         }
 
-        public void SaveGame()
+        public void SaveGame(GameObject savedGameIndicator)
         {
-
-            GameObject sel = EventSystem.current.currentSelectedGameObject;            
-            n++;
-            Debug.Log("Button clicked " + n + " times.");
             SaveSystem.SavePlayer(PlayerController.instance);
             SavedGameIndicator.Create(transform.position, savedGameIndicator);
 
