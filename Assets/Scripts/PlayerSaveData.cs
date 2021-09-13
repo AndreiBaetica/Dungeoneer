@@ -9,8 +9,8 @@ public class PlayerSaveData
     public int mana;
 
     public float[] position;
-
-    public PlayerSaveData(PlayerController player)
+    
+    public PlayerSaveData(PlayerManager player)
     {
         level = player.currentLevel;
         health = player.currentHealth;
@@ -20,6 +20,18 @@ public class PlayerSaveData
         position[0] = playerPos.x;
         position[1] = playerPos.y;
         position[2] = playerPos.z;
+    }
+
+    public void ApplyPlayerSavedData(PlayerManager player)
+    {
+        player.currentLevel = this.level;
+        player.currentHealth = health;
+        player.currentMana = mana;
+        position = new float[3];
+        var playerPos = player.transform.position;
+        playerPos.x = position[0];
+        playerPos.y = position[1];
+        playerPos.z = position[2];
     }
 
 }

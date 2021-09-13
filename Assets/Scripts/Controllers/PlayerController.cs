@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlayerController : CharController
 {
@@ -9,6 +10,8 @@ public class PlayerController : CharController
     void Awake()
     {
         instance = this;
+        
+        
     }
 
     #endregion
@@ -18,29 +21,33 @@ public class PlayerController : CharController
     
     private LayerMask NPCMask;
     private int maxMana = 10;
-    [SerializeField]public int currentMana;
+    //public int currentMana;
     private IInteractable interactable;
-    [SerializeField]public int currentLevel;
+    public bool saved;
 
     protected new void Start()
     {
-        currentLevel = 0;
-        UIManager.FinalRoomScore = currentLevel;
 
-        NPCMask = LayerMask.GetMask("NPC");
-        name = "Player";
-        maxHealth = 15;
-        base.Start();
-        healthBar.SetMaxHealth(maxHealth);
-        currentMana = maxMana;
-        manaBar.SetMaxMana(maxMana);
+
+            NPCMask = LayerMask.GetMask("NPC");
+            name = "Player";
+            maxHealth = 15;
+            base.Start();
+            healthBar.SetMaxHealth(maxHealth);
+            PlayerManager.instance.currentMana = maxMana;
+            manaBar.SetMaxMana(maxMana);
+            Debug.Log("REGULAR PLAYER STATS");
+
+       
+        Debug.Log("CONTINUE AFTER EXCEPTION THROW?");
+
     }
 
     protected new void Update()
     {
 
         healthBar.SetHealth(currentHealth);
-        manaBar.SetMana(currentMana);
+        manaBar.SetMana(PlayerManager.instance.currentMana);
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
@@ -130,8 +137,8 @@ public class PlayerController : CharController
 
     public int CurrentMana
     {
-        get => currentMana;
-        set => currentMana = value;
+        get => PlayerManager.instance.currentMana;
+        set => PlayerManager.instance.currentMana = value;
     }
 
     public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)

@@ -369,6 +369,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4990206584278086228, guid: e92dd68d458de4a03979d75296deb9dc,
+        type: 3}
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySavedGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6520850160681553567, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6520850161333593548, guid: 218baa70fed094b6a84f33630affaf2b,
         type: 3}
       propertyPath: m_RootOrder

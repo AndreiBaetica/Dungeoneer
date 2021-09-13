@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void SavePlayer(PlayerController player)
+    public static void SavePlayer(PlayerManager player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.dung";
@@ -15,7 +15,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static PlayerSaveData loadPlayer()
+    public static PlayerSaveData LoadPlayer()
     {
         string path = Application.persistentDataPath + "/player.dung";
         if (File.Exists(path))
@@ -25,6 +25,8 @@ public static class SaveSystem
 
             PlayerSaveData data = formatter.Deserialize(stream) as PlayerSaveData;
             stream.Close();
+            Debug.Log("Player controller save system data variable = data pos x,y,z:"+data.position
+                      +" currenthealth:"+data.health+" mana:"+data.mana);
             return data;
         }
         else
