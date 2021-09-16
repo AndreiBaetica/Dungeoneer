@@ -55,7 +55,7 @@ public class PlayerController : CharController
             healthBar.SetMaxHealth(maxHealth);
             manaBar.SetMaxMana(maxMana);
             var position = PlayerSaveData.ApplyPlayerSavedData(this, data);
-            _startPosition = position;
+            transform.position = position;
             /*PlayerController.instance.currentLevel = data.level;
             currentLevel = data.level;
             PlayerController.instance.CurrentHealth = data.health;

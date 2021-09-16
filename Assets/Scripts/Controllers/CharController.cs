@@ -25,7 +25,7 @@ public class CharController : MonoBehaviour
     }
 
     private Vector3 _targetPosition;
-    protected Vector3 _startPosition;
+    private Vector3 _startPosition;
     
     //can be used to hit multiple grid squares
     private Vector3 meleeAttackShape = new Vector3(0.4f, 0.4f, 0.4f);
