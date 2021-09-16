@@ -8,9 +8,6 @@ public class CharController : MonoBehaviour
     protected new String name = "Character";
     public bool doneTurn;
     private const float Speed = 10f;
-    protected int maxHealth = 100;
-    [SerializeField]public int currentHealth;
-    [SerializeField] private GameObject damageIndicator;
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
@@ -28,7 +25,7 @@ public class CharController : MonoBehaviour
     }
 
     private Vector3 _targetPosition;
-    private Vector3 _startPosition;
+    protected Vector3 _startPosition;
     
     //can be used to hit multiple grid squares
     private Vector3 meleeAttackShape = new Vector3(0.4f, 0.4f, 0.4f);
@@ -43,7 +40,6 @@ public class CharController : MonoBehaviour
     protected void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -198,25 +194,19 @@ public class CharController : MonoBehaviour
             {
                 //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
                 //target.GetComponent<Rigidbody>().detectCollisions = false;
-                target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
+                if (target.GetComponentInParent<EnemyController>())
+                {
+                    target.GetComponentInParent<EnemyController>().TakeDamage(actualMeleeDamage);
+                }else if (target.GetComponentInParent<PlayerController>())
+                {
+                    target.GetComponentInParent<PlayerController>().TakeDamage(actualMeleeDamage);
+                }
             }
             animator.SetTrigger("attack");
             attackUnsuccessful = false;
         }
 
         return attackUnsuccessful;
-    }
-
-    private void TakeDamage(int damage)
-    {
-        //TODO: play hurt animation
-        currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
     protected virtual void Die()
@@ -232,15 +222,7 @@ public class CharController : MonoBehaviour
         
     }
     
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
-    }
 
-    public int CurrentHealth
-    {
-        get => currentHealth;
-        set => currentHealth = value;
-    }
+
+
 }

@@ -11,6 +11,10 @@ public class EnemyController : CharController
     private Transform target;
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
+    protected int maxHealth = 100;
+    public int currentHealth;
+    [SerializeField] private GameObject damageIndicator;
+
 
     private enum BehaviourState
     {
@@ -22,6 +26,7 @@ public class EnemyController : CharController
     // Start is called before the first frame update
     protected new void Start()
     {
+        currentHealth = maxHealth;
         PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position
@@ -152,6 +157,28 @@ public class EnemyController : CharController
         }
 
         return bestMovement;
+    }
+    public void TakeDamage(int damage)
+    {
+        //TODO: play hurt animation
+        currentHealth -= damage;
+        DamageIndicator.Create(transform.position, damage, damageIndicator);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
     }
 
 }

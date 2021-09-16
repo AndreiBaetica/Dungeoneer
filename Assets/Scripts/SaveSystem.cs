@@ -4,13 +4,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class SaveSystem
 {
-    public static void SavePlayer(PlayerManager player)
+    public static void SavePlayer(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/player.dung";
         FileStream stream = new FileStream(path, FileMode.Create);
         PlayerSaveData data = new PlayerSaveData(player);
-        
+        Debug.Log("SAVE SYSTEM DATA SAVED = data pos x:"+data.position[0]+" y:" 
+                  +data.position[1]+" z:"+data.position[2] +" currenthealth:"+data.health+" mana:"+data.mana);
         formatter.Serialize(stream, data);
         stream.Close();
     }

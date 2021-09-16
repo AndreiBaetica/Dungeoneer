@@ -18,25 +18,87 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    
+    protected int maxHealth = 100; 
+    public int currentHealth;
+    public int currentLevel;
     private LayerMask NPCMask;
     private int maxMana = 10;
-    //public int currentMana;
+    public int currentMana;
     private IInteractable interactable;
+    [SerializeField] private GameObject damageIndicator;
     public bool saved;
+
 
     protected new void Start()
     {
 
+        //try
+        // {
+        saved = GameStartManager.PlayingSavedGame;
+        Debug.Log("SAVED IS "+saved);
+
+        if (saved)
+        { 
+            Debug.Log("SAVED IS TRUE!!!!!!!@@@@@@@@@");
+
+            PlayerSaveData data = SaveSystem.LoadPlayer();
+            Debug.Log("SAVE FOUND!@@@@@@@@@@@@@@");
+
+            Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
+                      +data.position[1]+" z:"+data.position[2]
+                      +" currenthealth:"+data.health+" mana:"+data.mana);
+            NPCMask = LayerMask.GetMask("NPC");
+            name = "Player";
+            maxHealth = 15;
+            currentLevel = 0;
+            base.Start();
+            healthBar.SetMaxHealth(maxHealth);
+            manaBar.SetMaxMana(maxMana);
+            var position = PlayerSaveData.ApplyPlayerSavedData(this, data);
+            _startPosition = position;
+            /*PlayerController.instance.currentLevel = data.level;
+            currentLevel = data.level;
+            PlayerController.instance.CurrentHealth = data.health;
+            currentHealth = data.health;
+            PlayerController.instance.CurrentMana = data.mana;
+            currentMana = data.mana;
+            float[] position = new float[3];
+            var playerPos = transform.position;
+            playerPos.x = data.position[0];
+            playerPos.y = data.position[1];
+            playerPos.z = data.position[2];*/
+
+            //data.ApplyPlayerSavedData(this);
+        }
+        else
+        {
+            Debug.Log("SAVED IS FALSE!!!!!!!@@@@@@@@@");
+            currentLevel = 0;
 
             NPCMask = LayerMask.GetMask("NPC");
             name = "Player";
             maxHealth = 15;
+            currentLevel = 0;
             base.Start();
             healthBar.SetMaxHealth(maxHealth);
-            PlayerManager.instance.currentMana = maxMana;
+            currentMana = maxMana;
+            currentHealth = maxHealth;
             manaBar.SetMaxMana(maxMana);
             Debug.Log("REGULAR PLAYER STATS");
+        }
+
+        //   }
+        /* catch (Exception e)
+         {
+             Debug.Log("SAVE NOT FOUND!!!!!!!@@@@@@@@@EXCEPTION");
+             System.Console.WriteLine(e);
+             currentLevel = 0;
+ 
+             Debug.Log("REGULAR PLAYER STATS");
+             throw;
+         }*/
+
+
 
        
         Debug.Log("CONTINUE AFTER EXCEPTION THROW?");
@@ -47,7 +109,7 @@ public class PlayerController : CharController
     {
 
         healthBar.SetHealth(currentHealth);
-        manaBar.SetMana(PlayerManager.instance.currentMana);
+        manaBar.SetMana(currentMana);
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
@@ -137,8 +199,31 @@ public class PlayerController : CharController
 
     public int CurrentMana
     {
-        get => PlayerManager.instance.currentMana;
-        set => PlayerManager.instance.currentMana = value;
+        get => currentMana;
+        set => currentMana = value;
+    }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        //TODO: play hurt animation
+        currentHealth -= damage;
+        DamageIndicator.Create(transform.position, damage, damageIndicator);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)

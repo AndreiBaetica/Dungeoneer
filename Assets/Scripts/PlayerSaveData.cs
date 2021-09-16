@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 [System.Serializable]
 public class PlayerSaveData
 {
@@ -10,11 +12,11 @@ public class PlayerSaveData
 
     public float[] position;
     
-    public PlayerSaveData(PlayerManager player)
+    public PlayerSaveData(PlayerController player)
     {
         level = player.currentLevel;
-        health = player.currentHealth;
-        mana = player.currentMana;
+        health = player.CurrentHealth;
+        mana = player.CurrentMana;
         position = new float[3];
         var playerPos = player.transform.position;
         position[0] = playerPos.x;
@@ -22,16 +24,13 @@ public class PlayerSaveData
         position[2] = playerPos.z;
     }
 
-    public void ApplyPlayerSavedData(PlayerManager player)
+    public static Vector3 ApplyPlayerSavedData(PlayerController player, PlayerSaveData data)
     {
-        player.currentLevel = this.level;
-        player.currentHealth = health;
-        player.currentMana = mana;
-        position = new float[3];
-        var playerPos = player.transform.position;
-        playerPos.x = position[0];
-        playerPos.y = position[1];
-        playerPos.z = position[2];
+        player.currentLevel = data.level;
+        player.currentHealth = data.health;
+        player.currentMana = data.mana;
+        var position = new Vector3(data.position[0],data.position[1],data.position[2]);
+        return position;
     }
 
 }

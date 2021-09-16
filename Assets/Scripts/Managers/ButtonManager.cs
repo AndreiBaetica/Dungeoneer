@@ -49,11 +49,11 @@ namespace Managers
         public void SaveGame(GameObject savedGameIndicator)
         {
 
-            PlayerController.instance.saved = true;
-            SaveSystem.SavePlayer(PlayerManager.instance);
-            Debug.Log("Player controller data pos x:"+PlayerController.instance.transform.position.x+" y:"
-                      +PlayerController.instance.transform.position.y+" z:"+PlayerController.instance.transform.position.z
-                      +" currenthealth:"+PlayerController.instance.currentHealth+" mana:"+PlayerManager.instance.currentMana);
+            //PlayerController.instance.saved = true;
+            SaveSystem.SavePlayer(PlayerController.instance);
+            //Debug.Log("Player controller data pos x:"+PlayerController.instance.transform.position.x+" y:"
+           //           +PlayerController.instance.transform.position.y+" z:"+PlayerController.instance.transform.position.z
+            //          +" currenthealth:"+PlayerController.instance.currentHealth+" mana:"+PlayerManager.instance.currentMana);
 
             SavedGameIndicator.Create(transform.position, savedGameIndicator);
 

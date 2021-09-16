@@ -22,12 +22,11 @@ public class PlayerManager : MonoBehaviour
 
 	public GameObject player;
     public static bool isTurn = true;
-	public int maxHealth = 100;
+	protected int maxHealth = 100;
     [SerializeField]public int currentHealth;
 	public int maxMana = 10;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;
-    public bool saved;
 
 
 	public HealthBar healthBar;
@@ -36,57 +35,16 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
          
-        try
-        {
-            saved = GameStartManager.PlayingSavedGame;
-            
-            if (saved)
-            { 
-                Debug.Log("SAVED IS TRUE!!!!!!!@@@@@@@@@");
-
-                PlayerSaveData data = SaveSystem.LoadPlayer();
-                Debug.Log("SAVE FOUND!@@@@@@@@@@@@@@");
-
-                Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
-                          +data.position[1]+" z:"+data.position[2]
-                          +" currenthealth:"+data.health+" mana:"+data.mana);
-                currentLevel = data.level;
-                currentHealth = data.health;
-                currentMana = data.mana;
-                float[] position = new float[3];
-                var playerPos = transform.position;
-                playerPos.x = data.position[0];
-                playerPos.y = data.position[1];
-                playerPos.z = data.position[2];
-
-                //data.ApplyPlayerSavedData(this);
-            }
-            else
-            {
-                Debug.Log("SAVED IS FALSE!!!!!!!@@@@@@@@@");
-
-            }
-
-        }
-        catch (Exception e)
-        {
-            Debug.Log("SAVE NOT FOUND!!!!!!!@@@@@@@@@EXCEPTION");
-            System.Console.WriteLine(e);
-            Debug.Log("REGULAR PLAYER STATS");
-            throw;
-        }
-
        
         Debug.Log("CONTINUE AFTER EXCEPTION THROW?");
-        
-        
-        
+
+
         
         UIManager.FinalRoomScore = currentLevel;
 
         //currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        //currentMana = maxMana;
+       // currentMana = maxMana;
         manaBar.SetMaxMana(maxMana);
     }
 
@@ -118,7 +76,6 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        //DamageIndicator.Create(transform.position, damage, damageIndicator);
     }
 
     void Heal(int heal)
