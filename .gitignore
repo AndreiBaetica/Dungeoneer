@@ -48,3 +48,4 @@ Corridor/Library/metadata/
 # Ignore .idea files
 .idea/
 Tests.csproj
+*.csproj
