@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 public class PlayerController : CharController
 {
@@ -10,8 +9,6 @@ public class PlayerController : CharController
     void Awake()
     {
         instance = this;
-        
-        
     }
 
     #endregion
@@ -19,30 +16,23 @@ public class PlayerController : CharController
     public HealthBar healthBar;
     public ManaBar manaBar;
     protected int maxHealth = 100; 
-    public int currentHealth;
-    public int currentLevel;
+    [SerializeField]public int currentMana;
+    [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
     private int maxMana = 10;
-    public int currentMana;
     private IInteractable interactable;
-    [SerializeField] private GameObject damageIndicator;
     public bool saved;
 
 
     protected new void Start()
     {
-
-        //try
-        // {
         saved = GameStartManager.PlayingSavedGame;
         Debug.Log("SAVED IS "+saved);
 
         if (saved)
         { 
-            Debug.Log("SAVED IS TRUE!!!!!!!@@@@@@@@@");
 
             PlayerSaveData data = SaveSystem.LoadPlayer();
-            Debug.Log("SAVE FOUND!@@@@@@@@@@@@@@");
 
             Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
                       +data.position[1]+" z:"+data.position[2]
@@ -54,25 +44,10 @@ public class PlayerController : CharController
             base.Start();
             healthBar.SetMaxHealth(maxHealth);
             manaBar.SetMaxMana(maxMana);
-            var position = PlayerSaveData.ApplyPlayerSavedData(this, data);
-            transform.position = position;
-            /*PlayerController.instance.currentLevel = data.level;
-            currentLevel = data.level;
-            PlayerController.instance.CurrentHealth = data.health;
-            currentHealth = data.health;
-            PlayerController.instance.CurrentMana = data.mana;
-            currentMana = data.mana;
-            float[] position = new float[3];
-            var playerPos = transform.position;
-            playerPos.x = data.position[0];
-            playerPos.y = data.position[1];
-            playerPos.z = data.position[2];*/
-
-            //data.ApplyPlayerSavedData(this);
+            PlayerSaveData.ApplyPlayerSavedData(this, data);
         }
         else
         {
-            Debug.Log("SAVED IS FALSE!!!!!!!@@@@@@@@@");
             currentLevel = 0;
 
             NPCMask = LayerMask.GetMask("NPC");
@@ -81,28 +56,11 @@ public class PlayerController : CharController
             currentLevel = 0;
             base.Start();
             healthBar.SetMaxHealth(maxHealth);
+            manaBar.SetMaxMana(maxMana);
             currentMana = maxMana;
             currentHealth = maxHealth;
-            manaBar.SetMaxMana(maxMana);
             Debug.Log("REGULAR PLAYER STATS");
         }
-
-        //   }
-        /* catch (Exception e)
-         {
-             Debug.Log("SAVE NOT FOUND!!!!!!!@@@@@@@@@EXCEPTION");
-             System.Console.WriteLine(e);
-             currentLevel = 0;
- 
-             Debug.Log("REGULAR PLAYER STATS");
-             throw;
-         }*/
-
-
-
-       
-        Debug.Log("CONTINUE AFTER EXCEPTION THROW?");
-
     }
 
     protected new void Update()
@@ -119,6 +77,10 @@ public class PlayerController : CharController
             {
                 GameLoopManager.SetPlayerTurn(false);
             }
+        }
+        if (currentHealth <= 0)
+        {
+            Die();
         }
     }
     
@@ -191,6 +153,17 @@ public class PlayerController : CharController
         UIManager.EndGame();
     }
     
+    public int CurrentLevel
+    {
+        get => currentLevel;
+        set => currentLevel = value;
+    }
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+    
     public int MaxMana
     {
         get => maxMana;
@@ -202,30 +175,19 @@ public class PlayerController : CharController
         get => currentMana;
         set => currentMana = value;
     }
-    
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
-    }
-    public int CurrentHealth
-    {
-        get => currentHealth;
-        set => currentHealth = value;
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        //TODO: play hurt animation
-        currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+    void SpendMana(int mana)
+    {
+        currentMana -= mana;
+        manaBar.SetMana(currentMana);
     }
 
+    void RegenMana(int mana)
+    {
+        currentMana += mana;
+        manaBar.SetMana(currentMana);
+    }
+    
     public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)
     {
         // Add attack card action on actual game here (ROSS)

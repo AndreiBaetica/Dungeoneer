@@ -14,6 +14,8 @@ public class CharController : MonoBehaviour
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     protected bool moving;
+    [SerializeField]public int currentHealth;
+    [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
 
     protected enum CharacterDir
@@ -221,8 +223,17 @@ public class CharController : MonoBehaviour
         Debug.Log(name + " has died.");
         
     }
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
     
-
-
-
+    private void TakeDamage(int damage)
+    {
+        //TODO: play hurt animation
+        currentHealth -= damage;
+        DamageIndicator.Create(transform.position, damage, damageIndicator);
+    }
+    
 }

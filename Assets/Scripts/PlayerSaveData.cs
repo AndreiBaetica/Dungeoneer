@@ -14,7 +14,7 @@ public class PlayerSaveData
     
     public PlayerSaveData(PlayerController player)
     {
-        level = player.currentLevel;
+        level = player.CurrentLevel;
         health = player.CurrentHealth;
         mana = player.CurrentMana;
         position = new float[3];
@@ -24,13 +24,13 @@ public class PlayerSaveData
         position[2] = playerPos.z;
     }
 
-    public static Vector3 ApplyPlayerSavedData(PlayerController player, PlayerSaveData data)
+    public static void ApplyPlayerSavedData(PlayerController player, PlayerSaveData data)
     {
         player.currentLevel = data.level;
         player.currentHealth = data.health;
         player.currentMana = data.mana;
         var position = new Vector3(data.position[0],data.position[1],data.position[2]);
-        return position;
+        player.transform.position = position;
     }
 
 }

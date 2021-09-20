@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 public class EnemyController : CharController
 {
@@ -12,9 +7,6 @@ public class EnemyController : CharController
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
     protected int maxHealth = 100;
-    public int currentHealth;
-    [SerializeField] private GameObject damageIndicator;
-
 
     private enum BehaviourState
     {
@@ -39,6 +31,11 @@ public class EnemyController : CharController
         if (!GameLoopManager.GetPlayerTurn() && !doneTurn)
         {
             doneTurn = !Action();
+        }
+        
+        if (currentHealth <= 0)
+        {
+            Die();
         }
     }
     public override bool Action()
@@ -158,27 +155,10 @@ public class EnemyController : CharController
 
         return bestMovement;
     }
-    public void TakeDamage(int damage)
-    {
-        //TODO: play hurt animation
-        currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-    
     public int MaxHealth
     {
         get => maxHealth;
         set => maxHealth = value;
     }
-    public int CurrentHealth
-    {
-        get => currentHealth;
-        set => currentHealth = value;
-    }
-
 }
