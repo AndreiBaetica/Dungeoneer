@@ -6,7 +6,6 @@ public class EnemyController : CharController
     private Transform target;
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
-    protected int maxHealth = 100;
 
     private enum BehaviourState
     {
@@ -154,11 +153,5 @@ public class EnemyController : CharController
         }
 
         return bestMovement;
-    }
-
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
     }
 }

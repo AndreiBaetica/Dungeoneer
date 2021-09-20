@@ -15,7 +15,6 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    protected int maxHealth = 100; 
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
@@ -157,11 +156,6 @@ public class PlayerController : CharController
     {
         get => currentLevel;
         set => currentLevel = value;
-    }
-    public int MaxHealth
-    {
-        get => maxHealth;
-        set => maxHealth = value;
     }
     
     public int MaxMana

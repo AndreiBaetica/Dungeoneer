@@ -14,6 +14,7 @@ public class CharController : MonoBehaviour
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     protected bool moving;
+    protected int maxHealth;
     [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
@@ -227,6 +228,12 @@ public class CharController : MonoBehaviour
     {
         get => currentHealth;
         set => currentHealth = value;
+    }
+    
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
     }
     
     private void TakeDamage(int damage)

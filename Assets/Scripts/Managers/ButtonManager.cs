@@ -28,10 +28,9 @@ namespace Managers
         }
         
 
-        public void SaveGame(GameObject savedGameIndicator)
+        public void SaveGame()
         {
             SaveSystem.SavePlayer(PlayerController.instance);
-            SavedGameIndicator.Create(transform.position, savedGameIndicator);
         }
     }
 }
