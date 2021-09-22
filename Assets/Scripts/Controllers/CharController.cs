@@ -195,15 +195,7 @@ public class CharController : MonoBehaviour
             //deal damage
             foreach (Collider target in targetsHit)
             {
-                //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
-                //target.GetComponent<Rigidbody>().detectCollisions = false;
-                if (target.GetComponentInParent<EnemyController>())
-                {
-                    target.GetComponentInParent<EnemyController>().TakeDamage(actualMeleeDamage);
-                }else if (target.GetComponentInParent<PlayerController>())
-                {
-                    target.GetComponentInParent<PlayerController>().TakeDamage(actualMeleeDamage);
-                }
+                target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
             }
             animator.SetTrigger("attack");
             attackUnsuccessful = false;
@@ -241,6 +233,11 @@ public class CharController : MonoBehaviour
         //TODO: play hurt animation
         currentHealth -= damage;
         DamageIndicator.Create(transform.position, damage, damageIndicator);
+                
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
     
 }

@@ -6,6 +6,7 @@ namespace Managers
     public class ButtonManager : MonoBehaviour {
         public void RestartGame()
         {
+            GameStartManager.PlayingSavedGame = false;
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
         }

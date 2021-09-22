@@ -17,7 +17,8 @@ public class EnemyController : CharController
     // Start is called before the first frame update
     protected new void Start()
     {
-        currentHealth = maxHealth;
+        MaxHealth = 15;
+        CurrentHealth = MaxHealth;
         PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position
@@ -30,11 +31,6 @@ public class EnemyController : CharController
         if (!GameLoopManager.GetPlayerTurn() && !doneTurn)
         {
             doneTurn = !Action();
-        }
-        
-        if (currentHealth <= 0)
-        {
-            Die();
         }
     }
     public override bool Action()

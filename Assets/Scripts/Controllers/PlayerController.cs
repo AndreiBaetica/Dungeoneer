@@ -15,10 +15,10 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
+    private int maxMana;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
-    private int maxMana = 10;
     private IInteractable interactable;
     public bool saved;
 
@@ -27,37 +27,27 @@ public class PlayerController : CharController
     {
         saved = GameStartManager.PlayingSavedGame;
         Debug.Log("SAVED IS "+saved);
-
+        NPCMask = LayerMask.GetMask("NPC");
+        name = "Player";
+        MaxHealth = 15;
+        MaxMana = 10;
+        CurrentLevel = 0;
+        base.Start();
+        healthBar.SetMaxHealth(MaxHealth);
+        manaBar.SetMaxMana(MaxMana);
         if (saved)
-        { 
-
+        {
             PlayerSaveData data = SaveSystem.LoadPlayer();
 
             Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
                       +data.position[1]+" z:"+data.position[2]
                       +" currenthealth:"+data.health+" mana:"+data.mana);
-            NPCMask = LayerMask.GetMask("NPC");
-            name = "Player";
-            maxHealth = 15;
-            currentLevel = 0;
-            base.Start();
-            healthBar.SetMaxHealth(maxHealth);
-            manaBar.SetMaxMana(maxMana);
             PlayerSaveData.ApplyPlayerSavedData(this, data);
         }
         else
         {
-            currentLevel = 0;
-
-            NPCMask = LayerMask.GetMask("NPC");
-            name = "Player";
-            maxHealth = 15;
-            currentLevel = 0;
-            base.Start();
-            healthBar.SetMaxHealth(maxHealth);
-            manaBar.SetMaxMana(maxMana);
-            currentMana = maxMana;
-            currentHealth = maxHealth;
+            CurrentMana = MaxMana;
+            CurrentHealth = MaxHealth;
             Debug.Log("REGULAR PLAYER STATS");
         }
     }
@@ -76,10 +66,6 @@ public class PlayerController : CharController
             {
                 GameLoopManager.SetPlayerTurn(false);
             }
-        }
-        if (currentHealth <= 0)
-        {
-            Die();
         }
     }
     

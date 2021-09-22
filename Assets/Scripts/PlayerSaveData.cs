@@ -27,8 +27,8 @@ public class PlayerSaveData
     public static void ApplyPlayerSavedData(PlayerController player, PlayerSaveData data)
     {
         player.currentLevel = data.level;
-        player.currentHealth = data.health;
-        player.currentMana = data.mana;
+        player.CurrentHealth = data.health;
+        player.CurrentMana = data.mana;
         var position = new Vector3(data.position[0],data.position[1],data.position[2]);
         player.transform.position = position;
     }
