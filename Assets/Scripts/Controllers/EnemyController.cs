@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine;
 
 public class EnemyController : CharController
 {
@@ -22,6 +17,8 @@ public class EnemyController : CharController
     // Start is called before the first frame update
     protected new void Start()
     {
+        MaxHealth = 15;
+        CurrentHealth = MaxHealth;
         PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position
@@ -153,5 +150,4 @@ public class EnemyController : CharController
 
         return bestMovement;
     }
-
 }

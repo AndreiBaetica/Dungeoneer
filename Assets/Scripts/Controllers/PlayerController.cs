@@ -15,23 +15,41 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    
+    private int maxMana;
+    [SerializeField]public int currentMana;
+    [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
-    private int maxMana = 10;
-    private int currentMana;
     private IInteractable interactable;
+    public bool saved;
+
 
     protected new void Start()
     {
-        UIManager.FinalRoomScore = 6;
-
+        saved = GameStartManager.PlayingSavedGame;
+        Debug.Log("SAVED IS "+saved);
         NPCMask = LayerMask.GetMask("NPC");
         name = "Player";
-        maxHealth = 15;
+        MaxHealth = 15;
+        MaxMana = 10;
+        CurrentLevel = 0;
         base.Start();
-        healthBar.SetMaxHealth(maxHealth);
-        currentMana = maxMana;
-        manaBar.SetMaxMana(maxMana);
+        healthBar.SetMaxHealth(MaxHealth);
+        manaBar.SetMaxMana(MaxMana);
+        if (saved)
+        {
+            PlayerSaveData data = SaveSystem.LoadPlayer();
+
+            Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
+                      +data.position[1]+" z:"+data.position[2]
+                      +" currenthealth:"+data.health+" mana:"+data.mana);
+            PlayerSaveData.ApplyPlayerSavedData(this, data);
+        }
+        else
+        {
+            CurrentMana = MaxMana;
+            CurrentHealth = MaxHealth;
+            Debug.Log("REGULAR PLAYER STATS");
+        }
     }
 
     protected new void Update()
@@ -120,6 +138,12 @@ public class PlayerController : CharController
         UIManager.EndGame();
     }
     
+    public int CurrentLevel
+    {
+        get => currentLevel;
+        set => currentLevel = value;
+    }
+    
     public int MaxMana
     {
         get => maxMana;
@@ -132,6 +156,18 @@ public class PlayerController : CharController
         set => currentMana = value;
     }
 
+    void SpendMana(int mana)
+    {
+        currentMana -= mana;
+        manaBar.SetMana(currentMana);
+    }
+
+    void RegenMana(int mana)
+    {
+        currentMana += mana;
+        manaBar.SetMana(currentMana);
+    }
+    
     public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)
     {
         // Add attack card action on actual game here (ROSS)

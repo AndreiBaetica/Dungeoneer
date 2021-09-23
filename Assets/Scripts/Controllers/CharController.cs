@@ -8,15 +8,15 @@ public class CharController : MonoBehaviour
     protected new String name = "Character";
     public bool doneTurn;
     private const float Speed = 10f;
-    protected int maxHealth = 100;
-    protected int currentHealth;
-    [SerializeField] private GameObject damageIndicator;
     //player is 1 unit thick, so a raylength from the middle will stick out 0.9 units.
     private float rayLength = 1.4f;
     private float rayOffsetX = 0.4f;
     private float rayOffsetY = 0.4f;
     private float rayOffsetZ = 0.4f;
     protected bool moving;
+    protected int maxHealth;
+    [SerializeField]public int currentHealth;
+    [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
 
     protected enum CharacterDir
@@ -43,7 +43,6 @@ public class CharController : MonoBehaviour
     protected void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -196,8 +195,6 @@ public class CharController : MonoBehaviour
             //deal damage
             foreach (Collider target in targetsHit)
             {
-                //target.GetComponent<CharController>().TakeDamage(actualMeleeDamage);
-                //target.GetComponent<Rigidbody>().detectCollisions = false;
                 target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
             }
             animator.SetTrigger("attack");
@@ -205,18 +202,6 @@ public class CharController : MonoBehaviour
         }
 
         return attackUnsuccessful;
-    }
-
-    private void TakeDamage(int damage)
-    {
-        //TODO: play hurt animation
-        currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
     }
 
     protected virtual void Die()
@@ -231,16 +216,28 @@ public class CharController : MonoBehaviour
         Debug.Log(name + " has died.");
         
     }
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set => currentHealth = value;
+    }
     
     public int MaxHealth
     {
         get => maxHealth;
         set => maxHealth = value;
     }
-
-    public int CurrentHealth
+    
+    private void TakeDamage(int damage)
     {
-        get => currentHealth;
-        set => currentHealth = value;
+        //TODO: play hurt animation
+        currentHealth -= damage;
+        DamageIndicator.Create(transform.position, damage, damageIndicator);
+                
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
+    
 }
