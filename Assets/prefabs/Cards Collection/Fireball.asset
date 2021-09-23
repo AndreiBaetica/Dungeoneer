@@ -19,7 +19,7 @@ MonoBehaviour:
   rarity: {fileID: 21300000, guid: e88f47608fd3e344aa5f1c5e147f5a4f, type: 3}
   type: {fileID: 21300000, guid: 2ab8e4a1631b3534ba47dea7b97c7994, type: 3}
   powerType: {fileID: 21300000, guid: a76ebe08972223c4c8c176cf213c5433, type: 3}
-  artwork: {fileID: 21300000, guid: 3e3ed0b0f7dfb5a47bbee082a2a42ab7, type: 3}
+  artwork: {fileID: 21300000, guid: 773b5fee7ce9bfb4399891bbbbfcb4de, type: 3}
   damage: 20
   distance: 0
   radius: 0

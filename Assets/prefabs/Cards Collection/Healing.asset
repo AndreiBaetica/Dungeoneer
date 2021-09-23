@@ -19,5 +19,5 @@ MonoBehaviour:
   rarity: {fileID: 21300000, guid: d50198986c9df1d429c08c3d7eb7127a, type: 3}
   type: {fileID: 21300000, guid: f7bf53563193b34419677e9bc6745555, type: 3}
   powerType: {fileID: 21300000, guid: ea9a50bd6b7629c44b0fb7a720d3814f, type: 3}
-  artwork: {fileID: 21300000, guid: b0c89f4cf5e517c438c0870a27a7fa44, type: 3}
+  artwork: {fileID: 21300000, guid: 73559729be665c241b9130f0dd1c5d73, type: 3}
   heal: 10
