@@ -4,15 +4,34 @@ namespace Managers
 {
 
     public class ButtonManager : MonoBehaviour {
-        int n;
-        public void OnButtonPress(){
-            n++;
-            Debug.Log("Button clicked " + n + " times.");
-        }
         public void RestartGame()
         {
+            GameStartManager.PlayingSavedGame = false;
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
+        }
+
+        public void ExitGame()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        public void PlayNewGame()
+        {
+            GameStartManager.PlayingSavedGame = false;
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        public void PlaySavedGame()
+        {
+            SceneManager.LoadScene("SampleScene");
+            GameStartManager.PlayingSavedGame = true;
+        }
+        
+
+        public void SaveGame()
+        {
+            SaveSystem.SavePlayer(PlayerController.instance);
         }
     }
 }
