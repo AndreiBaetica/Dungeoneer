@@ -2,19 +2,19 @@
 # Unity generated #
 # =============== #
 [Tt]emp/
-[Oo]bj/
-[Bb]uild
-/[Bb]uilds/
-##/[Ll]ibrary/
-/[Ll]ogs/
-sysinfo.txt
-*.stackdump
-/Assets/AssetStoreTools*
-*.apk
-*.unitypackage
-*.cache
-Assembly-CSharp.csproj
-obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+#[Oo]bj/
+#[Bb]uild
+#/[Bb]uilds/
+#/[Ll]ibrary/
+#/[Ll]ogs/
+#sysinfo.txt
+#*.stackdump
+#/Assets/AssetStoreTools*
+#*.apk
+#*.unitypackage
+#*.cache
+#Assembly-CSharp.csproj
+#obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
 
 # Unity3D generated meta files
 *.pidb.meta
