@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -68,17 +69,49 @@ public class PlayerController : CharController
             }
         }
     }
-    
+    IEnumerator Wait(System.Action<bool> callback)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+        yield return true;
+        //bool isFree = Move(Vector3.forward);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        callback(Move(Vector3.forward));
+    }
     public override bool Action()
     {
         bool isFree = true;
         //movement
         if (UIManager.IsFrozen() == false)
         {
-            if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
-            if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
-            if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
-            if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
+            if (Input.GetKeyDown("w"))
+            {
+                //isFree = Move(Vector3.forward);
+                StartCoroutine(Wait((returnValue)=>
+                {
+                    isFree = returnValue;
+                }));
+            }
+
+            if (Input.GetKeyDown("a"))
+            {
+                isFree = Move(Vector3.left);
+            }
+
+            if (Input.GetKeyDown("s"))
+            {
+                isFree = Move(Vector3.back);
+            }
+
+            if (Input.GetKeyDown("d"))
+            {
+                isFree = Move(Vector3.right);
+            }
             
             //attack
             if (Input.GetKeyDown("q"))
