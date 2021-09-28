@@ -66,7 +66,7 @@ public class EnemyController : CharController
                 else if ((target.position - transform.position) == Vector3.forward) Rotate(Vector3.forward);
                 else if ((target.position - transform.position) == Vector3.back) Rotate(Vector3.back);
                 
-                isFree = MeleeAttack(PlayerMask);
+                isFree = bool.Parse(MeleeAttack(PlayerMask)[0]);
             }
         }
 

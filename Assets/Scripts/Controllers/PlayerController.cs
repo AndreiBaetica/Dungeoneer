@@ -31,7 +31,7 @@ public class PlayerController : CharController
         Debug.Log("SAVED IS "+saved);
         NPCMask = LayerMask.GetMask("NPC");
         name = "Player";
-        MaxHealth = 15;
+        MaxHealth = 20;
         MaxMana = 10;
         CurrentLevel = 0;
         base.Start();
@@ -85,26 +85,41 @@ public class PlayerController : CharController
             //attack
             if (Input.GetKeyDown("q"))
             {
-                gold.IncrementGold(5);
-                isFree = MeleeAttack(NPCMask);
-
-                //if (GetComponent<EnemyController>().CurrentHealth <= 0)
-                //{
-                    Gold.CreateUpdate(transform.position, 5, goldIndicator);
-
-                //}
+                isFree = bool.Parse(MeleeAttack(NPCMask)[0]);
             }
-
-            if (Input.GetKeyDown("p"))
+            
+            //Test functions
+            if (Input.GetKeyDown("k"))
             {
                 gold.DecrementGold(5);
+                Gold.CreateUpdate(transform.position, 5, goldIndicator,false);
+            }
+            if (Input.GetKeyDown("j"))
+            {
+                gold.IncrementGold(5);
+                Gold.CreateUpdate(transform.position, 5, goldIndicator,true);
             }
         }
 
 
         return isFree;
     }
-    
+
+    protected override string[] MeleeAttack(LayerMask mask)
+    {
+        string[] inList = base.MeleeAttack(mask);
+        int enemyHealth = int.Parse(inList[1]);
+        if (enemyHealth <= 0)
+        {
+            gold.IncrementGold(5);
+            Gold.CreateUpdate(transform.position, 5, goldIndicator,true);
+
+        }
+        Debug.Log( " Enemy health:"+enemyHealth);
+
+        return inList;
+    }
+
     public void Heal(int heal)
     {
         currentHealth += heal;

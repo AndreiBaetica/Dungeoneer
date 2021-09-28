@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Object = UnityEngine.Object;
 
 //Name shortened to not conflict with Unity's default CharacterController
 public class CharController : MonoBehaviour
@@ -158,10 +159,11 @@ public class CharController : MonoBehaviour
     }
 
 
-    protected bool MeleeAttack(LayerMask mask)
+    protected virtual string[] MeleeAttack(LayerMask mask)
     {
         bool attackUnsuccessful = true;
-
+        CharController enemy;
+        string[] oList = new string[2];
         if (!moving)
         {
             Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
@@ -196,12 +198,15 @@ public class CharController : MonoBehaviour
             foreach (Collider target in targetsHit)
             {
                 target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
+                enemy = target.GetComponentInParent<CharController>();
+                oList[1] = enemy.CurrentHealth.ToString();
             }
             animator.SetTrigger("attack");
             attackUnsuccessful = false;
         }
+        oList[0] = attackUnsuccessful.ToString();
 
-        return attackUnsuccessful;
+        return oList;
     }
 
     protected virtual void Die()
