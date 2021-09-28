@@ -15,9 +15,11 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
+    public Gold gold;
     private int maxMana;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
+    [SerializeField] private GameObject goldIndicator;
     private LayerMask NPCMask;
     private IInteractable interactable;
     public bool saved;
@@ -83,7 +85,19 @@ public class PlayerController : CharController
             //attack
             if (Input.GetKeyDown("q"))
             {
+                gold.IncrementGold(5);
                 isFree = MeleeAttack(NPCMask);
+
+                //if (GetComponent<EnemyController>().CurrentHealth <= 0)
+                //{
+                    Gold.CreateUpdate(transform.position, 5, goldIndicator);
+
+                //}
+            }
+
+            if (Input.GetKeyDown("p"))
+            {
+                gold.DecrementGold(5);
             }
         }
 
