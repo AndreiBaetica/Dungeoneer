@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -92,12 +93,12 @@ public class PlayerController : CharController
             if (Input.GetKeyDown("k"))
             {
                 gold.DecrementGold(5);
-                Gold.CreateUpdate(transform.position, 5, goldIndicator,false);
+                Gold.CreateIndicator(transform.position, 5, goldIndicator,false);
             }
             if (Input.GetKeyDown("j"))
             {
                 gold.IncrementGold(5);
-                Gold.CreateUpdate(transform.position, 5, goldIndicator,true);
+                Gold.CreateIndicator(transform.position, 5, goldIndicator,true);
             }
         }
 
@@ -112,7 +113,7 @@ public class PlayerController : CharController
         if (enemyHealth <= 0)
         {
             gold.IncrementGold(5);
-            Gold.CreateUpdate(transform.position, 5, goldIndicator,true);
+            Gold.CreateIndicator(transform.position, 5, goldIndicator,true);
 
         }
         Debug.Log( " Enemy health:"+enemyHealth);

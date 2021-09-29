@@ -237,7 +237,7 @@ public class CharController : MonoBehaviour
     {
         //TODO: play hurt animation
         currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
+        DamageIndicator.CreateIndicator(transform.position, damage, damageIndicator);
                 
         if (currentHealth <= 0)
         {

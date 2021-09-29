@@ -34,7 +34,7 @@ public class Gold : MonoBehaviour
         goldText.text = "Gold: "+goldTotal;
     }
     
-    public static void CreateUpdate(Vector3 position, int amount, GameObject goldIndicatorPrefab, bool increment)
+    public static void CreateIndicator(Vector3 position, int amount, GameObject goldIndicatorPrefab, bool increment)
     {
         Vector3 moveUp = position;
         moveUp.y = 1.5f;
