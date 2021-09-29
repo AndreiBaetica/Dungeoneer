@@ -20,7 +20,6 @@ public class PlayerController : CharController
     private int maxMana;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
-    [SerializeField] private GameObject goldIndicator;
     private LayerMask NPCMask;
     private IInteractable interactable;
     public bool saved;
@@ -92,13 +91,11 @@ public class PlayerController : CharController
             //Test functions
             if (Input.GetKeyDown("k"))
             {
-                gold.DecrementGold(5);
-                Gold.CreateIndicator(transform.position, 5, goldIndicator,false);
+                gold.DecrementGold(5,transform.position);
             }
             if (Input.GetKeyDown("j"))
             {
-                gold.IncrementGold(5);
-                Gold.CreateIndicator(transform.position, 5, goldIndicator,true);
+                gold.IncrementGold(5,transform.position);
             }
         }
 
@@ -112,9 +109,7 @@ public class PlayerController : CharController
         int enemyHealth = int.Parse(inList[1]);
         if (enemyHealth <= 0)
         {
-            gold.IncrementGold(5);
-            Gold.CreateIndicator(transform.position, 5, goldIndicator,true);
-
+            gold.IncrementGold(5,transform.position);
         }
         Debug.Log( " Enemy health:"+enemyHealth);
 

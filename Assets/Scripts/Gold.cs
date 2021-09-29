@@ -8,24 +8,25 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Gold : MonoBehaviour
 {
+    [SerializeField] private GameObject goldIndicator;
     [SerializeField]private Text goldText;
     public static int gold = 0;
-
 
     protected void Start()
     {
         SetGoldText(0);
     }
-
-    public void IncrementGold(int amount)
+    public void IncrementGold(int amount, Vector3 position)
     {
         gold += amount;
+        CreateIndicator(position, 5, goldIndicator,true);
         SetGoldText(gold);
     }
     
-    public void DecrementGold(int amount)
+    public void DecrementGold(int amount, Vector3 position)
     {
         gold -= amount;
+        CreateIndicator(position, 5, goldIndicator,false);
         SetGoldText(gold);
     }
     
