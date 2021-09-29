@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;

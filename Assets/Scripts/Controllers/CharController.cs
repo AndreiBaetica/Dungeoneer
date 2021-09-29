@@ -19,6 +19,7 @@ public class CharController : MonoBehaviour
     [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
+    public Gold gold;
 
     protected enum CharacterDir
     {
@@ -159,11 +160,9 @@ public class CharController : MonoBehaviour
     }
 
 
-    protected virtual string[] MeleeAttack(LayerMask mask)
+    protected bool MeleeAttack(LayerMask mask)
     {
         bool attackUnsuccessful = true;
-        CharController enemy;
-        string[] oList = new string[2];
         if (!moving)
         {
             Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
@@ -198,19 +197,20 @@ public class CharController : MonoBehaviour
             foreach (Collider target in targetsHit)
             {
                 target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
-                enemy = target.GetComponentInParent<CharController>();
-                oList[1] = enemy.CurrentHealth.ToString();
             }
             animator.SetTrigger("attack");
             attackUnsuccessful = false;
         }
-        oList[0] = attackUnsuccessful.ToString();
 
-        return oList;
+        return attackUnsuccessful;
     }
 
     protected virtual void Die()
     {
+        if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
+        {
+            gold.IncrementGold(5,transform.position);
+        }
         //TODO: play death animation
         animator.SetBool("isDead", true);
         enabled = false;
@@ -218,6 +218,7 @@ public class CharController : MonoBehaviour
         rb.isKinematic = true;
         rb.detectCollisions = false;
         doneTurn = true;
+        
         Debug.Log(name + " has died.");
         
     }

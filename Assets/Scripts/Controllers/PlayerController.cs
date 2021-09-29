@@ -16,14 +16,12 @@ public class PlayerController : CharController
     
     public HealthBar healthBar;
     public ManaBar manaBar;
-    public Gold gold;
     private int maxMana;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
     private IInteractable interactable;
     public bool saved;
-
 
     protected new void Start()
     {
@@ -85,15 +83,15 @@ public class PlayerController : CharController
             //attack
             if (Input.GetKeyDown("q"))
             {
-                isFree = bool.Parse(MeleeAttack(NPCMask)[0]);
+                isFree = MeleeAttack(NPCMask);
             }
             
             //Test functions
-            if (Input.GetKeyDown("k"))
+            if (Input.GetKeyDown("j"))
             {
                 gold.DecrementGold(5,transform.position);
             }
-            if (Input.GetKeyDown("j"))
+            if (Input.GetKeyDown("k"))
             {
                 gold.IncrementGold(5,transform.position);
             }
@@ -101,19 +99,6 @@ public class PlayerController : CharController
 
 
         return isFree;
-    }
-
-    protected override string[] MeleeAttack(LayerMask mask)
-    {
-        string[] inList = base.MeleeAttack(mask);
-        int enemyHealth = int.Parse(inList[1]);
-        if (enemyHealth <= 0)
-        {
-            gold.IncrementGold(5,transform.position);
-        }
-        Debug.Log( " Enemy health:"+enemyHealth);
-
-        return inList;
     }
 
     public void Heal(int heal)
