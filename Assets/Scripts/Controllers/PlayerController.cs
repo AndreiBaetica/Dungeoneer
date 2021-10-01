@@ -1,4 +1,5 @@
 using UnityEditor;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -68,7 +69,7 @@ public class PlayerController : CharController
             }
         }
     }
-    
+
     public override bool Action()
     {
         bool isFree = true;
@@ -79,7 +80,6 @@ public class PlayerController : CharController
             if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
             if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
             if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
-            
             //attack
             if (Input.GetKeyDown("q"))
             {
@@ -94,6 +94,14 @@ public class PlayerController : CharController
             if (Input.GetKeyDown("k"))
             {
                 gold.IncrementGold(5,transform.position);
+
+            //rest
+            if (Input.GetKeyDown("r"))
+            {        
+                Debug.Log("Skipped turn and regained 5 mana!");
+                RegenMana(5); 
+                isFree = false;
+                doneTurn = true;
             }
         }
 
