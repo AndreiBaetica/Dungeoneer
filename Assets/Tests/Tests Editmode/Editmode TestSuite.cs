@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using NSubstitute;
+using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.UI;
 
 namespace Tests
 {
@@ -16,15 +18,29 @@ namespace Tests
             Assert.AreEqual("MyGameObject", go.name);
         }
         
-        // [Test]
-        // public void TestHPDrainAndIncrease() 
-        // {
-        //     var playerController = new GameObject().AddComponent<PlayerController>();
-        //     playerController.MaxHealth = 100;
-        //     playerController.CurrentHealth = 100;
-        //     playerController.enabled;
-        //     
-        // }
+        [Test]
+         public void TestHpDrainAndIncrease()
+         {
+             var pc = new GameObject();
+             pc.AddComponent<PlayerController>();
+
+             pc.GetComponent<PlayerController>().healthBar = pc.AddComponent<HealthBar>();
+             pc.GetComponent<PlayerController>().MaxHealth = 100;
+             pc.GetComponent<PlayerController>().CurrentHealth = 50;
+
+             
+             pc.GetComponent<HealthBar>().slider = pc.AddComponent<Slider>();
+             pc.GetComponent<HealthBar>().fill = pc.AddComponent<Image>();
+             pc.GetComponent<HealthBar>().gradient = new Gradient();
+             
+             pc.GetComponent<HealthBar>().SetMaxHealth(100);
+             pc.GetComponent<HealthBar>().SetHealth(50);
+             
+             
+             pc.GetComponent<PlayerController>().Heal(10);
+             
+             Assert.AreEqual(60, pc.GetComponent<PlayerController>().CurrentHealth);
+         }
         
         
         // A Test behaves as an ordinary method
