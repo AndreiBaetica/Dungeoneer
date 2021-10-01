@@ -18,6 +18,8 @@ namespace Tests
             Assert.AreEqual("MyGameObject", go.name);
         }
         
+        
+        //test
         [Test]
          public void TestHpDrainAndIncrease()
          {
