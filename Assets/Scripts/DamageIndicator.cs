@@ -5,7 +5,7 @@ using UnityEngine;
 public class DamageIndicator : MonoBehaviour
 {
 
-    public static void CreateIndicator(Vector3 position, int damage, GameObject damageIndicatorPrefab)
+    public static void Create(Vector3 position, int damage, GameObject damageIndicatorPrefab)
 {
 
             GameObject prefab = Instantiate(damageIndicatorPrefab, position, Quaternion.identity);
