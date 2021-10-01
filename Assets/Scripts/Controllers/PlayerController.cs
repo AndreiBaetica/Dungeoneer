@@ -96,7 +96,7 @@ public class PlayerController : CharController
                 gold.IncrementGold(5,transform.position);
             }
         }
-
+        //test
 
         return isFree;
     }
