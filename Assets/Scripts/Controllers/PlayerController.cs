@@ -1,3 +1,4 @@
+using UnityEditor;
 using System.Collections;
 using UnityEngine;
 
@@ -23,14 +24,13 @@ public class PlayerController : CharController
     private IInteractable interactable;
     public bool saved;
 
-
     protected new void Start()
     {
         saved = GameStartManager.PlayingSavedGame;
         Debug.Log("SAVED IS "+saved);
         NPCMask = LayerMask.GetMask("NPC");
         name = "Player";
-        MaxHealth = 15;
+        MaxHealth = 20;
         MaxMana = 10;
         CurrentLevel = 0;
         base.Start();
@@ -85,6 +85,16 @@ public class PlayerController : CharController
             {
                 isFree = MeleeAttack(NPCMask);
             }
+            
+            //Test functions
+            if (Input.GetKeyDown("j"))
+            {
+                gold.DecrementGold(5,transform.position);
+            }
+            if (Input.GetKeyDown("k"))
+            {
+                gold.IncrementGold(5,transform.position);
+
             //rest
             if (Input.GetKeyDown("r"))
             {        
@@ -98,7 +108,7 @@ public class PlayerController : CharController
 
         return isFree;
     }
-    
+
     public void Heal(int heal)
     {
         currentHealth += heal;

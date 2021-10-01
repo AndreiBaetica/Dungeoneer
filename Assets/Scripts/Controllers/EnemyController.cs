@@ -6,7 +6,7 @@ public class EnemyController : CharController
     private Transform target;
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
-
+    
     private enum BehaviourState
     {
         Idle,

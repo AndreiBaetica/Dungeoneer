@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Object = UnityEngine.Object;
 
 //Name shortened to not conflict with Unity's default CharacterController
 public class CharController : MonoBehaviour
@@ -18,6 +19,7 @@ public class CharController : MonoBehaviour
     [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
+    public Gold gold;
 
     protected enum CharacterDir
     {
@@ -161,7 +163,6 @@ public class CharController : MonoBehaviour
     protected bool MeleeAttack(LayerMask mask)
     {
         bool attackUnsuccessful = true;
-
         if (!moving)
         {
             Vector3 actualAttackShape = Vector3.Scale(meleeAttackShape, meleeAttackMultiplier);
@@ -206,6 +207,10 @@ public class CharController : MonoBehaviour
 
     protected virtual void Die()
     {
+        if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
+        {
+            gold.IncrementGold(5,transform.position);
+        }
         //TODO: play death animation
         animator.SetBool("isDead", true);
         enabled = false;
@@ -213,6 +218,7 @@ public class CharController : MonoBehaviour
         rb.isKinematic = true;
         rb.detectCollisions = false;
         doneTurn = true;
+        
         Debug.Log(name + " has died.");
         
     }
@@ -232,7 +238,7 @@ public class CharController : MonoBehaviour
     {
         //TODO: play hurt animation
         currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
+        DamageIndicator.CreateIndicator(transform.position, damage, damageIndicator);
                 
         if (currentHealth <= 0)
         {
