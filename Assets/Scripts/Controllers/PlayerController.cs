@@ -175,13 +175,13 @@ public class PlayerController : CharController
         set => currentMana = value;
     }
 
-    void SpendMana(int mana)
+    public void SpendMana(int mana)
     {
         currentMana -= mana;
         manaBar.SetMana(currentMana);
     }
 
-    void RegenMana(int mana)
+    public void RegenMana(int mana)
     {
         currentMana += mana;
         manaBar.SetMana(currentMana);

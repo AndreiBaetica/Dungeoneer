@@ -23,7 +23,11 @@ public class Bag : Item, IUsable
 
     public void Initialize(int slots)
     {
-        this.slots = slots;
+        if (slots >= 0)
+        {
+            this.slots = slots;
+        }
+        
     }
 
     //Equip the bag

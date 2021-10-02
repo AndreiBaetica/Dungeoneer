@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41cc79d5b664704848582c7230276d8, type: 3}
+  m_Name: Healing 1
+  m_EditorClassIdentifier: 
+  name: Healing 1
+  manaCost: 1
+  powerCost: 2
+  description: Healing 1
+  rarity: {fileID: 21300000, guid: e88f47608fd3e344aa5f1c5e147f5a4f, type: 3}
+  type: {fileID: 21300000, guid: f7bf53563193b34419677e9bc6745555, type: 3}
+  powerType: {fileID: 21300000, guid: ea9a50bd6b7629c44b0fb7a720d3814f, type: 3}
+  artwork: {fileID: 21300000, guid: 73559729be665c241b9130f0dd1c5d73, type: 3}
+  heal: 10

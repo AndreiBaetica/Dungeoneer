@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
     public CardSchema card;
-
+    
+    public int cardNumber;
     public Text nameText;
     public Text manaText;
     public Text powerText;
@@ -16,8 +17,19 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public Image artworkImage;
 
     // Start is called before the first frame update
-    void Start()
+    void Update()
     {
+        if (cardNumber == 1)
+        {
+            card = DeckScript.MyInstance.getCardOne();
+        } else if (cardNumber == 2)
+        {
+            card = DeckScript.MyInstance.getCardTwo();
+        } else if (cardNumber == 3)
+        {
+            card = DeckScript.MyInstance.getCardThree();
+        }
+        
         nameText.text = card.name;
         manaText.text = card.manaCost;
         powerText.text = card.powerCost;
@@ -32,6 +44,18 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     {
         card.Print();
         card.cardAction();
+        
+        //Replace card with one from deck
+        if (cardNumber == 1)
+        {
+            DeckScript.MyInstance.useCardOne();
+        } else if (cardNumber == 2)
+        {
+            DeckScript.MyInstance.useCardTwo();
+        } else if (cardNumber == 3)
+        {
+            DeckScript.MyInstance.useCardThree();
+        }
     }
     
 }
