@@ -16,7 +16,7 @@ public class TileMapTest : MonoBehaviour
  
     void Start ()
     {
-        tileMap = GameObject.Find("Tilemap").GetComponent("Tilemap") as Tilemap;
+        tileMap = GameObject.Find("Tilemap").GetComponent<Tilemap>() as Tilemap;
      
         for (int y = -10; y < blockTempDataMap.GetLength(0); y++)
         {
