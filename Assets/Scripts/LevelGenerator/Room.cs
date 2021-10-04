@@ -1,6 +1,5 @@
 ﻿
 using System;
-using NUnit.Compatibility;
 
 public class Room
 {
