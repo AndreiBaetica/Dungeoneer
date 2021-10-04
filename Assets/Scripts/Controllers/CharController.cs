@@ -18,6 +18,7 @@ public class CharController : MonoBehaviour
     [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
+    public Gold gold;
 
     protected enum CharacterDir
     {
@@ -206,7 +207,10 @@ public class CharController : MonoBehaviour
 
     protected virtual void Die()
     {
-        //TODO: play death animation
+        if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
+        {
+            gold.IncrementGold(5,transform.position);
+        }
         animator.SetBool("isDead", true);
         enabled = false;
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -232,7 +236,7 @@ public class CharController : MonoBehaviour
     {
         //TODO: play hurt animation
         currentHealth -= damage;
-        DamageIndicator.Create(transform.position, damage, damageIndicator);
+        DamageIndicator.CreateIndicator(transform.position, damage, damageIndicator);
                 
         if (currentHealth <= 0)
         {
