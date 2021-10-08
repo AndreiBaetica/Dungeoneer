@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 378174cb8f85fe940982ea3c82cdb86d
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Exports
+    100002: Molding1
+    100004: Molding1.001
+    100006: Molding1.002
+    100008: Molding1Corner
+    100010: Molding1End
+    100012: Molding1half
+    100014: Molding2
+    100016: Molding2Corner
+    100018: Molding2End
+    100020: Molding2half
+    100022: //RootNode
+    100024: TH1
+    100026: TH2
+    100028: TH3
+    100030: TH4
+    100032: Trim
+    100034: Trim Bakeables
+    400000: Exports
+    400002: Molding1
+    400004: Molding1.001
+    400006: Molding1.002
+    400008: Molding1Corner
+    400010: Molding1End
+    400012: Molding1half
+    400014: Molding2
+    400016: Molding2Corner
+    400018: Molding2End
+    400020: Molding2half
+    400022: //RootNode
+    400024: TH1
+    400026: TH2
+    400028: TH3
+    400030: TH4
+    400032: Trim
+    400034: Trim Bakeables
+    2300000: Molding1
+    2300002: Molding1.001
+    2300004: Molding1.002
+    2300006: Molding1Corner
+    2300008: Molding1End
+    2300010: Molding1half
+    2300012: Molding2
+    2300014: Molding2Corner
+    2300016: Molding2End
+    2300018: Molding2half
+    2300020: TH1
+    2300022: TH2
+    2300024: TH3
+    2300026: TH4
+    2300028: Trim
+    2300030: //RootNode
+    3300000: Molding1
+    3300002: Molding1.001
+    3300004: Molding1.002
+    3300006: Molding1Corner
+    3300008: Molding1End
+    3300010: Molding1half
+    3300012: Molding2
+    3300014: Molding2Corner
+    3300016: Molding2End
+    3300018: Molding2half
+    3300020: TH1
+    3300022: TH2
+    3300024: TH3
+    3300026: TH4
+    3300028: Trim
+    3300030: //RootNode
+    4300000: Molding1.002
+    4300002: Molding1.001
+    4300004: Molding2half
+    4300006: Molding1half
+    4300008: TH4
+    4300010: TH3
+    4300012: TH2
+    4300014: TH1
+    4300016: Trim
+    4300018: Molding2End
+    4300020: Molding1End
+    4300022: Molding2Corner
+    4300024: Molding1Corner
+    4300026: Molding1
+    4300028: Molding2
+    4300030: Molding_filler
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Molding
+    second: {fileID: 2100000, guid: aae88fedaba0b9e43a781fcf2958a285, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

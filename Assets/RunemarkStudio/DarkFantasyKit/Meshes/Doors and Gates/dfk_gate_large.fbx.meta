@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 2f78de5b4e9f79747851e642600b1e59
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Gate_02_Export
+    100002: Gate_02_Export.001
+    100004: //RootNode
+    100006: GateArch_large
+    100008: GateArch_small
+    100010: Portcullis
+    400000: Gate_02_Export
+    400002: Gate_02_Export.001
+    400004: //RootNode
+    400006: GateArch_large
+    400008: GateArch_small
+    400010: Portcullis
+    2300000: Gate_02_Export
+    2300002: Gate_02_Export.001
+    2300004: GateArch_large
+    2300006: GateArch_small
+    2300008: Portcullis
+    3300000: Gate_02_Export
+    3300002: Gate_02_Export.001
+    3300004: GateArch_large
+    3300006: GateArch_small
+    3300008: Portcullis
+    4300000: GateArch_large
+    4300002: GateArch_small
+    4300004: Gate_02_Export.001
+    4300006: Gate_02_Export
+    4300008: Portcullis
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GateWall_large
+    second: {fileID: 2100000, guid: 1246412f026156646ad6511fc9fb307c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gate_02
+    second: {fileID: 2100000, guid: 17bfe3270f6270e459c2240a9b84a28d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall_1b
+    second: {fileID: 2100000, guid: 037fa65b64e7b86459dfed4a79de48ec, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

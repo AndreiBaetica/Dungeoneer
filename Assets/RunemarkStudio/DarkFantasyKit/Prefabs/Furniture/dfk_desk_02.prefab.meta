@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: b9f4a9682ca0a4441a5cd19f4f2fa1bc
+labels:
+- Alchemy
+- Book
+- Bookshelf
+- Dark
+- Desk
+- Fantasy
+- Furniture
+- Interior
+- Library
+- Sage
+- Sagr
+- Study
+- Table
+- Wizard
+- Work
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 346875b28eddcd34a8248d26f4bfe1bf
+labels:
+- Castle
+- Dungeon
+- King
+- Noble
+- Palace
+- Temple
+- Window
+- Wood
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

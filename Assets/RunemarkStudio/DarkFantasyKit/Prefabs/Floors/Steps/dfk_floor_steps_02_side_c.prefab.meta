@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 338cb3d3bdac07349afe82ea736ec37e
+labels:
+- Architecture
+- Castle
+- Dark
+- Dungeon
+- Fantasy
+- Floor
+- Interior
+- Room
+- Temple
+- Tile
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

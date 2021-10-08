@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: b05fcf94d1757dd4da8b0dc9cd67a704
+labels:
+- Castle
+- Dark
+- Dinner
+- Fantasy
+- Food
+- Furniture
+- Inn
+- Interior
+- Library
+- Noble
+- Palace
+- Sage
+- Table
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 80b1f44bad247ce47af83d5bff5dd84d
+labels:
+- Architecture
+- Castle
+- Crypt
+- Cult
+- Dungeon
+- Fantasy
+- Modular
+- Noble
+- Palace
+- Stone
+- Temple
+- Tile
+- Wall
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

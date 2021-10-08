@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: c4d7006ee210ad24497d95c452060a12
+labels:
+- Architecture
+- Building
+- Castle
+- Decoration
+- Exterior
+- Molding
+- Stone
+- Trim
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

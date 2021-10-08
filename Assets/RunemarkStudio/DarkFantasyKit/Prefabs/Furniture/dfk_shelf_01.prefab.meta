@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1ae0024b38f872845858e81222f5beac
+labels:
+- Book
+- Castle
+- Dark
+- Fantasy
+- Furniture
+- Inn
+- Interior
+- Library
+- Palace
+- Shelf
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
