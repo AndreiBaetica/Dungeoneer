@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: a60025e6e738cc24d8b0eedc5cc6fc6d
+labels:
+- Carpet
+- Castle
+- Dark
+- Fabric
+- Fantasy
+- Inn
+- Noble
+- Prop
+- Rich
+- Room
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
