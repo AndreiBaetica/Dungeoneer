@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          lfs: true
+          lfs: false
       - uses: actions/cache@v2
         with:
           path: ${{ matrix.projectPath }}/Library
