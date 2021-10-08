@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 3b8bbbf8a94b2d14eb3d96bf3b318c44
+labels:
+- Box
+- Container
+- Crate
+- Fantasy
+- Market
+- Marketplace
+- Warehouse
+- Wood
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6c84014e65f5d3942a2384036cf9f28e
+labels:
+- Architecture
+- Castle
+- Fantasy
+- Inn
+- Interior
+- Mod
+- Modular
+- Noble
+- Palace
+- Rich
+- Stone
+- Tavern
+- Tile
+- Wall
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

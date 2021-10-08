@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 3d1b449992993254aa51c2b6e3807814
+labels:
+- Bed
+- Bedroom
+- Castle
+- Dark
+- Fantasy
+- Furniture
+- Inn
+- Interior
+- Noble
+- Palace
+- Tavern
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

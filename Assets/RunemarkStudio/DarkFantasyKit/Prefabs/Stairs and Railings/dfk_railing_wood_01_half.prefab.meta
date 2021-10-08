@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 51bd09ed9569cd54990ec63a718e014c
+labels:
+- Architecture
+- Castle
+- Fantasy
+- Interior
+- Noble
+- Room
+- Stairs
+- Temple
+- Wood
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
