@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e60d31fe7117ee04c8721836c5266732
+labels:
+- Book
+- Codex
+- Dark
+- Fantasy
+- Interior
+- Library
+- Paper
+- Prop
+- Sage
+- Wizard
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

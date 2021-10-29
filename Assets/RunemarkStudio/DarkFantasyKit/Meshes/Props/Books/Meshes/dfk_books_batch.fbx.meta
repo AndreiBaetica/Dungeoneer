@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: d96a1b2b669ba20468f435fec742c5d5
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: dfk_books_01_black
+    100002: dfk_books_01_brown
+    100004: dfk_books_01_gilded
+    100006: dfk_books_01_green
+    100008: dfk_books_02_black
+    100010: dfk_books_02_brown
+    100012: dfk_books_02_gilded
+    100014: dfk_books_02_green
+    100016: dfk_books_03_black
+    100018: dfk_books_03_brown
+    100020: dfk_books_03_gilded
+    100022: dfk_books_03_green
+    100024: dfk_books_04_black
+    100026: dfk_books_04_brown
+    100028: dfk_books_04_gilded
+    100030: dfk_books_04_green
+    100032: dfk_books_05_black
+    100034: dfk_books_05_brown
+    100036: dfk_books_05_gilded
+    100038: dfk_books_05_green
+    100040: dfk_books_06_black
+    100042: dfk_books_06_brown
+    100044: dfk_books_06_gilded
+    100046: dfk_books_06_green
+    100048: //RootNode
+    400000: dfk_books_01_black
+    400002: dfk_books_01_brown
+    400004: dfk_books_01_gilded
+    400006: dfk_books_01_green
+    400008: dfk_books_02_black
+    400010: dfk_books_02_brown
+    400012: dfk_books_02_gilded
+    400014: dfk_books_02_green
+    400016: dfk_books_03_black
+    400018: dfk_books_03_brown
+    400020: dfk_books_03_gilded
+    400022: dfk_books_03_green
+    400024: dfk_books_04_black
+    400026: dfk_books_04_brown
+    400028: dfk_books_04_gilded
+    400030: dfk_books_04_green
+    400032: dfk_books_05_black
+    400034: dfk_books_05_brown
+    400036: dfk_books_05_gilded
+    400038: dfk_books_05_green
+    400040: dfk_books_06_black
+    400042: dfk_books_06_brown
+    400044: dfk_books_06_gilded
+    400046: dfk_books_06_green
+    400048: //RootNode
+    2300000: dfk_books_01_black
+    2300002: dfk_books_01_brown
+    2300004: dfk_books_01_gilded
+    2300006: dfk_books_01_green
+    2300008: dfk_books_02_black
+    2300010: dfk_books_02_brown
+    2300012: dfk_books_02_gilded
+    2300014: dfk_books_02_green
+    2300016: dfk_books_03_black
+    2300018: dfk_books_03_brown
+    2300020: dfk_books_03_gilded
+    2300022: dfk_books_03_green
+    2300024: dfk_books_04_black
+    2300026: dfk_books_04_brown
+    2300028: dfk_books_04_gilded
+    2300030: dfk_books_04_green
+    2300032: dfk_books_05_black
+    2300034: dfk_books_05_brown
+    2300036: dfk_books_05_gilded
+    2300038: dfk_books_05_green
+    2300040: dfk_books_06_black
+    2300042: dfk_books_06_brown
+    2300044: dfk_books_06_gilded
+    2300046: dfk_books_06_green
+    3300000: dfk_books_01_black
+    3300002: dfk_books_01_brown
+    3300004: dfk_books_01_gilded
+    3300006: dfk_books_01_green
+    3300008: dfk_books_02_black
+    3300010: dfk_books_02_brown
+    3300012: dfk_books_02_gilded
+    3300014: dfk_books_02_green
+    3300016: dfk_books_03_black
+    3300018: dfk_books_03_brown
+    3300020: dfk_books_03_gilded
+    3300022: dfk_books_03_green
+    3300024: dfk_books_04_black
+    3300026: dfk_books_04_brown
+    3300028: dfk_books_04_gilded
+    3300030: dfk_books_04_green
+    3300032: dfk_books_05_black
+    3300034: dfk_books_05_brown
+    3300036: dfk_books_05_gilded
+    3300038: dfk_books_05_green
+    3300040: dfk_books_06_black
+    3300042: dfk_books_06_brown
+    3300044: dfk_books_06_gilded
+    3300046: dfk_books_06_green
+    4300000: dfk_books_03_brown
+    4300002: dfk_books_04_brown
+    4300004: dfk_books_02_brown
+    4300006: dfk_books_01_brown
+    4300008: dfk_books_05_brown
+    4300010: dfk_books_06_black
+    4300012: dfk_books_03_black
+    4300014: dfk_books_04_black
+    4300016: dfk_books_02_black
+    4300018: dfk_books_01_black
+    4300020: dfk_books_05_black
+    4300022: dfk_books_06_green
+    4300024: dfk_books_03_green
+    4300026: dfk_books_04_green
+    4300028: dfk_books_02_green
+    4300030: dfk_books_01_green
+    4300032: dfk_books_05_green
+    4300034: dfk_books_06_gilded
+    4300036: dfk_books_03_gilded
+    4300038: dfk_books_04_gilded
+    4300040: dfk_books_02_gilded
+    4300042: dfk_books_01_gilded
+    4300044: dfk_books_05_gilded
+    4300046: dfk_books_06_brown
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Books
+    second: {fileID: 2100000, guid: a2b7323d506bc884ca43c511143ed614, type: 2}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 23d11f3ca279d684f9dfd8601eefff99
+labels:
+- Curtain
+- Dark
+- Fabric
+- Fantasy
+- Inn
+- Noble
+- Prop
+- Room
+- Window
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

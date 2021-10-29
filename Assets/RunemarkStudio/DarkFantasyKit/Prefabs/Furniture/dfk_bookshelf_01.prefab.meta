@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fb65e22a45c0add40b13227c77e0ba5e
+labels:
+- Alchemy
+- Book
+- Bookshelf
+- Castle
+- Dark
+- Fantasy
+- Furniture
+- Inn
+- Interior
+- Library
+- Noble
+- Sage
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

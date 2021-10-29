@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -68,7 +69,7 @@ public class PlayerController : CharController
             }
         }
     }
-    
+
     public override bool Action()
     {
         bool isFree = true;
@@ -79,11 +80,29 @@ public class PlayerController : CharController
             if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
             if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
             if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
-            
             //attack
             if (Input.GetKeyDown("q"))
             {
                 isFree = MeleeAttack(NPCMask);
+            }
+            //Test gold functions
+            if (Input.GetKeyDown("j"))
+            {
+                gold.DecrementGold(5,transform.position);
+            }
+
+            if (Input.GetKeyDown("k"))
+            {
+                gold.IncrementGold(5, transform.position);
+            }
+
+            //rest
+            if (Input.GetKeyDown("r"))
+            {        
+                Debug.Log("Skipped turn and regained 5 mana!");
+                RegenMana(5); 
+                isFree = false;
+                doneTurn = true;
             }
         }
 
@@ -156,13 +175,13 @@ public class PlayerController : CharController
         set => currentMana = value;
     }
 
-    void SpendMana(int mana)
+    public void SpendMana(int mana)
     {
         currentMana -= mana;
         manaBar.SetMana(currentMana);
     }
 
-    void RegenMana(int mana)
+    public void RegenMana(int mana)
     {
         currentMana += mana;
         manaBar.SetMana(currentMana);

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cb91b187c68e63d42a07c6f99259deb8
+labels:
+- Architecture
+- Building
+- Castle
+- Corbel
+- Decoration
+- Exterior
+- Molding
+- Stone
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
