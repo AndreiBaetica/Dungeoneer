@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: 0
   multiplier:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.15
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
@@ -52,6 +52,27 @@ MonoBehaviour:
   hdriSky:
     m_OverrideState: 1
     m_Value: {fileID: 8900000, guid: d652800f1ab2d9c429be1a245660f80a, type: 3}
+  enableDistortion:
+    m_OverrideState: 0
+    m_Value: 0
+  procedural:
+    m_OverrideState: 0
+    m_Value: 1
+  flowmap:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+  upperHemisphereOnly:
+    m_OverrideState: 0
+    m_Value: 1
+  scrollDirection:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  scrollSpeed:
+    m_OverrideState: 0
+    m_Value: 2
+    min: 0
   enableBackplate:
     m_OverrideState: 0
     m_Value: 0
