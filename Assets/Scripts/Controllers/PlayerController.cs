@@ -15,8 +15,11 @@ public class PlayerController : CharController
     #endregion
     
     public HealthBar healthBar;
+    public ShieldBar shieldBar;
     public ManaBar manaBar;
     private int maxMana;
+    private int maxShield;
+    [SerializeField]private int currentShield;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
@@ -32,9 +35,11 @@ public class PlayerController : CharController
         name = "Player";
         MaxHealth = 15;
         MaxMana = 10;
+        maxShield = 100;
         CurrentLevel = 0;
         base.Start();
         healthBar.SetMaxHealth(MaxHealth);
+        shieldBar.SetMaxShield(maxShield);
         manaBar.SetMaxMana(MaxMana);
         if (saved)
         {
@@ -49,6 +54,7 @@ public class PlayerController : CharController
         {
             CurrentMana = MaxMana;
             CurrentHealth = MaxHealth;
+            currentShield = maxShield;
             Debug.Log("REGULAR PLAYER STATS");
         }
     }
@@ -58,6 +64,7 @@ public class PlayerController : CharController
 
         healthBar.SetHealth(currentHealth);
         manaBar.SetMana(currentMana);
+        shieldBar.SetShield(currentShield);
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
