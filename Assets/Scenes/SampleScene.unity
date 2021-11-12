@@ -28569,6 +28569,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722140256}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1729544556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8640474859178833387, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f,
+    type: 3}
+  m_PrefabInstance: {fileID: 8640474857321025843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388c716dc6304afc85acc9d51beaa436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1738757419
 GameObject:
   m_ObjectHideFlags: 0
@@ -35493,6 +35505,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8640474859178833381, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640474859178833386, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8640474859407065079, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -35503,6 +35525,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068922524906284840, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f,
+        type: 3}
+      propertyPath: shieldBar
+      value: 
+      objectReference: {fileID: 1729544556}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cf8674e4ceb1cc48a7bd9f9bc55f53f, type: 3}
 --- !u!1001 &8888944468525528903

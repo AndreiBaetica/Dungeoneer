@@ -35,7 +35,7 @@ public class PlayerController : CharController
         name = "Player";
         MaxHealth = 15;
         MaxMana = 10;
-        maxShield = 100;
+        MaxShield = 15;
         CurrentLevel = 0;
         base.Start();
         healthBar.SetMaxHealth(MaxHealth);
@@ -54,7 +54,7 @@ public class PlayerController : CharController
         {
             CurrentMana = MaxMana;
             CurrentHealth = MaxHealth;
-            currentShield = maxShield;
+            CurrentShield = MaxShield;
             Debug.Log("REGULAR PLAYER STATS");
         }
     }
@@ -62,9 +62,17 @@ public class PlayerController : CharController
     protected new void Update()
     {
 
-        healthBar.SetHealth(currentHealth);
-        manaBar.SetMana(currentMana);
-        shieldBar.SetShield(currentShield);
+        healthBar.SetHealth(CurrentHealth);
+        manaBar.SetMana(CurrentMana);
+        if (CurrentShield <= 0)
+        {
+            shieldBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            shieldBar.gameObject.SetActive(true);
+            shieldBar.SetShield(CurrentShield);
+        }
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
@@ -163,6 +171,26 @@ public class PlayerController : CharController
         base.Die();
         UIManager.EndGame();
     }
+
+    protected override void TakeDamage(int damage)
+    {
+        if (damage >= CurrentShield && CurrentShield > 0)
+        {
+            int extraDamage = damage - CurrentShield;
+            CurrentShield = 0;
+            CurrentHealth -= extraDamage;
+        }
+        else if(damage < CurrentShield && CurrentShield > 0)
+        {
+            CurrentShield -= damage;
+        }
+        else if(CurrentShield <= 0)
+        {
+            CurrentHealth -= damage;
+        }
+        base.TakeDamage(damage);
+        
+    }
     
     public int CurrentLevel
     {
@@ -180,6 +208,18 @@ public class PlayerController : CharController
     {
         get => currentMana;
         set => currentMana = value;
+    }
+
+    public int MaxShield
+    {
+        get => maxShield;
+        set => maxShield = value;
+    }
+    
+    public int CurrentShield
+    {
+        get => currentShield;
+        set => currentShield = value;
     }
 
     public void SpendMana(int mana)
@@ -209,6 +249,7 @@ public class PlayerController : CharController
     public static void shieldingCardAction(int shield)
     {
         // Add shielding card action on actual game here (ROSS)
+        instance.currentShield += shield;
         Debug.Log("Used shielding type card");
     }
 }
