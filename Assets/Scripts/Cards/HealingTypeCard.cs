@@ -6,8 +6,11 @@ public class HealingTypeCard : CardSchema
 {
     public int heal;
 
-    public override void cardAction()
+    public override bool cardAction()
     {
-        PlayerController.healingCardAction(heal);
+        bool cardUsed = false;
+        int mana = int.Parse(manaCost);
+        cardUsed = PlayerController.healingCardAction(heal, mana);
+        return cardUsed;
     }
 }
