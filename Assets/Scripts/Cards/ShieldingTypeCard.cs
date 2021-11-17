@@ -6,8 +6,11 @@ public class ShieldingTypeCard : CardSchema
 {
     public int shield;
 
-    public override void cardAction()
+    public override bool cardAction()
     {
-        PlayerController.shieldingCardAction(shield);
+        bool cardUsed = false;
+        int mana = int.Parse(manaCost);
+        cardUsed = PlayerController.shieldingCardAction(shield, mana);
+        return cardUsed;
     }
 }

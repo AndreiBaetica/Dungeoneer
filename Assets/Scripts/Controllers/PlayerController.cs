@@ -1,4 +1,5 @@
 using System.Collections;
+//using ICSharpCode.NRefactory.Ast;
 using UnityEngine;
 
 public class PlayerController : CharController
@@ -15,8 +16,11 @@ public class PlayerController : CharController
     #endregion
     
     public HealthBar healthBar;
+    public ShieldBar shieldBar;
     public ManaBar manaBar;
     private int maxMana;
+    private int maxShield;
+    [SerializeField]private int currentShield;
     [SerializeField]public int currentMana;
     [SerializeField]public int currentLevel;    
     private LayerMask NPCMask;
@@ -32,10 +36,12 @@ public class PlayerController : CharController
         name = "Player";
         MaxHealth = 15;
         MaxMana = 10;
+        MaxShield = 15;
         CurrentLevel = 0;
         base.Start();
         healthBar.SetMaxHealth(MaxHealth);
         manaBar.SetMaxMana(MaxMana);
+        shieldBar.SetMaxShield(MaxShield);
         if (saved)
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -49,6 +55,7 @@ public class PlayerController : CharController
         {
             CurrentMana = MaxMana;
             CurrentHealth = MaxHealth;
+            CurrentShield = 0;
             Debug.Log("REGULAR PLAYER STATS");
         }
     }
@@ -56,8 +63,9 @@ public class PlayerController : CharController
     protected new void Update()
     {
 
-        healthBar.SetHealth(currentHealth);
-        manaBar.SetMana(currentMana);
+        healthBar.SetHealth(CurrentHealth);
+        manaBar.SetMana(CurrentMana);
+        shieldBar.SetShield(CurrentShield);
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
@@ -76,14 +84,49 @@ public class PlayerController : CharController
         //movement
         if (UIManager.IsFrozen() == false)
         {
-            if (Input.GetKeyDown("w")) isFree = Move(Vector3.forward);
-            if (Input.GetKeyDown("a")) isFree = Move(Vector3.left);
-            if (Input.GetKeyDown("s")) isFree = Move(Vector3.back);
-            if (Input.GetKeyDown("d")) isFree = Move(Vector3.right);
+            if (Input.GetKeyDown("w"))
+            {
+                isFree = Move(Vector3.forward);
+                if (!isFree)
+                {
+                    LoseShield(1);
+                }
+            }
+
+            if (Input.GetKeyDown("a"))
+            {
+                isFree = Move(Vector3.left);
+                if (!isFree)
+                {
+                    LoseShield(1);
+                }
+            }
+
+            if (Input.GetKeyDown("s"))
+            {
+                isFree = Move(Vector3.back);
+                if (!isFree)
+                {
+                    LoseShield(1);
+                }
+            }
+
+            if (Input.GetKeyDown("d"))
+            {
+                isFree = Move(Vector3.right);
+                if (!isFree)
+                {
+                    LoseShield(1);
+                }
+            }
             //attack
             if (Input.GetKeyDown("q"))
             {
                 isFree = MeleeAttack(NPCMask);
+                if (!isFree)
+                {
+                    LoseShield(1);
+                }
             }
             //Test gold functions
             if (Input.GetKeyDown("j"))
@@ -102,6 +145,7 @@ public class PlayerController : CharController
                 Debug.Log("Skipped turn and regained 5 mana!");
                 RegenMana(5); 
                 isFree = false;
+                LoseShield(1);
                 doneTurn = true;
             }
         }
@@ -156,6 +200,26 @@ public class PlayerController : CharController
         base.Die();
         UIManager.EndGame();
     }
+
+    protected override void TakeDamage(int damage)
+    {
+        if (damage >= CurrentShield && CurrentShield > 0)
+        {
+            int extraDamage = damage - CurrentShield;
+            CurrentShield = 0;
+            CurrentHealth -= extraDamage;
+        }
+        else if(damage < CurrentShield && CurrentShield > 0)
+        {
+            CurrentShield -= damage;
+        }
+        else if(CurrentShield <= 0)
+        {
+            CurrentHealth -= damage;
+        }
+        base.TakeDamage(damage);
+        
+    }
     
     public int CurrentLevel
     {
@@ -175,33 +239,108 @@ public class PlayerController : CharController
         set => currentMana = value;
     }
 
-    public void SpendMana(int mana)
+    public int MaxShield
     {
-        currentMana -= mana;
-        manaBar.SetMana(currentMana);
+        get => maxShield;
+        set => maxShield = value;
     }
-
+    
+    public int CurrentShield
+    {
+        get => currentShield;
+        set => currentShield = value;
+    }
+    
     public void RegenMana(int mana)
     {
         currentMana += mana;
+        if (currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
         manaBar.SetMana(currentMana);
     }
+
+    public bool SpendMana(int mana)
+    {
+        if (mana > currentMana)
+        {
+            //Show something to say that you dont have enough mana
+            Debug.Log("NOT ENOUGH MANA!");
+            return false;
+        }
+        else
+        {
+            currentMana -= mana;
+        }
+        manaBar.SetMana(currentMana);
+        return true;
+    }
+
+    public void GainShield(int shield)
+    {
+        currentShield += shield;
+        if (currentShield > maxShield)
+        {
+            currentShield = maxShield;
+        }
+        shieldBar.SetShield(currentShield);
+    }
+
+    public void LoseShield(int shield)
+    {
+        if (shield > currentShield)
+        {
+            currentShield = 0;
+        }
+        else
+        {
+            currentShield -= shield;
+        }
+        shieldBar.SetShield(currentShield);
+    }
     
-    public static void attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel)
+    public static bool attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel, int mana)
     {
-        // Add attack card action on actual game here (ROSS)
-        Debug.Log("Used attack type card");
+        if (instance.SpendMana(mana))
+        {
+            // Add attack card action on actual game here
+            Debug.Log("Used attack type card");
+            instance.LoseShield(1);
+            instance.doneTurn = true;
+            GameLoopManager.SetPlayerTurn(false);
+            return true;
+        }
+
+        return false;
     }
 
-    public static void healingCardAction(int heal)
+    public static bool healingCardAction(int heal, int mana)
     {
-        // Add healing card action on actual game here (ROSS)
-        Debug.Log("Used healing type card");
+        if (instance.SpendMana(mana))
+        {
+            instance.Heal(heal);
+            Debug.Log("Used healing type card");
+            instance.LoseShield(1);
+            instance.doneTurn = true;
+            GameLoopManager.SetPlayerTurn(false);
+            return true;
+        }
+
+        return false;
     }
 
-    public static void shieldingCardAction(int shield)
+    public static bool shieldingCardAction(int shield, int mana)
     {
-        // Add shielding card action on actual game here (ROSS)
-        Debug.Log("Used shielding type card");
+        if (instance.SpendMana(mana))
+        {
+            instance.GainShield(shield);
+            Debug.Log("Used shielding type card");
+            instance.doneTurn = true;
+            GameLoopManager.SetPlayerTurn(false);
+            return true;
+        }
+        
+        return false;
     }
 }
