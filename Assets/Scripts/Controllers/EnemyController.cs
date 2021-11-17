@@ -150,4 +150,10 @@ public class EnemyController : ActorController
 
         return bestMovement;
     }
+
+    protected override void TakeDamage(int damage)
+    {
+        CurrentHealth -= damage;
+        base.TakeDamage(damage);
+    }
 }
