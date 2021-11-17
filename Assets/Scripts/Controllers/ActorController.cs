@@ -3,7 +3,7 @@ using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 //Name shortened to not conflict with Unity's default CharacterController
-public class CharController : MonoBehaviour
+public class ActorController : MonoBehaviour
 {
     protected new String name = "Character";
     public bool doneTurn;
@@ -196,7 +196,7 @@ public class CharController : MonoBehaviour
             //deal damage
             foreach (Collider target in targetsHit)
             {
-                target.GetComponentInParent<CharController>().TakeDamage(actualMeleeDamage);
+                target.GetComponentInParent<ActorController>().TakeDamage(actualMeleeDamage);
             }
             animator.SetTrigger("attack");
             attackUnsuccessful = false;

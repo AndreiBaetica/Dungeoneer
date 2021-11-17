@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerController : CharController
+public class PlayerController : ActorController
 {
     #region Singleton
 

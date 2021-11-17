@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameLoopManager : MonoBehaviour
 {
     public static GameLoopManager instance = null;
-    private static List<CharController> activeChars;
+    private static List<ActorController> activeChars;
     public static List<Vector3> reservedPositions = new List<Vector3>();
     private static bool isPlayerTurn = true;
 
@@ -19,7 +19,7 @@ public class GameLoopManager : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(gameObject);
 
-        activeChars = FindObjectsOfType<CharController>().ToList();
+        activeChars = FindObjectsOfType<ActorController>().ToList();
     }
 
     // Update is called once per frame

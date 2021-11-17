@@ -4,20 +4,15 @@
     <minRooms>4</minRooms>
     <theme>"medieval/factory"</theme>
     
-    <globalSpawnRate>0.3</globalSpawnRate>
-    
-    <lootRoomSpawnRate>0.1</lootRoomSpawnRate>
-    
-    <lootRoomGoldDrop>0.3</lootRoomGoldDrop>
-    <lootRoomSilverDrop>0.6</lootRoomSilverDrop>
-    <lootRoomBronzeDrop>0.1</lootRoomBronzeDrop>
-    
     <!-- Spawns -->
-    <bandit>
-        <spawnRate>0.8</spawnRate>
-        
-        <goldDrop>0.15</goldDrop>
-        <silverDrop>0.25</silverDrop>
-        <bronzeDrop>0.35</bronzeDrop>
-    </bandit>
+    <npcs>
+        <bandit>
+            <spawnRate>0.4</spawnRate>
+
+            <goldDrop>0.15</goldDrop>
+            <silverDrop>0.25</silverDrop>
+            <bronzeDrop>0.35</bronzeDrop>
+        </bandit>
+    </npcs>
+
 </config>
