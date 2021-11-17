@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 499184443c6b42a58af6700581284dcc
+guid: 4dd75ea0afc0f4e65bfc16aed7492beb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - savedGameIndicator: {fileID: 8928377981498691908, guid: a1da48761f8044da9b576e34788a37ef,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
