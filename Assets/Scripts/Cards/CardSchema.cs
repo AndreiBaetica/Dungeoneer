@@ -17,5 +17,5 @@ public abstract class CardSchema : ScriptableObject
         Debug.Log(name + ": " + description + " The card costs: " + manaCost);
     }
 
-    public abstract void cardAction();
+    public abstract bool cardAction();
 }

@@ -232,13 +232,13 @@ public class CharController : MonoBehaviour
         set => maxHealth = value;
     }
     
-    private void TakeDamage(int damage)
+    protected virtual void TakeDamage(int damage)
     {
         //TODO: play hurt animation
-        currentHealth -= damage;
+        //CurrentHealth -= damage;
         DamageIndicator.CreateIndicator(transform.position, damage, damageIndicator);
                 
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }

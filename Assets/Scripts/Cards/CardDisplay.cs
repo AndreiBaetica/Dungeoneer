@@ -43,18 +43,21 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         card.Print();
-        card.cardAction();
+        bool cardUsed = card.cardAction();
         
         //Replace card with one from deck
-        if (cardNumber == 1)
+        if (cardUsed)
         {
-            DeckScript.MyInstance.useCardOne();
-        } else if (cardNumber == 2)
-        {
-            DeckScript.MyInstance.useCardTwo();
-        } else if (cardNumber == 3)
-        {
-            DeckScript.MyInstance.useCardThree();
+            if (cardNumber == 1)
+            {
+                DeckScript.MyInstance.useCardOne();
+            } else if (cardNumber == 2)
+            {
+                DeckScript.MyInstance.useCardTwo();
+            } else if (cardNumber == 3)
+            {
+                DeckScript.MyInstance.useCardThree();
+            }
         }
     }
     
