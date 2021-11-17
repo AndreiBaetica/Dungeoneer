@@ -11,8 +11,11 @@ public class AttackTypeCard : CardSchema
     [CanBeNull] public int[] damageOverTime;
     public bool instantTravel = true;
 
-    public override void cardAction()
+    public override bool cardAction()
     {
-        PlayerController.attackCardAction(damage, distance, radius, typeOfDamage, damageOverTime, instantTravel);
+        bool cardUsed = false;
+        int mana = int.Parse(manaCost);
+        cardUsed = PlayerController.attackCardAction(damage, distance, radius, typeOfDamage, damageOverTime, instantTravel, mana);
+        return cardUsed;
     }
 }
