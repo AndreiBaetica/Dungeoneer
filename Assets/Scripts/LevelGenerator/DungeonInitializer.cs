@@ -43,7 +43,7 @@ public class DungeonInitializer : MonoBehaviour
                     if (!playerSpawned)
                     {
                         //spawn core
-                        currentRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/CoreOrigin");
+                        currentRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/Core");
                         playerSpawned = true;
                     }
                     else
