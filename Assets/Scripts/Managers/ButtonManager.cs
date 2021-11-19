@@ -15,7 +15,15 @@ namespace Managers
         {
             SceneManager.LoadScene("MainMenu");
         }
-
+        public void ExitGamePermanently()
+        {
+            
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false; //Quits game from editor
+            #endif
+            Application.Quit(); //Quits the game if it is running properly
+            
+        }
         public void PlayNewGame()
         {
             GameStartManager.PlayingSavedGame = false;
