@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyController : CharController
+public class EnemyController : ActorController
 {
     private float lookRadius = 4.5f;
     private Transform target;
