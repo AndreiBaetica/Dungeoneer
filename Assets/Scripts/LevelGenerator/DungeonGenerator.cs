@@ -27,9 +27,20 @@ public class DungeonGenerator
     public Room[,] GenerateLevel(int minRooms)
     {
         _minRooms = minRooms;
-        //arbitrary dimensions to avoid index weirdness around board borders
-        _board = new Room[_minRooms * 4, _minRooms * 4];
-        return PopulateBoard();
+
+        try
+        {
+            //arbitrary dimensions to avoid index weirdness around board borders
+            _board = new Room[_minRooms * 4, _minRooms * 4];
+            return PopulateBoard();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            _validNeighbors = new List<Room>();
+            _invalidNeighbors = new List<Room>();
+            return GenerateLevel(minRooms);
+        }
     }
     
     private Room[,] PopulateBoard()
