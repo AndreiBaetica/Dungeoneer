@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DissolveTex:
-        m_Texture: {fileID: 2800000, guid: d45bb7a2a2782494b9d9610586057355, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3543e527178258847b32c22b46f5cb90, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -63,21 +63,21 @@ Material:
     m_Floats:
     - _AngleStrength: 0.377
     - _AnimationEnabled: 1
-    - _AnimationSpeed: 0.095
+    - _AnimationSpeed: 0.041
     - _BumpScale: 1
     - _CircleObstructionDestroyRadius: 5
     - _CircleStrength: 1
     - _ConeObstructionDestroyRadius: 4.9
     - _ConeStrength: 1
     - _Cutoff: 0.5
-    - _CylinderObstructionDestroyRadius: 2.44
+    - _CylinderObstructionDestroyRadius: 2
     - _CylinderStrength: 1
     - _DefaultEffectRadius: 18.67
     - _DetailNormalMapScale: 1
-    - _DissolveColorSaturation: 0.856
-    - _DissolveEmission: 1
-    - _DissolveEmissionBooster: 174.7
-    - _DissolveFallOff: 0.657
+    - _DissolveColorSaturation: 0
+    - _DissolveEmission: 0
+    - _DissolveEmissionBooster: 10
+    - _DissolveFallOff: 0.553
     - _DstBlend: 0
     - _Floor: 1
     - _FloorY: 0
@@ -93,7 +93,7 @@ Material:
     - _Obstruction: 4
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlayerPosYOffset: 1.24
+    - _PlayerPosYOffset: 0
     - _PreviewMode: 0
     - _RaycastMode: 0
     - _SmoothnessTextureChannel: 0
@@ -101,11 +101,11 @@ Material:
     - _SrcBlend: 1
     - _TextureVisibility: 1
     - _TexturedEmissionEdge: 1
-    - _TexturedEmissionEdgeStrength: 0.549
+    - _TexturedEmissionEdgeStrength: 1
     - _TransitionDuration: 2
     - _TriggerMode: 0
     - _UVSec: 0
-    - _UVs: 5.45
+    - _UVs: 0.5
     - _ZWrite: 1
     - _hasClippedShadows: 0
     - _id: 0
@@ -115,5 +115,6 @@ Material:
     - _tValue: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveColor: {r: 0, g: 0.2386775, b: 1, a: 1}
+    - _DissolveColor: {r: 1, g: 0.017280716, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
