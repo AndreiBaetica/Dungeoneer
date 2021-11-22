@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3083129170393900862
 Transform:
@@ -232,7 +232,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7989480855054930883
 Transform:
@@ -446,7 +446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7806627728645869324
 Transform:
@@ -509,7 +509,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7241107272423111071
 Transform:
@@ -716,10 +716,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -776,6 +796,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &2466791079358812355 stripped
@@ -791,10 +821,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -851,6 +901,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &2595662036449812838 stripped
@@ -869,6 +929,10 @@ PrefabInstance:
     - target: {fileID: 1276330849123174, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
       propertyPath: m_Name
       value: dfk_carpet_black_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276330849123174, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4097500270151942, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
       propertyPath: m_RootOrder
@@ -926,6 +990,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23074713714987766, guid: 3d0e048f29527f243b99783f25df9eb1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
 --- !u!4 &1196006200872679248 stripped
@@ -941,10 +1010,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -1016,10 +1095,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1091,10 +1180,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1170,6 +1269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dfk_carpet_black_small
       objectReference: {fileID: 0}
+    - target: {fileID: 1276330849123174, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4097500270151942, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1226,6 +1329,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23074713714987766, guid: 3d0e048f29527f243b99783f25df9eb1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
 --- !u!4 &2581415533006228035 stripped
@@ -1241,10 +1349,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -1301,6 +1429,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &1128503602858378638 stripped
@@ -1316,10 +1454,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -1401,10 +1549,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1486,10 +1644,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -1546,6 +1724,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &502275289252312738 stripped
@@ -1561,9 +1749,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 1586891788670424, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1876403473615848, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
       propertyPath: m_Name
       value: dfk_statue_scorpion_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876403473615848, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4998111053243268, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
       propertyPath: m_RootOrder
@@ -1641,6 +1837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2809074589965510720, guid: cbc77501706012045aec70d01bfe0a3a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2809074589965510722, guid: cbc77501706012045aec70d01bfe0a3a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1715,6 +1916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dfk_pedestal_03
       objectReference: {fileID: 0}
+    - target: {fileID: 1868059424753496, guid: 3b5f7ab0d13e8cd40a1222c5c0fc95d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4505838067305224, guid: 3b5f7ab0d13e8cd40a1222c5c0fc95d6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1786,10 +1991,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1875,6 +2090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dfk_carpet_black_small
       objectReference: {fileID: 0}
+    - target: {fileID: 1276330849123174, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4097500270151942, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1931,6 +2150,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 23074713714987766, guid: 3d0e048f29527f243b99783f25df9eb1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0e048f29527f243b99783f25df9eb1, type: 3}
 --- !u!4 &5607200158491048659 stripped
@@ -1946,10 +2170,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -2006,6 +2250,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &7273414728324617933 stripped
@@ -2021,10 +2275,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2100,6 +2364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dfk_pedestal_03
       objectReference: {fileID: 0}
+    - target: {fileID: 1868059424753496, guid: 3b5f7ab0d13e8cd40a1222c5c0fc95d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4505838067305224, guid: 3b5f7ab0d13e8cd40a1222c5c0fc95d6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2171,10 +2439,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2256,10 +2534,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2406,10 +2694,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -2491,10 +2789,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 233161085064613810, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Half_V_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3103360015109397053, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
@@ -2576,10 +2884,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2666,6 +2984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2809074589965510720, guid: cbc77501706012045aec70d01bfe0a3a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2809074589965510722, guid: cbc77501706012045aec70d01bfe0a3a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2736,9 +3059,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 1586891788670424, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1876403473615848, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
       propertyPath: m_Name
       value: dfk_statue_scorpion_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876403473615848, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4998111053243268, guid: 3c8a113e6c9046348a5fdcc9cb8dffb3, type: 3}
       propertyPath: m_RootOrder
@@ -2811,10 +3142,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 233161085064613810, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Half_V_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 3103360015109397053, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
