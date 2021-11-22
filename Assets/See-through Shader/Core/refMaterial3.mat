@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: refMaterial3
   m_Shader: {fileID: 4800000, guid: fe1e150ea515f3e4a81d1a4cbd363a9b, type: 3}
-  m_ShaderKeywords: _ANIMATIONENABLED_ON _FLOOR_PLAYERPOSITON _OBSTRUCTION_CYLINDERONLY
+  m_ShaderKeywords: _ANIMATIONENABLED_ON _FLOOR_PLAYERPOSITON _OBSTRUCTION_ANGLEANDCONE
     _TEXTUREDEMISSIONEDGE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -77,7 +77,7 @@ Material:
     - _DissolveColorSaturation: 0
     - _DissolveEmission: 0
     - _DissolveEmissionBooster: 10
-    - _DissolveFallOff: 0.553
+    - _DissolveFallOff: 0.591
     - _DstBlend: 0
     - _Floor: 1
     - _FloorY: 0
@@ -90,7 +90,7 @@ Material:
     - _IsReplacementShader: 0
     - _Metallic: 0
     - _Mode: 0
-    - _Obstruction: 4
+    - _Obstruction: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PlayerPosYOffset: 0
