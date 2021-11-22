@@ -561,6 +561,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Door_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4197614184378786698, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434040300095175580, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1db26b6d877e744bfdea3903c1831e, type: 3}
 --- !u!4 &2430938846800386732 stripped
@@ -580,6 +590,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -636,6 +651,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &4257985924340156201 stripped
@@ -655,6 +680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -720,6 +750,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
@@ -816,6 +856,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
       objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
       propertyPath: m_RootOrder
@@ -881,6 +926,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &4345849442312951857 stripped
@@ -900,6 +955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -966,6 +1026,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &810766439278845952 stripped
@@ -985,6 +1055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1051,6 +1126,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &933264908060075414 stripped
@@ -1070,6 +1155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1136,6 +1226,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &416753525878718734 stripped
@@ -1155,6 +1255,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1211,6 +1316,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &351434219558657554 stripped
@@ -1230,6 +1345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1285,6 +1405,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
@@ -1371,6 +1501,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Door_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4197614184378786698, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434040300095175580, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1db26b6d877e744bfdea3903c1831e, type: 3}
 --- !u!4 &880620290206672916 stripped
@@ -1390,6 +1530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1456,6 +1601,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &7778658818889215819 stripped
@@ -1475,6 +1630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1541,6 +1701,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &8349629505902398655 stripped
@@ -1560,6 +1730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1626,6 +1801,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &8071365335880527837 stripped
@@ -1645,6 +1830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1711,6 +1901,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
 --- !u!4 &5417135250823814401 stripped
@@ -1730,6 +1930,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353821726124274995, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3161989622633574281, guid: 9f8aae5a138942348b35a3dba1fd3164,
         type: 3}
@@ -1785,6 +1990,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3516559490527562298, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6727754991484973027, guid: 9f8aae5a138942348b35a3dba1fd3164,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8aae5a138942348b35a3dba1fd3164, type: 3}
@@ -2085,6 +2300,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Plaster_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197614184378786698, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5434040300095175580, guid: 1b1db26b6d877e744bfdea3903c1831e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1db26b6d877e744bfdea3903c1831e, type: 3}

@@ -716,10 +716,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -776,6 +796,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &2466791079358812355 stripped
@@ -791,10 +821,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -850,6 +900,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
@@ -941,10 +1001,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -1016,10 +1086,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1091,10 +1171,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1241,10 +1331,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -1301,6 +1411,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &1128503602858378638 stripped
@@ -1316,10 +1436,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -1401,10 +1531,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1486,10 +1626,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -1545,6 +1705,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
@@ -1786,10 +1956,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -1946,10 +2126,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 595108980032790087, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1927896106874245992, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Window_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2365455819955883034, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595306168955823089, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3141288388991751840, guid: 186a9efdd38e3b442aa2fc3656c1acda,
         type: 3}
@@ -2006,6 +2206,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3797175666633364110, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5507001255138569649, guid: 186a9efdd38e3b442aa2fc3656c1acda,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186a9efdd38e3b442aa2fc3656c1acda, type: 3}
 --- !u!4 &7273414728324617933 stripped
@@ -2021,10 +2231,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2171,10 +2391,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2256,10 +2486,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2406,10 +2646,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -2491,10 +2741,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 233161085064613810, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Half_V_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3103360015109397053, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
@@ -2576,10 +2836,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 3078985484704365858, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082333406346279125, guid: 219562a22693fd546a63433b6184c2fb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5603537740465349231, guid: 219562a22693fd546a63433b6184c2fb,
         type: 3}
@@ -2811,10 +3081,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7806627728645869324}
     m_Modifications:
+    - target: {fileID: 233161085064613810, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Half_V_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2331327289269108871, guid: c0c61919b9350904fbfd5626433b5397,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3103360015109397053, guid: c0c61919b9350904fbfd5626433b5397,
         type: 3}

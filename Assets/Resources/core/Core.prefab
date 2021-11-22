@@ -3976,7 +3976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   replacementShader: {fileID: 0}
-  referenceMaterial: {fileID: 2100000, guid: 71d6e8b97755182438b6de75e4b74111, type: 2}
+  referenceMaterial: {fileID: 2100000, guid: aa2937a0b028a8043b9f106ef91a500a, type: 2}
   replacementByReplacementShader: 0
   layerMasksWithReplacement:
     serializedVersion: 2
