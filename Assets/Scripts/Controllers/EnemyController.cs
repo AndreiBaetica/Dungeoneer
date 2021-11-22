@@ -61,10 +61,10 @@ public class EnemyController : ActorController
             if (!moving)
             {
                 //rotate to face player, if not already facing
-                if ((target.position - transform.position) == Vector3.left) Rotate(Vector3.left);
-                else if ((target.position - transform.position) == Vector3.right) Rotate(Vector3.right);
-                else if ((target.position - transform.position) == Vector3.forward) Rotate(Vector3.forward);
-                else if ((target.position - transform.position) == Vector3.back) Rotate(Vector3.back);
+                if (ToHorizontal(target.position - transform.position) == Vector2.left) Rotate(Vector3.left);
+                else if (ToHorizontal(target.position - transform.position) == Vector2.right) Rotate(Vector3.right);
+                else if (ToHorizontal(target.position - transform.position) == Vector2.up) Rotate(Vector3.forward);
+                else if (ToHorizontal(target.position - transform.position) == Vector2.down) Rotate(Vector3.back);
                 
                 isFree = MeleeAttack(PlayerMask);
             }
@@ -77,22 +77,22 @@ public class EnemyController : ActorController
     {
         if (currentBehaviourState == BehaviourState.Idle)
         {
-            if (Vector3.Distance(target.position, transform.position) <= lookRadius)
+            if (HorizontalDistance(target.position, transform.position) <= lookRadius)
             {
                 currentBehaviourState = BehaviourState.Chase;
             }
         } else if (currentBehaviourState == BehaviourState.Chase)
         {
-            if (Vector3.Distance(target.position, transform.position) > lookRadius && !moving)
+            if (HorizontalDistance(target.position, transform.position) > lookRadius && !moving)
             {
                 currentBehaviourState = BehaviourState.Idle;
-            } else if (Vector3.Distance(target.position, transform.position) <= 1f && !moving)
+            } else if (HorizontalDistance(target.position, transform.position) <= 1f && !moving)
             {
                 currentBehaviourState = BehaviourState.Attack;
             }
         } else if (currentBehaviourState == BehaviourState.Attack)
         {
-            if (Vector3.Distance(target.position, transform.position) > 1f)
+            if (HorizontalDistance(target.position, transform.position) > 1f)
             {
                 currentBehaviourState = BehaviourState.Chase;
             }
@@ -155,5 +155,15 @@ public class EnemyController : ActorController
     {
         CurrentHealth -= damage;
         base.TakeDamage(damage);
+    }
+
+    private float HorizontalDistance(Vector3 target, Vector3 self)
+    {
+        return Vector2.Distance(ToHorizontal(target), ToHorizontal(self));
+    }
+
+    private Vector2 ToHorizontal(Vector3 vector)
+    {
+        return new Vector2(vector.x, vector.z);
     }
 }

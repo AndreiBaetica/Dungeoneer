@@ -11,10 +11,4 @@ public class Bandit : EnemyController
         name = "Bandit";
         base.Start();
     }
-
-    // Update is called once per frame
-    /*protected new void Update()
-    {
-        base.Update();
-    }*/
 }
