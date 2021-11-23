@@ -18,7 +18,9 @@ public class ActorController : MonoBehaviour
     [SerializeField]public int currentHealth;
     [SerializeField] private GameObject damageIndicator;
     protected CharacterDir _dirFacing = CharacterDir.Back;
-    public Gold gold;
+    
+    // TODO: Enable once dependency to Core prefab is removed.
+    //public Gold gold;
 
     protected enum CharacterDir
     {
@@ -207,10 +209,11 @@ public class ActorController : MonoBehaviour
 
     protected virtual void Die()
     {
-        if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
-        {
-            gold.IncrementGold(5,transform.position);
-        }
+        // TODO: Enable once dependency to Core prefab is removed.
+        // if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
+        // {
+        //     gold.IncrementGold(5,transform.position);
+        // }
         animator.SetBool("isDead", true);
         enabled = false;
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -235,7 +238,6 @@ public class ActorController : MonoBehaviour
     protected virtual void TakeDamage(int damage)
     {
         //TODO: play hurt animation
-        //CurrentHealth -= damage;
         DamageIndicator.CreateIndicator(transform.position, damage, damageIndicator);
                 
         if (CurrentHealth <= 0)

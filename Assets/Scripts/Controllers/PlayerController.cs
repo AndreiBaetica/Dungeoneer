@@ -128,17 +128,6 @@ public class PlayerController : ActorController
                     LoseShield(1);
                 }
             }
-            //Test gold functions
-            if (Input.GetKeyDown("j"))
-            {
-                gold.DecrementGold(5,transform.position);
-            }
-
-            if (Input.GetKeyDown("k"))
-            {
-                gold.IncrementGold(5, transform.position);
-            }
-
             //rest
             if (Input.GetKeyDown("r"))
             {        
