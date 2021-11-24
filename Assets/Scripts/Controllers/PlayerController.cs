@@ -289,11 +289,13 @@ public class PlayerController : ActorController
         shieldBar.SetShield(currentShield);
     }
     
-    public static bool attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel, int mana)
+    public static bool attackCardAction(int damage, int distance, int radius, int mana)
     {
         if (instance.SpendMana(mana))
         {
             // Add attack card action on actual game here
+            
+
             Debug.Log("Used attack type card");
             instance.LoseShield(1);
             instance.doneTurn = true;
