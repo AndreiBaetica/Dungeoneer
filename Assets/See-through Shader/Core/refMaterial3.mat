@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: refMaterial3
   m_Shader: {fileID: 4800000, guid: fe1e150ea515f3e4a81d1a4cbd363a9b, type: 3}
-  m_ShaderKeywords: _ANIMATIONENABLED_ON _FLOOR_PLAYERPOSITON _OBSTRUCTION_ANGLEANDCONE
+  m_ShaderKeywords: _ANIMATIONENABLED_ON _FLOOR_PLAYERPOSITON _OBSTRUCTION_CONEONLY
     _TEXTUREDEMISSIONEDGE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,7 +67,7 @@ Material:
     - _BumpScale: 1
     - _CircleObstructionDestroyRadius: 5
     - _CircleStrength: 1
-    - _ConeObstructionDestroyRadius: 4.9
+    - _ConeObstructionDestroyRadius: 6
     - _ConeStrength: 1
     - _Cutoff: 0.5
     - _CylinderObstructionDestroyRadius: 2
@@ -77,7 +77,7 @@ Material:
     - _DissolveColorSaturation: 0
     - _DissolveEmission: 0
     - _DissolveEmissionBooster: 10
-    - _DissolveFallOff: 0.591
+    - _DissolveFallOff: 0.01
     - _DstBlend: 0
     - _Floor: 1
     - _FloorY: 0
@@ -90,7 +90,7 @@ Material:
     - _IsReplacementShader: 0
     - _Metallic: 0
     - _Mode: 0
-    - _Obstruction: 3
+    - _Obstruction: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PlayerPosYOffset: 0
