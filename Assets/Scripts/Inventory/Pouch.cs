@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,13 @@ public class Pouch : MonoBehaviour, IInteractable
 
     [SerializeField]
     private CanvasGroup canvasGroup;
-    
+
+    private void Start()
+    {
+        GameObject pouchUI = GameObject.Find("PouchUI");
+        canvasGroup = pouchUI.GetComponent<CanvasGroup>();
+    }
+
     public void Interact()
     {
         if (isOpen)
