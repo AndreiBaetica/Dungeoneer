@@ -67,7 +67,7 @@ Material:
     - _BumpScale: 1
     - _CircleObstructionDestroyRadius: 5
     - _CircleStrength: 1
-    - _ConeObstructionDestroyRadius: 6
+    - _ConeObstructionDestroyRadius: 10
     - _ConeStrength: 1
     - _Cutoff: 0.5
     - _CylinderObstructionDestroyRadius: 2
