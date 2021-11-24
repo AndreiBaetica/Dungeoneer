@@ -26,6 +26,7 @@ public class PlayerController : ActorController
     private LayerMask NPCMask;
     private IInteractable interactable;
     public bool saved;
+    private GameObject playerCube;
 
 
     protected new void Start()
@@ -42,6 +43,7 @@ public class PlayerController : ActorController
         healthBar.SetMaxHealth(MaxHealth);
         manaBar.SetMaxMana(MaxMana);
         shieldBar.SetMaxShield(MaxShield);
+        playerCube = GameObject.Find("Player/Cube");
         if (saved)
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -62,7 +64,6 @@ public class PlayerController : ActorController
 
     protected new void Update()
     {
-
         healthBar.SetHealth(CurrentHealth);
         manaBar.SetMana(CurrentMana);
         shieldBar.SetShield(CurrentShield);
@@ -293,8 +294,36 @@ public class PlayerController : ActorController
     {
         if (instance.SpendMana(mana))
         {
-            // Add attack card action on actual game here
             
+            Destroy(GameObject.Find("FireCircle(Clone)"));
+            // Add attack card action on actual game here
+            var selectedSpell = Resources.Load("spells/FireCircle");
+            var playerPosition = instance.playerCube.transform.position;
+            if (instance._dirFacing == CharacterDir.Back)
+            {
+                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x, playerPosition.y, playerPosition.z - distance),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Forward)
+            {
+                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x, playerPosition.y, playerPosition.z + distance),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Left)
+            {
+                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x - distance, playerPosition.y, playerPosition.z),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Right)
+            {
+                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x + distance, playerPosition.y, playerPosition.z),
+                    Quaternion.identity);
+            }
+            // TODO: add explosion particle effect here
 
             Debug.Log("Used attack type card");
             instance.LoseShield(1);

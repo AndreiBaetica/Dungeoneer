@@ -166,4 +166,14 @@ public class EnemyController : ActorController
     {
         return new Vector2(vector.x, vector.z);
     }
+    
+    public void OnTriggerEnter(Collider collision)
+    {  
+        if (collision.tag == "FireAttack")
+        {
+            Debug.Log("Enemy has been hit by a Fire Attack"); // TODO : Remove
+            TakeDamage(5); // TODO: change this to actual damage value
+            Destroy(GameObject.Find("FireCircle(Clone)"));
+        }
+    }
 }

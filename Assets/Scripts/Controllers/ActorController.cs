@@ -62,7 +62,7 @@ public class ActorController : MonoBehaviour
     //raycasts the corners of the character cube to check for collision
     protected bool CanMove(Vector3 direction)
     {
-        LayerMask everyLayerButInteractableLayerMask =~ LayerMask.GetMask("Interactable");
+        LayerMask everyLayerButInteractableLayerMask =~ LayerMask.GetMask("Interactable", "FireAttack"); // TODO: Rename this to compensate for FireAttack Layer
         if (Vector3.Equals(Vector3.forward, direction) || Vector3.Equals(Vector3.back, direction))
         {
             if (Physics.Raycast(transform.position + Vector3.up * rayOffsetY + Vector3.right * rayOffsetX, direction,

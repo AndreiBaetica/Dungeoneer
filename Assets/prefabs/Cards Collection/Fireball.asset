@@ -20,9 +20,6 @@ MonoBehaviour:
   type: {fileID: 21300000, guid: 2ab8e4a1631b3534ba47dea7b97c7994, type: 3}
   powerType: {fileID: 21300000, guid: a76ebe08972223c4c8c176cf213c5433, type: 3}
   artwork: {fileID: 21300000, guid: 773b5fee7ce9bfb4399891bbbbfcb4de, type: 3}
-  damage: 20
-  distance: 0
-  radius: 0
-  typeOfDamage: 
-  damageOverTime: 
-  instantTravel: 1
+  damage: 5
+  distance: 5
+  radius: 5
