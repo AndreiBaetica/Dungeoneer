@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.060395807, g: 0.06158816, b: 0.05668324, a: 1}
+  m_IndirectSpecularColor: {r: 0.059130706, g: 0.060273807, b: 0.055819668, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33381,6 +33381,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 7076485348424427373, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076485348424427373, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076485348424427373, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7089487601707277253, guid: d8a33079a689938429dec23a053ac28a,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -34635,6 +34650,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4793163167120196536, guid: b605faf9c731c1540a0780e0170f4542,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4975921218853200981, guid: b605faf9c731c1540a0780e0170f4542,
         type: 3}
       propertyPath: m_RootOrder
@@ -34709,6 +34729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ruins
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640148650922524399, guid: b605faf9c731c1540a0780e0170f4542,
+        type: 3}
+      propertyPath: m_TagString
+      value: BeginGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b605faf9c731c1540a0780e0170f4542, type: 3}

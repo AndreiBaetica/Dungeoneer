@@ -49,7 +49,7 @@ public class PlayerController : ActorController
             Debug.Log("Player controller data pos x:"+data.position[0]+" y:"
                       +data.position[1]+" z:"+data.position[2]
                       +" currenthealth:"+data.health+" mana:"+data.mana);
-            PlayerSaveData.ApplyPlayerSavedData(this, data);
+            PlayerSaveData.ApplyPlayerSavedData(this, data); //Must update for shield, room #, gold
         }
         else
         {
@@ -77,6 +77,7 @@ public class PlayerController : ActorController
             }
         }
     }
+    
 
     public override bool Action()
     {
@@ -167,6 +168,11 @@ public class PlayerController : ActorController
         {
             Debug.Log("Player has entered the interaction zone of an interactable object."); // TODO : Remove
             interactable = collision.GetComponent<IInteractable>();
+        }
+
+        if (collision.tag == "BeginGame")
+        {
+            Debug.Log("PLAYER COLLIDED RUINS");
         }
     }
 
