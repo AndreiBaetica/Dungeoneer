@@ -43,15 +43,15 @@ namespace Managers
             GameStartManager.PlayingSavedGame = true;
         }
 
-        public void BeginDungeon()
+        public void DungeonButton()
         {
-            SceneManager.LoadScene("TestDungeon");
-
-        }
-
-        public void ExitDungeon()
-        {
-            SceneManager.LoadScene("SampleScene");
+            if (SceneManager.GetActiveScene().name == "SampleScene")
+            {
+                SceneManager.LoadScene("TestDungeon");
+            }else if (SceneManager.GetActiveScene().name == "TestDungeon")
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
         }
     }
 }

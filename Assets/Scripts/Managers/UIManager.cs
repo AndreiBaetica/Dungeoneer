@@ -136,8 +136,18 @@ public class UIManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "TestDungeon")
         {
-            TextMeshPro[] TMP = gameUI.GetComponents<TextMeshPro>();
-            Debug.Log(TMP.Length);
+            TMP_Text[] TMP = gameUI.GetComponentsInChildren<TMP_Text>();
+            if (TMP.Length > 0 && TMP[0].name == "TeleportButtonText")
+            {
+                TMP[0].SetText("Leave Dungeon");
+            }
+        }else if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            TMP_Text[] TMP = gameUI.GetComponentsInChildren<TMP_Text>();
+            if (TMP.Length > 0 && TMP[0].name == "TeleportButtonText")
+            {
+                TMP[0].SetText("Start Dungeon");
+            }
         }
 
     }
