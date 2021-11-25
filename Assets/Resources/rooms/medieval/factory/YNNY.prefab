@@ -716,10 +716,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -801,10 +811,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 2197781678320383620, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_Pillar_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3107656596201521313, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
@@ -1046,6 +1066,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &1123901086197026697 stripped
@@ -1131,6 +1161,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &1143061145833786288 stripped
@@ -1146,10 +1186,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 2197781678320383620, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_Pillar_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3107656596201521313, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
@@ -1291,6 +1341,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &765147429780978424 stripped
@@ -1365,6 +1425,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
@@ -1516,6 +1586,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &4194676121279468505 stripped
@@ -1531,10 +1611,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 2197781678320383620, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_Pillar_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3107656596201521313, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
@@ -1821,6 +1911,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &6727036095442347272 stripped
@@ -2066,6 +2166,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &6373334935881385942 stripped
@@ -2140,6 +2250,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
@@ -2226,6 +2346,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &5565083042860945686 stripped
@@ -2311,6 +2441,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &5523895947058600436 stripped
@@ -2395,6 +2535,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
@@ -2661,6 +2811,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &8125043923946995173 stripped
@@ -2736,6 +2896,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}
 --- !u!4 &9051957621601073420 stripped
@@ -2751,10 +2921,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 2197781678320383620, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_Pillar_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336046151629642267, guid: 0716a03d77e808d4e908df3f21a8b8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3107656596201521313, guid: 0716a03d77e808d4e908df3f21a8b8f0,
         type: 3}
@@ -2826,10 +3006,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8031778430013450079}
     m_Modifications:
+    - target: {fileID: 4432487972193623255, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Door_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874823451116725609, guid: 0367a7f1d095ae549adeba5e3223289d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5254868113928634323, guid: 0367a7f1d095ae549adeba5e3223289d,
         type: 3}
@@ -2970,6 +3160,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_MH_01_Wood_01_Wall_Indoor_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079929911932094076, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099082960961995960, guid: b8f39fd650c21ab4bb7dacca0eec1559,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f39fd650c21ab4bb7dacca0eec1559, type: 3}

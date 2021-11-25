@@ -27,7 +27,8 @@ public class DungeonInitializer : MonoBehaviour
         DungeonGenerator generator = new DungeonGenerator();
         Room[,] map = generator.GenerateLevel(_minRooms);
 
-        var playerSpawned = false;
+        var playerSpawnedRoomFound = false;
+        GameObject spawnRoom = null;
         
         for (int i = 0; i < map.GetLength(0); i++)
         {
@@ -40,11 +41,10 @@ public class DungeonInitializer : MonoBehaviour
                         new Vector3(i * RoomDimension, 0, j * RoomDimension), 
                         Quaternion.identity);
 
-                    if (!playerSpawned)
+                    if (!playerSpawnedRoomFound)
                     {
-                        //spawn core
-                        currentRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/Core");
-                        playerSpawned = true;
+                        spawnRoom = currentRoom;
+                        playerSpawnedRoomFound = true;
                     }
                     else
                     {
@@ -65,10 +65,11 @@ public class DungeonInitializer : MonoBehaviour
                             }
                         }
                     }
-                    
                 }
             }
         }
+        //spawn core
+        spawnRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/Core");
     }
 
     private void ReadConfig(string filename)

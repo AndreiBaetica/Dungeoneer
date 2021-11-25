@@ -4170,6 +4170,51 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &5823478482790488596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8900464075147049657}
+  - component: {fileID: 4440030688052109958}
+  m_Layer: 0
+  m_Name: PlayerPositionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8900464075147049657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823478482790488596}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 251.42929, y: 288.38623, z: -81.430786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8601944402812838981}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4440030688052109958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823478482790488596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064469f931de6cf41a579753ac53affd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableCharacters:
+  - {fileID: 6335944755838698790}
 --- !u!1 &5838027224048147031
 GameObject:
   m_ObjectHideFlags: 0
@@ -4182,6 +4227,7 @@ GameObject:
   - component: {fileID: 4509657675003829558}
   - component: {fileID: 108582761018574794}
   - component: {fileID: 1965884116736857488}
+  - component: {fileID: 9040565816195473756}
   m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4368,6 +4414,25 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
+--- !u!114 &9040565816195473756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5838027224048147031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38bcf3d74e2cdcf4383bb1821acc5f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  replacementShader: {fileID: 0}
+  referenceMaterial: {fileID: 2100000, guid: aa2937a0b028a8043b9f106ef91a500a, type: 2}
+  replacementByReplacementShader: 0
+  layerMasksWithReplacement:
+    serializedVersion: 2
+    m_Bits: 64
+  replacementCamera: {fileID: 4509657675003829558}
 --- !u!1 &5997802067412218777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6069,6 +6134,7 @@ Transform:
   - {fileID: 851315289594951059}
   - {fileID: 1829606422308444271}
   - {fileID: 7076485348424427373}
+  - {fileID: 8900464075147049657}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
