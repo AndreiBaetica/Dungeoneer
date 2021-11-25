@@ -25,7 +25,7 @@ public class Pouch : MonoBehaviour, IInteractable
         else
         {
             isOpen = true;
-            Debug.Log("Opening Pouch!"); // TODO : Remove
+            Debug.Log("Opening Pouch!");
             canvasGroup.alpha = 1; // sets to visible
             canvasGroup.blocksRaycasts = true; // allows clicking on it
         }
@@ -34,7 +34,7 @@ public class Pouch : MonoBehaviour, IInteractable
     public void StopInteract()
     {
         isOpen = false;
-        Debug.Log("Closing Pouch!"); // TODO : Remove
+        Debug.Log("Closing Pouch!");
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0;
     }

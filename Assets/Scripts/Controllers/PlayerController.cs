@@ -296,34 +296,39 @@ public class PlayerController : ActorController
         {
             
             Destroy(GameObject.Find("FireCircle(Clone)"));
-            // Add attack card action on actual game here
+            FireCircle._damage = damage;
+            FireCircle._radius = radius;
             var selectedSpell = Resources.Load("spells/FireCircle");
             var playerPosition = instance.playerCube.transform.position;
+            GameObject currentSpell = null;
             if (instance._dirFacing == CharacterDir.Back)
             {
-                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                currentSpell = (GameObject) Instantiate(selectedSpell,
                     new Vector3(playerPosition.x, playerPosition.y, playerPosition.z - distance),
                     Quaternion.identity);
             }
             else if (instance._dirFacing == CharacterDir.Forward)
             {
-                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                currentSpell = (GameObject) Instantiate(selectedSpell,
                     new Vector3(playerPosition.x, playerPosition.y, playerPosition.z + distance),
                     Quaternion.identity);
             }
             else if (instance._dirFacing == CharacterDir.Left)
             {
-                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                currentSpell = (GameObject) Instantiate(selectedSpell,
                     new Vector3(playerPosition.x - distance, playerPosition.y, playerPosition.z),
                     Quaternion.identity);
             }
             else if (instance._dirFacing == CharacterDir.Right)
             {
-                GameObject currentSpell = (GameObject) Instantiate(selectedSpell,
+                currentSpell = (GameObject) Instantiate(selectedSpell,
                     new Vector3(playerPosition.x + distance, playerPosition.y, playerPosition.z),
                     Quaternion.identity);
             }
-            // TODO: add explosion particle effect here
+
+            SphereCollider hitbox = currentSpell.transform.GetChild(0).gameObject.GetComponent<SphereCollider>();
+            hitbox.radius = radius;
+            // TODO: add creation particle effect here
 
             Debug.Log("Used attack type card");
             instance.LoseShield(1);

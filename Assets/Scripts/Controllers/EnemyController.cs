@@ -171,8 +171,8 @@ public class EnemyController : ActorController
     {  
         if (collision.tag == "FireAttack")
         {
-            Debug.Log("Enemy has been hit by a Fire Attack"); // TODO : Remove
-            TakeDamage(5); // TODO: change this to actual damage value
+            Debug.Log("Enemy has been hit by a Fire Attack");
+            TakeDamage(FireCircle._damage);
             Destroy(GameObject.Find("FireCircle(Clone)"));
         }
     }
