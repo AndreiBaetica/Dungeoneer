@@ -40,6 +40,18 @@ namespace Managers
         public void SaveGame()
         {
             SaveSystem.SavePlayer(PlayerController.instance);
+            GameStartManager.PlayingSavedGame = true;
+        }
+
+        public void BeginDungeon()
+        {
+            SceneManager.LoadScene("TestDungeon");
+
+        }
+
+        public void ExitDungeon()
+        {
+            SceneManager.LoadScene("SampleScene");
         }
     }
 }

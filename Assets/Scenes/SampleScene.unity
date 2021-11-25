@@ -33316,6 +33316,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 602243583218087861, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828775255884114238, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2676236795091449157, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961226524073307692, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961226524073307692, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2961226524073307692, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 3520254368739503281, guid: d8a33079a689938429dec23a053ac28a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -33326,6 +33356,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3606657254103236168, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606657254103236168, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5767044262600982307, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5917231551188336554, guid: d8a33079a689938429dec23a053ac28a,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -33335,6 +33380,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199252176201582029, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6391209581384854689, guid: d8a33079a689938429dec23a053ac28a,
         type: 3}
@@ -33405,6 +33480,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747158128932295721, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503173406934194479, guid: d8a33079a689938429dec23a053ac28a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8601944402812838981, guid: d8a33079a689938429dec23a053ac28a,
         type: 3}

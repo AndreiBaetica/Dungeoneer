@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -57,6 +59,8 @@ public class UIManager : MonoBehaviour
 
         ResumeGame();
     }
+    
+    
     
     public static void EndGame()
     {
@@ -130,6 +134,12 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        if (SceneManager.GetActiveScene().name == "TestDungeon")
+        {
+            TextMeshPro[] TMP = gameUI.GetComponents<TextMeshPro>();
+            Debug.Log(TMP.Length);
+        }
+
     }
 
     public void UpdateStackSize(IClickable clickable)
@@ -152,3 +162,5 @@ public class UIManager : MonoBehaviour
         }
     }
 }
+
+
