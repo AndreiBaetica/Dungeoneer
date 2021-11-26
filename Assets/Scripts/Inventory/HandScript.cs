@@ -31,7 +31,7 @@ public class HandScript : MonoBehaviour
     private Image icon;
 
     [SerializeField]
-    private Vector3 offset; // TODO : set in unity depending on the values
+    private Vector3 offset;
     
     private void Start()
     {

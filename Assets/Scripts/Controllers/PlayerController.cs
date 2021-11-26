@@ -26,6 +26,7 @@ public class PlayerController : ActorController
     private LayerMask NPCMask;
     private IInteractable interactable;
     public bool saved;
+    private GameObject playerCube;
 
 
     protected new void Start()
@@ -42,6 +43,7 @@ public class PlayerController : ActorController
         healthBar.SetMaxHealth(MaxHealth);
         manaBar.SetMaxMana(MaxMana);
         shieldBar.SetMaxShield(MaxShield);
+        playerCube = GameObject.Find("Player/Cube");
         if (saved)
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -62,7 +64,6 @@ public class PlayerController : ActorController
 
     protected new void Update()
     {
-
         healthBar.SetHealth(CurrentHealth);
         manaBar.SetMana(CurrentMana);
         shieldBar.SetShield(CurrentShield);
@@ -289,11 +290,46 @@ public class PlayerController : ActorController
         shieldBar.SetShield(currentShield);
     }
     
-    public static bool attackCardAction(int damage, int distance, int radius, string typeOfDamage, int[] damageOverTime, bool instantTravel, int mana)
+    public static bool attackCardAction(int damage, int distance, int radius, int mana)
     {
         if (instance.SpendMana(mana))
         {
-            // Add attack card action on actual game here
+            
+            Destroy(GameObject.Find("FireCircle(Clone)"));
+            FireCircle._damage = damage;
+            FireCircle._radius = radius;
+            var selectedSpell = Resources.Load("spells/FireCircle");
+            var playerPosition = instance.playerCube.transform.position;
+            GameObject currentSpell = null;
+            if (instance._dirFacing == CharacterDir.Back)
+            {
+                currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x, playerPosition.y, playerPosition.z - distance),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Forward)
+            {
+                currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x, playerPosition.y, playerPosition.z + distance),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Left)
+            {
+                currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x - distance, playerPosition.y, playerPosition.z),
+                    Quaternion.identity);
+            }
+            else if (instance._dirFacing == CharacterDir.Right)
+            {
+                currentSpell = (GameObject) Instantiate(selectedSpell,
+                    new Vector3(playerPosition.x + distance, playerPosition.y, playerPosition.z),
+                    Quaternion.identity);
+            }
+
+            SphereCollider hitbox = currentSpell.transform.GetChild(0).gameObject.GetComponent<SphereCollider>();
+            hitbox.radius = radius;
+            // TODO: add creation particle effect here
+
             Debug.Log("Used attack type card");
             instance.LoseShield(1);
             instance.doneTurn = true;
