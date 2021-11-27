@@ -21,7 +21,7 @@ public class InteractableManager : MonoBehaviour
 
     private void ClickTarget()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // TODO: Refactor with better logic at some point
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = camera.ScreenPointToRay(Input.mousePosition); 
             RaycastHit hit;
