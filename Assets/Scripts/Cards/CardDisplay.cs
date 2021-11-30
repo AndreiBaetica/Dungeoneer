@@ -38,6 +38,36 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         background.sprite = card.type;
         powerGem.sprite = card.powerType;
         artworkImage.sprite = card.artwork;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && cardNumber == 1)
+        {
+            card.Print();
+            bool cardUsed = card.cardAction();
+            if (cardUsed)
+            {
+                DeckScript.MyInstance.useCardOne();
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha2) && cardNumber == 2)
+        {
+            card.Print();
+            bool cardUsed = card.cardAction();
+            if (cardUsed)
+            {
+                DeckScript.MyInstance.useCardTwo();
+            }
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Alpha3) && cardNumber == 3)
+        {
+            card.Print();
+            bool cardUsed = card.cardAction();
+            if (cardUsed)
+            {
+                DeckScript.MyInstance.useCardThree();
+            }
+        }
     }
     
     public void OnPointerClick(PointerEventData eventData)
