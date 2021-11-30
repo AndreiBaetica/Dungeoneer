@@ -224,7 +224,7 @@ public class ActorController : MonoBehaviour
         //Spawn enemy pouch on the ground
         var enemyDrop = Resources.Load("lootable/EnemyDrop");
         GameObject enemyDropGameObject = (GameObject) Instantiate(enemyDrop,
-            new Vector3(_startPosition.x, _startPosition.y, _startPosition.z),
+            transform.position,
             Quaternion.identity);
     }
     public int CurrentHealth
