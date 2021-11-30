@@ -11,7 +11,7 @@ public static class SaveSystem
         FileStream stream = new FileStream(path, FileMode.Create);
         PlayerSaveData data = new PlayerSaveData(player);
         Debug.Log("SAVE SYSTEM DATA SAVED = data pos x:"+data.position[0]+" y:" 
-                  +data.position[1]+" z:"+data.position[2] +" currenthealth:"+data.health+" mana:"+data.mana);
+                  +data.position[1]+" z:"+data.position[2] +" currenthealth:"+data.health+" mana:"+data.mana + "shield:"+ data.shield + "gold:"+data.gold+"location:"+data.location);
         formatter.Serialize(stream, data);
         stream.Close();
     }

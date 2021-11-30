@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+//using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -129,6 +131,25 @@ public class UIManager : MonoBehaviour
                 PauseGame();
             }
         }
+        
+        //TODO: Fix TMPro reference to use TNP_TEXT
+        /*
+        if (SceneManager.GetActiveScene().name == "TestDungeon")
+        {
+            TMP_Text[] TMP = gameUI.GetComponentsInChildren<TMP_Text>();
+            if (TMP.Length > 0 && TMP[0].name == "TeleportButtonText")
+            {
+                TMP[0].SetText("Leave Dungeon");
+            }
+        }else if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            TMP_Text[] TMP = gameUI.GetComponentsInChildren<TMP_Text>();
+            if (TMP.Length > 0 && TMP[0].name == "TeleportButtonText")
+            {
+                TMP[0].SetText("Start Dungeon");
+            }
+        }*/
+        
 
     }
 
