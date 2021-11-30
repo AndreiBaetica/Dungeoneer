@@ -74,7 +74,15 @@ public class PlayerController : ActorController
     {
         healthBar.SetHealth(CurrentHealth);
         manaBar.SetMana(CurrentMana);
-        shieldBar.SetShield(CurrentShield);
+        if (CurrentShield == 0)
+        {
+            shieldBar.enabled = false;
+        }
+        else
+        {
+            shieldBar.enabled = true;
+            shieldBar.SetShield(CurrentShield);
+        }
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
