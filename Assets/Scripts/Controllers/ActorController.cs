@@ -221,7 +221,11 @@ public class ActorController : MonoBehaviour
         rb.detectCollisions = false;
         doneTurn = true;
         Debug.Log(name + " has died.");
-        
+        //Spawn enemy pouch on the ground
+        var enemyDrop = Resources.Load("lootable/EnemyDrop");
+        GameObject enemyDropGameObject = (GameObject) Instantiate(enemyDrop,
+            new Vector3(_startPosition.x, _startPosition.y, _startPosition.z),
+            Quaternion.identity);
     }
     public int CurrentHealth
     {

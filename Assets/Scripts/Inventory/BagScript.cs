@@ -47,6 +47,16 @@ public class BagScript : MonoBehaviour
 
     public bool AddItem(Item item)
     {
+        if (item.MyStackSize > 0)
+        {
+            foreach (SlotScript slot in slots)
+            {
+                if (slot.StackItem(item))
+                {
+                    return true;
+                }
+            }
+        }
         foreach (SlotScript slot in slots)
         {
             if (slot.IsEmpty)

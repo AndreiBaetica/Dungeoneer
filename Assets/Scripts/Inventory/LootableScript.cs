@@ -12,15 +12,21 @@ public class LootableScript : BagScript
     void Awake()
     {
         AddSlots(12);
+        HealthPotion healthPotion = (HealthPotion)Instantiate(items[0]);
+        AddItem(healthPotion);
+        ManaPotion manaPotion = (ManaPotion)Instantiate(items[1]);
+        AddItem(manaPotion);
+        AddItem(manaPotion);
+        AddItem(manaPotion);
     }
     
     //Debug purposes only
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        /*if (Input.GetKeyDown(KeyCode.O))
         {
             HealthPotion potion = (HealthPotion)Instantiate(items[0]);
             AddItem(potion);
-        }
+        }*/
     }
 }
