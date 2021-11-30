@@ -27,6 +27,13 @@ public class PlayerController : ActorController
     private IInteractable interactable;
     public bool saved;
     private GameObject playerCube;
+    public Location playerLocation;
+    public enum Location
+    {
+        Home,
+        Dungeon,
+        Menu
+    }
 
 
     protected new void Start()
@@ -39,6 +46,7 @@ public class PlayerController : ActorController
         MaxMana = 10;
         MaxShield = 15;
         CurrentLevel = 0;
+        playerLocation = Location.Home;
         base.Start();
         healthBar.SetMaxHealth(MaxHealth);
         manaBar.SetMaxMana(MaxMana);

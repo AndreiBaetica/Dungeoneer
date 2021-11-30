@@ -20,7 +20,7 @@ public class ActorController : MonoBehaviour
     protected CharacterDir _dirFacing = CharacterDir.Back;
     
     // TODO: Enable once dependency to Core prefab is removed.
-    //public Gold gold;
+    public Gold gold;
 
     protected enum CharacterDir
     {
