@@ -19,14 +19,4 @@ public class LootableScript : BagScript
         AddItem(manaPotion);
         AddItem(manaPotion);
     }
-    
-    //Debug purposes only
-    private void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.O))
-        {
-            HealthPotion potion = (HealthPotion)Instantiate(items[0]);
-            AddItem(potion);
-        }*/
-    }
 }
