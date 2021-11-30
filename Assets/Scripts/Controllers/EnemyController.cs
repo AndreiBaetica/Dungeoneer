@@ -53,6 +53,7 @@ public class EnemyController : ActorController
                 else if (direction.Equals("back")) isFree = Move(Vector3.back);
                 else if (direction.Equals("left")) isFree = Move(Vector3.left);
                 else if (direction.Equals("right")) isFree = Move(Vector3.right);
+                else isFree = false;
             }
             
         } else if (currentBehaviourState == BehaviourState.Attack)
