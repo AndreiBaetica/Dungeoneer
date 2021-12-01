@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace Managers
@@ -40,8 +41,6 @@ namespace Managers
         public void ExitGame()
         {
             SceneManager.LoadScene("MainMenu");
-            PlayerController.instance.playerLocation = PlayerController.Location.Menu;
-
         }
         public void ExitGamePermanently()
         {
@@ -55,21 +54,29 @@ namespace Managers
         public void PlayNewGame()
         {
             GameStartManager.PlayingSavedGame = false;
+            SaveSystem.DeleteSave();
             SceneManager.LoadScene("SampleScene");
-            PlayerController.instance.playerLocation = PlayerController.Location.Home;
         }
 
         public void PlaySavedGame()
         {
-            SceneManager.LoadScene("SampleScene");
-            if (PlayerController.instance.playerLocation == PlayerController.Location.Home)
+            PlayerSaveData data = SaveSystem.LoadPlayer();
+            if (data != null)
             {
-                SceneManager.LoadScene("SampleScene");
-            }else if (PlayerController.instance.playerLocation == PlayerController.Location.Dungeon)
-            {
-                SceneManager.LoadScene("TestDungeon");
+                GameStartManager.PlayingSavedGame = true;
+                if (data.location == PlayerController.Location.Home)
+                {
+                    SceneManager.LoadScene("SampleScene");
+                }else if (data.location == PlayerController.Location.Dungeon)
+                {
+                    SceneManager.LoadScene("TestDungeon");
+                }
             }
-            GameStartManager.PlayingSavedGame = true;
+            else
+            {
+                GameStartManager.PlayingSavedGame = false;
+                SceneManager.LoadScene("SampleScene");
+            }
         }
 
         public void SaveGame()
