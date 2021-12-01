@@ -7,7 +7,6 @@ public class Gold : MonoBehaviour
 {
     [SerializeField] private GameObject goldIndicator;
     [SerializeField]private Text goldText;
-    private int _gold = 0;
 
     protected void Start()
     {
@@ -15,28 +14,23 @@ public class Gold : MonoBehaviour
     }
     public void IncrementGold(int amount, Vector3 position)
     {
-        CurrentGold += amount;
+        PlayerController.instance.CurrentGold += amount;
         CreateIndicator(position, 5, goldIndicator,true);
         SetGoldText();
     }
 
     public void DecrementGold(int amount, Vector3 position)
     {
-        CurrentGold -= amount;
+        PlayerController.instance.CurrentGold -= amount;
         CreateIndicator(position, 5, goldIndicator,false);
         SetGoldText();
     }
 
     private void SetGoldText()
     {
-        goldText.text = "Gold: "+CurrentGold;
+        goldText.text = "Gold: "+PlayerController.instance.CurrentGold;
     }
     
-    public int CurrentGold
-    {
-        get => _gold;
-        set => _gold = value;
-    }
 
 
     public static void CreateIndicator(Vector3 position, int amount, GameObject goldIndicatorPrefab, bool increment)

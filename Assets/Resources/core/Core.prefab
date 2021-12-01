@@ -4448,7 +4448,8 @@ MonoBehaviour:
   currentMana: 0
   currentLevel: 0
   saved: 0
-  gold: {fileID: 0}
+  goldIndicator: {fileID: 8896503698917523070}
+  gold: 0
   playerLocation: 0
 --- !u!1 &6348453591383485882
 GameObject:
