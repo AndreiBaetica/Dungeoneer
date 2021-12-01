@@ -55,7 +55,7 @@ namespace Managers
         {
             GameStartManager.PlayingSavedGame = false;
             SaveSystem.DeleteSave();
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Home");
         }
 
         public void PlaySavedGame()
@@ -66,7 +66,7 @@ namespace Managers
                 GameStartManager.PlayingSavedGame = true;
                 if (data.location == PlayerController.Location.Home)
                 {
-                    SceneManager.LoadScene("SampleScene");
+                    SceneManager.LoadScene("Home");
                 }else if (data.location == PlayerController.Location.Dungeon)
                 {
                     SceneManager.LoadScene("TestDungeon");
@@ -75,7 +75,7 @@ namespace Managers
             else
             {
                 GameStartManager.PlayingSavedGame = false;
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Home");
             }
         }
 
@@ -87,13 +87,14 @@ namespace Managers
         
         public void DungeonButton()
         {
-            if (SceneManager.GetActiveScene().name == "SampleScene")
+            if (SceneManager.GetActiveScene().name == "Home")
             {
                 SceneManager.LoadScene("TestDungeon");
                 PlayerController.instance.playerLocation = PlayerController.Location.Dungeon;
-            }else if (SceneManager.GetActiveScene().name == "TestDungeon")
+            } 
+            else if (SceneManager.GetActiveScene().name == "TestDungeon")
             {
-                SceneManager.LoadScene("SampleScene");
+                SceneManager.LoadScene("Home");
                 PlayerController.instance.playerLocation = PlayerController.Location.Home;
             }
         }
