@@ -311,7 +311,7 @@ public class PlayerController : ActorController
         if (instance.SpendMana(mana))
         {
             
-            Destroy(GameObject.Find("FireCircle(Clone)"));
+            Destroy(GameObject.Find("/Spawnables/FireCircle(Clone)"));
             FireCircle._damage = damage;
             FireCircle._radius = radius;
             var selectedSpell = Resources.Load("spells/FireCircle");
@@ -341,7 +341,8 @@ public class PlayerController : ActorController
                     new Vector3(playerPosition.x + distance, playerPosition.y, playerPosition.z),
                     Quaternion.identity);
             }
-
+            Transform spawnableParent = GameObject.Find("Spawnables").transform;
+            currentSpell.transform.parent = spawnableParent;
             SphereCollider hitbox = currentSpell.transform.GetChild(0).gameObject.GetComponent<SphereCollider>();
             hitbox.radius = radius;
             // TODO: add creation particle effect here

@@ -42,23 +42,33 @@ public class GameLoopManager : MonoBehaviour
     private static void UpdateTurn()
     {
         bool allDone = true;
-        //iterating in reverse order to be able to safely delete inactive characters
-        for (var i = activeChars.Count - 1; i >= 0; i--)
+        if (activeChars != null)
         {
-            if (!activeChars[i].enabled) activeChars.RemoveAt(i);
-            else if (!activeChars[i].doneTurn) allDone = false;
-        }
-
-        if (allDone)
-        {
-            reservedPositions.Clear();
-            Debug.Log("setting player turn true");
-            SetPlayerTurn(true);
-            foreach (var activeChar in activeChars)
+            //iterating in reverse order to be able to safely delete inactive characters
+            for (var i = activeChars.Count - 1; i >= 0; i--)
             {
-                activeChar.doneTurn = false;
+                if (activeChars[i])
+                {
+                    if (!activeChars[i].enabled) activeChars.RemoveAt(i);
+                    else if (!activeChars[i].doneTurn) allDone = false;
+                }
+            }
+            
+            if (allDone)
+            {
+                reservedPositions.Clear();
+                //Debug.Log("setting player turn true");
+                SetPlayerTurn(true);
+                foreach (var activeChar in activeChars)
+                {
+                    activeChar.doneTurn = false;
+                }
             }
         }
     }
 
+    public void UpdateActiveChars() // Called when generating a new dungeon, but keeping the same core
+    {
+        activeChars = FindObjectsOfType<ActorController>().ToList();
+    }
 }
