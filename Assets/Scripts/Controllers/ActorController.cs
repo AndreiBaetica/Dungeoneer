@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
+using Random = UnityEngine.Random;
 
 //Name shortened to not conflict with Unity's default CharacterController
 public class ActorController : MonoBehaviour
@@ -221,8 +222,27 @@ public class ActorController : MonoBehaviour
         rb.detectCollisions = false;
         doneTurn = true;
         Debug.Log(name + " has died.");
-        
+        //Spawn enemy pouch on the ground
+        var enemyDrop = Resources.Load("lootable/EnemyDrop");
+        GameObject enemyDropGameObject = (GameObject) Instantiate(enemyDrop,
+            transform.position,
+            Quaternion.identity);
+        // Add loot to loot inventory
+        LootableScript.instance.AddHealthPotion();
+        LootableScript.instance.AddManaPotion();
+        bool extraManaPot = (Random.value > 0.5);
+        bool extraManaPotTwo = (Random.value > 0.5);
+        if (extraManaPot)
+        {
+            LootableScript.instance.AddManaPotion();
+        }
+
+        if (extraManaPotTwo)
+        {
+            LootableScript.instance.AddManaPotion();
+        }
     }
+
     public int CurrentHealth
     {
         get => currentHealth;

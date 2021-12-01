@@ -54,7 +54,7 @@ public class InventoryScript : MonoBehaviour
     private void Awake()
     {
         Bag bag = (Bag) Instantiate((items[0]));
-        bag.Initialize(16); // Set number of inventory slots (max 16 with current sprite layout)
+        bag.Initialize(12); // Set number of inventory slots (max 16 with current sprite layout)
         bag.Use(); // Equivalent of right clicking on the bag
     }
 
