@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
     private static bool acceptingInput;
     void Start()
     {
-        FinalRoomScore = 0;
+        FinalRoomScore = 1;
         
         gameUICanvas = FindObjectsOfType<Canvas>();
         for (int i = 0; i < gameUICanvas.Length; i++)
