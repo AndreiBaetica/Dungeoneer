@@ -53,7 +53,6 @@ public class DungeonInitializer : MonoBehaviour
 
         var playerSpawnedRoomFound = false;
         GameObject playerSpawnRoom = null;
-        var altarSpawnedRoomFound = false;
         GameObject altarSpawnRoom = null;
         Transform roomsParent = GameObject.Find("Rooms").transform;
 
@@ -94,11 +93,7 @@ public class DungeonInitializer : MonoBehaviour
 
                             if (child.name.Equals("AltarSpawner"))
                             {
-                                if (!altarSpawnedRoomFound)
-                                {
-                                    altarSpawnRoom = currentRoom;
-                                    altarSpawnedRoomFound = true;
-                                }
+                                altarSpawnRoom = currentRoom;
                             }
                         }
                     }
