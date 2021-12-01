@@ -28,7 +28,9 @@ public class DungeonInitializer : MonoBehaviour
         Room[,] map = generator.GenerateLevel(_minRooms);
 
         var playerSpawnedRoomFound = false;
-        GameObject spawnRoom = null;
+        GameObject playerSpawnRoom = null;
+        var altarSpawnedRoomFound = false;
+        GameObject altarSpawnRoom = null;
         
         for (int i = 0; i < map.GetLength(0); i++)
         {
@@ -43,7 +45,7 @@ public class DungeonInitializer : MonoBehaviour
 
                     if (!playerSpawnedRoomFound)
                     {
-                        spawnRoom = currentRoom;
+                        playerSpawnRoom = currentRoom;
                         playerSpawnedRoomFound = true;
                     }
                     else
@@ -63,13 +65,23 @@ public class DungeonInitializer : MonoBehaviour
                                     }
                                 }
                             }
+
+                            if (child.name.Equals("AltarSpawner"))
+                            {
+                                if (!altarSpawnedRoomFound)
+                                {
+                                    altarSpawnRoom = currentRoom;
+                                    altarSpawnedRoomFound = true;
+                                } 
+                            }
                         }
                     }
                 }
             }
         }
         //spawn core
-        spawnRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/Core");
+        playerSpawnRoom.transform.Find("PlayerSpawner").GetComponent<Spawner>().Spawn("core/Core");
+        altarSpawnRoom.transform.Find("AltarSpawner").GetComponent<Spawner>().Spawn("core/Altar");
     }
 
     private void ReadConfig(string filename)
