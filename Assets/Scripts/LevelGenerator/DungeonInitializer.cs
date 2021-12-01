@@ -156,7 +156,10 @@ public class DungeonInitializer : MonoBehaviour
         core.transform.position = newSpawnPosition;
         GameObject player = GameObject.Find("/Core(Clone)/Player");
         player.transform.position = new Vector3(newSpawnPosition.x, 0.5f, newSpawnPosition.z); // If you touch this, ask Seb before doing it please.
-
+        // reset camera to set cutout shader on new rooms
+        GameObject camera = GameObject.Find("/Core(Clone)/Player/Main Camera");
+        camera.SetActive(false);
+        camera.SetActive(true);
         GameLoopManager.instance.UpdateActiveChars();
     }
 
