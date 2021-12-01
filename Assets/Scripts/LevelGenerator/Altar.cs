@@ -17,9 +17,9 @@ public class Altar : MonoBehaviour, IInteractable
         }
         else
         {
-            UIManager.MyInstance.IncrementFinalRoomScore();
+            DungeonInitializer.MyInstance.DestroyAndRepopulate();
         }
-        DungeonInitializer.MyInstance.DestroyAndRepopulate();
+        UIManager.MyInstance.IncrementFinalRoomScore();
         StopInteract();
     }
 
