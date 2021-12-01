@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviour
     private static bool acceptingInput;
     void Start()
     {
+        FinalRoomScore = 1;
+        
         gameUICanvas = FindObjectsOfType<Canvas>();
         for (int i = 0; i < gameUICanvas.Length; i++)
         {
@@ -171,5 +173,10 @@ public class UIManager : MonoBehaviour
             clickable.MyIcon.color = new Color(0, 0, 0, 0); //Reset slot icon to transparent if it is empty
             clickable.MyStackText.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public void IncrementFinalRoomScore()
+    {
+        FinalRoomScore++;
     }
 }

@@ -227,6 +227,8 @@ public class ActorController : MonoBehaviour
         GameObject enemyDropGameObject = (GameObject) Instantiate(enemyDrop,
             transform.position,
             Quaternion.identity);
+        Transform spawnableParent = GameObject.Find("Spawnables").transform;
+        enemyDropGameObject.transform.parent = spawnableParent;
         // Add loot to loot inventory
         LootableScript.instance.AddHealthPotion();
         LootableScript.instance.AddManaPotion();
