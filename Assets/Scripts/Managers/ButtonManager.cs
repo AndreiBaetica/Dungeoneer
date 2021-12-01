@@ -30,6 +30,8 @@ namespace Managers
                 return instance;
             }
         }
+
+        private static Canvas[] canvasArray;
         
         public void RestartGame()
         {
@@ -83,6 +85,32 @@ namespace Managers
         {
             SaveSystem.SavePlayer(PlayerController.instance);
             GameStartManager.PlayingSavedGame = true;
+        }
+
+        public void OpenControls()
+        {
+            canvasArray = FindObjectsOfType<Canvas>();
+            foreach (var t in canvasArray)
+            {
+                if (t.name == "ControlCanvas")
+                {
+                    t.enabled = true;
+                    break;
+                }
+            }
+        }
+
+        public void CloseControls()
+        {
+            canvasArray = FindObjectsOfType<Canvas>();
+            foreach (var t in canvasArray)
+            {
+                if (t.name == "ControlCanvas")
+                {
+                    t.enabled = false;
+                    break;
+                }
+            }        
         }
         
         public void DungeonButton()
