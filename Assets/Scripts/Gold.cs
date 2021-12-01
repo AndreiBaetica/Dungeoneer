@@ -7,7 +7,7 @@ public class Gold : MonoBehaviour
 {
     [SerializeField] private GameObject goldIndicator;
     [SerializeField]private Text goldText;
-    private int gold = 0;
+    private int _gold = 0;
 
     protected void Start()
     {
@@ -34,8 +34,8 @@ public class Gold : MonoBehaviour
     
     public int CurrentGold
     {
-        get => gold;
-        set => gold = value;
+        get => _gold;
+        set => _gold = value;
     }
 
 

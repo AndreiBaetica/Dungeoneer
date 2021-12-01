@@ -30,11 +30,20 @@ public static class SaveSystem
                       +" currenthealth:"+data.health+" mana:"+data.mana);
             return data;
         }
-        else
+        if (!File.Exists(path))
         {
-            Debug.LogError("No save file found in " + path);
-            return null;
+            Debug.Log("No save file found in " + path);
         }
 
+        return null;
+    }
+
+    public static void DeleteSave()
+    {
+        string path = Application.persistentDataPath + "/player.dung";
+         if ( File.Exists( path ) )
+         {
+             File.Delete( path );
+         }
     }
 }

@@ -27,12 +27,12 @@ public class PlayerController : ActorController
     private IInteractable interactable;
     public bool saved;
     private GameObject playerCube;
+    public Gold gold;
     public Location playerLocation;
     public enum Location
     {
         Home,
-        Dungeon,
-        Menu
+        Dungeon
     }
 
 
@@ -66,6 +66,7 @@ public class PlayerController : ActorController
             CurrentMana = MaxMana;
             CurrentHealth = MaxHealth;
             CurrentShield = 0;
+            playerLocation = Location.Home;
             Debug.Log("REGULAR PLAYER STATS");
         }
     }
