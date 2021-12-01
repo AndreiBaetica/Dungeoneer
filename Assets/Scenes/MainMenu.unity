@@ -547,5 +547,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7997275497977652880, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997275498952576945, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997275498952576945, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 14805f4d58d7f1947a75db889c5c0dfc,
+        type: 3}
+    - target: {fileID: 7997275498952576945, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997275498952576945, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997275498952576945, guid: 218baa70fed094b6a84f33630affaf2b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218baa70fed094b6a84f33630affaf2b, type: 3}
