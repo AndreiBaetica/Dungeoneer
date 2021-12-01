@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -18,7 +12,9 @@ public class Spawner : MonoBehaviour
 
     public void Spawn(string filepath)
     {
+        Transform spawnableParent = GameObject.Find("Spawnables").transform;
         var entity = Resources.Load(filepath);
-        Instantiate(entity, transform.position, Quaternion.identity);
+        var spawnable = (GameObject) Instantiate(entity, transform.position, Quaternion.identity);
+        spawnable.transform.parent = spawnableParent;
     }
 }

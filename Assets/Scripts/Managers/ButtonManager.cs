@@ -5,6 +5,31 @@ namespace Managers
 {
 
     public class ButtonManager : MonoBehaviour {
+        
+        #region Singleton
+
+        public static ButtonManager instance;
+    
+        void Awake()   
+        {
+            instance = this;
+        }
+        
+        #endregion
+        
+        public static ButtonManager MyInstance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = FindObjectOfType<ButtonManager>();
+                }
+
+                return instance;
+            }
+        }
+        
         public void RestartGame()
         {
             GameStartManager.PlayingSavedGame = false;
