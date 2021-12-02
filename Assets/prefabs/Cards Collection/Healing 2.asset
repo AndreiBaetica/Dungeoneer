@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41cc79d5b664704848582c7230276d8, type: 3}
   m_Name: Healing 2
   m_EditorClassIdentifier: 
-  name: Lesser Heal
+  name: Lesser Healing
   manaCost: 2
   powerCost: 3
-  description: Heals the player for 3 healh points.
+  description: Heals the caster's wounds.
   rarity: {fileID: 21300000, guid: e88f47608fd3e344aa5f1c5e147f5a4f, type: 3}
   type: {fileID: 21300000, guid: f7bf53563193b34419677e9bc6745555, type: 3}
   powerType: {fileID: 21300000, guid: ea9a50bd6b7629c44b0fb7a720d3814f, type: 3}

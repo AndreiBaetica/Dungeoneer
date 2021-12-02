@@ -32,6 +32,7 @@ public abstract class Item : ScriptableObject, IMoveable
     {
         if (MySlot != null)
         {
+            Debug.Log("Removing potion");
             MySlot.RemoveItem(this);
         }
     }
