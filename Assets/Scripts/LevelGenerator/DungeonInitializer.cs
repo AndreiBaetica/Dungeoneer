@@ -49,7 +49,7 @@ public class DungeonInitializer : MonoBehaviour
     private void PopulateMap(bool firstRun = true)
     {
         DungeonGenerator generator = new DungeonGenerator();
-        Room[,] map = generator.GenerateLevel(_minRooms);
+        Room[,] map = generator.GenerateLevel(_minRooms + (UIManager.FinalRoomScore * 4));
 
         var playerSpawnedRoomFound = false;
         GameObject playerSpawnRoom = null;
