@@ -7,7 +7,7 @@
     <!-- Spawns -->
     <npcs>
         <bandit>
-            <spawnRate>0.75</spawnRate>
+            <spawnRate>0.6</spawnRate>
 
             <goldDrop>0.15</goldDrop>
             <silverDrop>0.25</silverDrop>
