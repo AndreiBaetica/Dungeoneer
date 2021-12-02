@@ -27,6 +27,9 @@ public class PlayerController : ActorController
     private IInteractable interactable;
     public bool saved;
     private GameObject playerCube;
+    private Material playerMaterial;
+    private Color shielded = new Color32(90, 72, 24, 255); //5A4818
+    private Color unshielded = Color.black;
     public Gold goldIndicator;
     public int gold = 0;
     public Location playerLocation;
@@ -53,6 +56,7 @@ public class PlayerController : ActorController
         manaBar.SetMaxMana(MaxMana);
         shieldBar.SetMaxShield(MaxShield);
         playerCube = GameObject.Find("Player/Cube");
+        playerMaterial = GameObject.Find("Player/Sprite").GetComponent<SpriteRenderer>().material;
         if (saved)
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -77,6 +81,15 @@ public class PlayerController : ActorController
         healthBar.SetHealth(CurrentHealth);
         manaBar.SetMana(CurrentMana);
         shieldBar.SetShield(CurrentShield);
+
+        if (currentShield > 0)
+        {
+            playerMaterial.SetColor("Color_b86d6afd182246ada983613ce49e207a", shielded);
+        }
+        else
+        {
+            playerMaterial.SetColor("Color_b86d6afd182246ada983613ce49e207a", unshielded);
+        }
 
         if (moving) SnapToGridSquare();
         if (GameLoopManager.GetPlayerTurn() && !doneTurn)
