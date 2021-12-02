@@ -115,25 +115,7 @@ public class InventoryScript : MonoBehaviour
     // Test add a bag to the player (not used for now since we are keeping the player to 1 bag limit)
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Bag bag = (Bag) Instantiate(items[0]);
-            bag.Initialize(16);
-            bag.Use();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Bag bag = (Bag) Instantiate(items[0]);
-            bag.Initialize(16);
-            AddItem(bag);
-        }
-
-        if (Input.GetKeyDown(KeyCode.K)) // Changed keybind from p to k to not interfere with the grid visual toggle
-        {
-            HealthPotion potion = (HealthPotion)Instantiate(items[1]);
-            AddItem(potion);
-        }
+ 
     }
 
     //Open/close all bags. Kinda unnecessary for now since we only use 1 bag
@@ -149,5 +131,15 @@ public class InventoryScript : MonoBehaviour
                 bag.MyBagScript.OpenClose();
             }
         }
+    }
+
+    public void AddHealthPotion()
+    {
+        AddItem(items[1]);
+    }
+    
+    public void AddManaPotion()
+    {
+        AddItem(items[2]);
     }
 }

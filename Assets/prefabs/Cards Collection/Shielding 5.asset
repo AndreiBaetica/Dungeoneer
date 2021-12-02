@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a109a935d5254ee9bc02e2f0736075e5, type: 3}
-  m_Name: Shielding
+  m_Name: Shielding 5
   m_EditorClassIdentifier: 
-  name: Shielding
-  manaCost: 2
-  powerCost: 7
-  description: Shields the player for 10 shield power
-  rarity: {fileID: 21300000, guid: 9d9912efd6ed42c4aa9c95e83d391c0f, type: 3}
+  name: Epic Shield
+  manaCost: 5
+  powerCost: 9
+  description: Increases the player's shield by 9.
+  rarity: {fileID: 21300000, guid: d50198986c9df1d429c08c3d7eb7127a, type: 3}
   type: {fileID: 21300000, guid: 527a5e89411d55d43961212c1cc4b8e9, type: 3}
   powerType: {fileID: 21300000, guid: 2a584368b64783a4e91955b2052db888, type: 3}
   artwork: {fileID: 21300000, guid: c3f13cd1c395bfc408bebaf9a04ea8d7, type: 3}
-  shield: 7
+  shield: 9

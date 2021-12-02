@@ -7,13 +7,28 @@ using UnityEngine.SceneManagement;
 
 public class Altar : MonoBehaviour, IInteractable
 {
+    [SerializeField] private bool HomeAltar = false;
+
+    /*private void Update() // testing only TODO : remove
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Interact();
+        }
+    }*/
+
     public void Interact()
     {
         Debug.Log("Player found the altar!");
+        if (HomeAltar)
+        {
+            SceneManager.LoadScene("TestDungeon");
+        }
+        else
+        {
+            DungeonInitializer.MyInstance.DestroyAndRepopulate();
+        }
         UIManager.MyInstance.IncrementFinalRoomScore();
-        DungeonInitializer.MyInstance.DestroyAndRepopulate();
-        //Scene scene = SceneManager.GetActiveScene(); // Not the best implementation for when we will want to have saves working, but it works for now.
-        //SceneManager.LoadScene(scene.name);
         StopInteract();
     }
 

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f237b679ee40ab8c8054b4528f5fe6, type: 3}
-  m_Name: Fireball
+  m_Name: Attack 5
   m_EditorClassIdentifier: 
-  name: Fireball
-  manaCost: 4
-  powerCost: 6
-  description: Throws a fireball dealing 20 damage
-  rarity: {fileID: 21300000, guid: e88f47608fd3e344aa5f1c5e147f5a4f, type: 3}
+  name: Epic Fire Trap
+  manaCost: 9
+  powerCost: 15
+  description: Attack 4
+  rarity: {fileID: 21300000, guid: d50198986c9df1d429c08c3d7eb7127a, type: 3}
   type: {fileID: 21300000, guid: 2ab8e4a1631b3534ba47dea7b97c7994, type: 3}
   powerType: {fileID: 21300000, guid: a76ebe08972223c4c8c176cf213c5433, type: 3}
   artwork: {fileID: 21300000, guid: 773b5fee7ce9bfb4399891bbbbfcb4de, type: 3}
-  damage: 5
-  distance: 5
-  radius: 1
+  damage: 15
+  distance: 2
+  radius: 8
