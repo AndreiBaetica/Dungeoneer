@@ -49,7 +49,7 @@ public class DungeonInitializer : MonoBehaviour
     private void PopulateMap(bool firstRun = true)
     {
         DungeonGenerator generator = new DungeonGenerator();
-        Room[,] map = generator.GenerateLevel(_minRooms);
+        Room[,] map = generator.GenerateLevel(_minRooms + (UIManager.FinalRoomScore * 4));
 
         var playerSpawnedRoomFound = false;
         GameObject playerSpawnRoom = null;
@@ -114,6 +114,8 @@ public class DungeonInitializer : MonoBehaviour
             newSpawnPosition = playerSpawnRoom.transform.Find("PlayerSpawner").position;
             Debug.Log("New player core spawn point : " + newSpawnPosition);
         }
+        InventoryScript.instance.AddHealthPotion();
+        InventoryScript.instance.AddManaPotion();
     }
 
     private void ReadConfig(string filename)

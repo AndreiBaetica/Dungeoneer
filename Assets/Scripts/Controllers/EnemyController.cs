@@ -2,7 +2,7 @@
 
 public class EnemyController : ActorController
 {
-    private float lookRadius = 4.5f;
+    private float lookRadius = 6.5f;
     private Transform target;
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
@@ -19,6 +19,7 @@ public class EnemyController : ActorController
     {
         MaxHealth = 15;
         CurrentHealth = MaxHealth;
+        base_melee_damage = 3;
         PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position

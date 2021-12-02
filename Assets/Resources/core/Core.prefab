@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75.1}
+  m_AnchoredPosition: {x: 0, y: 74}
   m_SizeDelta: {x: 109.187805, y: 16.655396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1530478492290207143
@@ -67,10 +67,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749bea2611e54654ca52bfcdc9984ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: ce4cc66fe5abdd149a3f6b4877ec1deb, type: 2}
+  card: {fileID: 11400000, guid: 45958bbfc299bcb4db0e60d266610273, type: 2}
   cardNumber: 2
   nameText: {fileID: 5964337430697253304}
   manaText: {fileID: 9121098840872851369}
@@ -1273,8 +1273,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.1, y: -8.1}
-  m_SizeDelta: {x: 45.950073, y: 40.152832}
+  m_AnchoredPosition: {x: 36.6, y: -8.1}
+  m_SizeDelta: {x: 41.6192, y: 40.152832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4233770133121701301
 CanvasRenderer:
@@ -1352,8 +1352,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.1, y: -8.1}
-  m_SizeDelta: {x: 45.950073, y: 40.152832}
+  m_AnchoredPosition: {x: 36.6, y: -8.1}
+  m_SizeDelta: {x: 41.6192, y: 40.152832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1182282824356868130
 CanvasRenderer:
@@ -1836,7 +1836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749bea2611e54654ca52bfcdc9984ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6db570fb3ef17e84cba3122ecb9b7708, type: 2}
+  card: {fileID: 11400000, guid: a4325eb76d4f0e6429625e6cd99d48c1, type: 2}
   cardNumber: 3
   nameText: {fileID: 3591981039655808134}
   manaText: {fileID: 6325227414835858602}
@@ -4711,7 +4711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75.1}
+  m_AnchoredPosition: {x: 0, y: 74}
   m_SizeDelta: {x: 109.187805, y: 16.655396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5052960483619170529
@@ -4744,10 +4744,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -4790,7 +4790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75.1}
+  m_AnchoredPosition: {x: 0, y: 74}
   m_SizeDelta: {x: 109.187805, y: 16.655396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2943209317071878540
@@ -4823,10 +4823,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -6687,21 +6687,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heldCards:
-  - {fileID: 11400000, guid: 29be8b0155445a34d8802e42bfb66ce1, type: 2}
-  - {fileID: 11400000, guid: ce4cc66fe5abdd149a3f6b4877ec1deb, type: 2}
-  - {fileID: 11400000, guid: 6db570fb3ef17e84cba3122ecb9b7708, type: 2}
+  - {fileID: 11400000, guid: 5238f93faa865874b8d5067b3a022600, type: 2}
+  - {fileID: 11400000, guid: 45958bbfc299bcb4db0e60d266610273, type: 2}
+  - {fileID: 11400000, guid: a4325eb76d4f0e6429625e6cd99d48c1, type: 2}
   deckCards:
   - {fileID: 11400000, guid: f0bbf9326de22f24b8b23e4d3722699f, type: 2}
   - {fileID: 11400000, guid: 03fc0643348fce74f8dfd6bf3569c858, type: 2}
-  - {fileID: 11400000, guid: 5238f93faa865874b8d5067b3a022600, type: 2}
+  - {fileID: 11400000, guid: 29be8b0155445a34d8802e42bfb66ce1, type: 2}
   - {fileID: 11400000, guid: 83c53b3ef1f4cae4d8a875c900638a67, type: 2}
   - {fileID: 11400000, guid: ee156f0eb44653447aebf3b8ba997d36, type: 2}
   - {fileID: 11400000, guid: e7f5cc72ad5ca01418d96176cf21f3a4, type: 2}
-  - {fileID: 11400000, guid: 45958bbfc299bcb4db0e60d266610273, type: 2}
   - {fileID: 11400000, guid: 08c0e591af021a1488c3f10d439129a9, type: 2}
+  - {fileID: 11400000, guid: ce4cc66fe5abdd149a3f6b4877ec1deb, type: 2}
   - {fileID: 11400000, guid: 77c52b494d21fde4aa897f72a53323f2, type: 2}
   - {fileID: 11400000, guid: 9668c04147a1c3149890300aaaaf5fe2, type: 2}
-  - {fileID: 11400000, guid: a4325eb76d4f0e6429625e6cd99d48c1, type: 2}
+  - {fileID: 11400000, guid: 6db570fb3ef17e84cba3122ecb9b7708, type: 2}
   - {fileID: 11400000, guid: 9c10ec61f3ef326459f463eb1b47136b, type: 2}
 --- !u!1 &8896503698278542397
 GameObject:
@@ -7099,7 +7099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.1, y: -8.1}
+  m_AnchoredPosition: {x: 36.6, y: -8.1}
   m_SizeDelta: {x: 45.950073, y: 40.152832}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4511366524070751344
@@ -7242,7 +7242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749bea2611e54654ca52bfcdc9984ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 29be8b0155445a34d8802e42bfb66ce1, type: 2}
+  card: {fileID: 11400000, guid: 5238f93faa865874b8d5067b3a022600, type: 2}
   cardNumber: 1
   nameText: {fileID: 4512942788666593195}
   manaText: {fileID: 653098107431140409}

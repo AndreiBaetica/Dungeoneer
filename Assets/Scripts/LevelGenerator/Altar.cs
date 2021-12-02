@@ -8,6 +8,15 @@ using UnityEngine.SceneManagement;
 public class Altar : MonoBehaviour, IInteractable
 {
     [SerializeField] private bool HomeAltar = false;
+
+    /*private void Update() // testing only TODO : remove
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Interact();
+        }
+    }*/
+
     public void Interact()
     {
         Debug.Log("Player found the altar!");
