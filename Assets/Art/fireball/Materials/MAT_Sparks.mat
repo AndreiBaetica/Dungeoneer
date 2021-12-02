@@ -4,13 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: refMaterial3
-  m_Shader: {fileID: 4800000, guid: fe1e150ea515f3e4a81d1a4cbd363a9b, type: 3}
-  m_ShaderKeywords: _ANIMATIONENABLED_ON _FLOOR_PLAYERPOSITON _OBSTRUCTION_CONEONLY
-    _TEXTUREDEMISSIONEDGE_ON
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MAT_Sparks
+  m_Shader: {fileID: 200, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -36,16 +34,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _DissolveTex:
-        m_Texture: {fileID: 2800000, guid: 3543e527178258847b32c22b46f5cb90, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 946d15ba8aa29dd47a02bf5229352601, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,60 +55,24 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AngleStrength: 0.377
-    - _AnimationEnabled: 1
-    - _AnimationSpeed: 0.041
     - _BumpScale: 1
-    - _CircleObstructionDestroyRadius: 5
-    - _CircleStrength: 1
-    - _ConeObstructionDestroyRadius: 10
-    - _ConeStrength: 1
     - _Cutoff: 0.5
-    - _CylinderObstructionDestroyRadius: 2
-    - _CylinderStrength: 1
-    - _DefaultEffectRadius: 18.67
     - _DetailNormalMapScale: 1
-    - _DissolveColorSaturation: 0
-    - _DissolveEmission: 0
-    - _DissolveEmissionBooster: 10
-    - _DissolveFallOff: 0.25
     - _DstBlend: 0
-    - _Floor: 1
-    - _FloorY: 0
-    - _FloorYTextureGradientLength: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _IntrinsicDissolveStrength: 0
-    - _IsExempt: 0
-    - _IsReplacementShader: 0
+    - _InvFade: 1
     - _Metallic: 0
     - _Mode: 0
-    - _Obstruction: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _PlayerPosYOffset: 0
-    - _PreviewMode: 0
-    - _RaycastMode: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TextureVisibility: 1
-    - _TexturedEmissionEdge: 1
-    - _TexturedEmissionEdgeStrength: 1
-    - _TransitionDuration: 2
-    - _TriggerMode: 0
     - _UVSec: 0
-    - _UVs: 0.5
     - _ZWrite: 1
-    - _hasClippedShadows: 0
-    - _id: 0
-    - _isReferenceMaterial: 1
-    - _numOfPlayersInside: 0
-    - _tDirection: 0
-    - _tValue: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveColor: {r: 1, g: 0.017280716, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-  m_BuildTextureStacks: []
+    - _TintColor: {r: 0.7794118, g: 0.7794118, b: 0.7794118, a: 0.553}
