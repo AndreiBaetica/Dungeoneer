@@ -77,7 +77,7 @@ Material:
     - _DissolveColorSaturation: 0
     - _DissolveEmission: 0
     - _DissolveEmissionBooster: 10
-    - _DissolveFallOff: 0.01
+    - _DissolveFallOff: 0.25
     - _DstBlend: 0
     - _Floor: 1
     - _FloorY: 0
