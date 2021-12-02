@@ -174,7 +174,12 @@ public class EnemyController : ActorController
         {
             Debug.Log("Enemy has been hit by a Fire Attack");
             TakeDamage(FireCircle._damage);
-            Destroy(GameObject.Find("FireCircle(Clone)"));
+            GameObject existingTrap = GameObject.Find("/Spawnables/FireCircle(Clone)");
+            var existingTrapPosition = existingTrap.transform.position;
+            var explosionObject = Resources.Load("spells/Explosion");
+            Instantiate(explosionObject, (existingTrapPosition + Vector3.up), Quaternion.identity);
+            
+            Destroy(existingTrap);
         }
     }
 }

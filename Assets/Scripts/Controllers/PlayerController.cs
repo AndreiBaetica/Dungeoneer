@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 //using ICSharpCode.NRefactory.Ast;
 using UnityEngine;
@@ -323,8 +324,20 @@ public class PlayerController : ActorController
     {
         if (instance.SpendMana(mana))
         {
+            try
+            {
+                GameObject existingTrap = GameObject.Find("/Spawnables/FireCircle(Clone)");
+                var existingTrapPosition = existingTrap.transform.position;
+                var explosionObject = Resources.Load("spells/Explosion");
+                Instantiate(explosionObject, (existingTrapPosition + Vector3.up), Quaternion.identity);
             
-            Destroy(GameObject.Find("/Spawnables/FireCircle(Clone)"));
+                Destroy(existingTrap);
+            }
+            catch (NullReferenceException e)
+            {
+                Debug.Log("No previous trap to destroy.");
+            }
+            
             FireCircle._damage = damage;
             FireCircle._radius = radius;
             var selectedSpell = Resources.Load("spells/FireCircle");
