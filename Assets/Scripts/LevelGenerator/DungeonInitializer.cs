@@ -114,6 +114,8 @@ public class DungeonInitializer : MonoBehaviour
             newSpawnPosition = playerSpawnRoom.transform.Find("PlayerSpawner").position;
             Debug.Log("New player core spawn point : " + newSpawnPosition);
         }
+        InventoryScript.instance.AddHealthPotion();
+        InventoryScript.instance.AddManaPotion();
     }
 
     private void ReadConfig(string filename)

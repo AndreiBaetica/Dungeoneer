@@ -35,7 +35,7 @@ public class ActorController : MonoBehaviour
     private Vector3 meleeAttackShape = new Vector3(0.4f, 0.4f, 0.4f);
     private Vector3 meleeAttackMultiplier = new Vector3(1f, 1f, 1f);
 
-    private int base_melee_damage = 1;
+    protected int base_melee_damage = 1;
     private int melee_damage_multiplier = 1;
 
     protected Animator animator;
@@ -227,16 +227,21 @@ public class ActorController : MonoBehaviour
         Transform spawnableParent = GameObject.Find("Spawnables").transform;
         enemyDropGameObject.transform.parent = spawnableParent;
         // Add loot to loot inventory
-        LootableScript.instance.AddHealthPotion();
-        LootableScript.instance.AddManaPotion();
-        bool extraManaPot = (Random.value > 0.5);
-        bool extraManaPotTwo = (Random.value > 0.5);
-        if (extraManaPot)
+        bool HealthPot = (Random.value > 0.7);
+        bool ManaPot = (Random.value > 0.25);
+        bool ManaPotTwo = (Random.value > 0.25);
+        
+        if (HealthPot)
+        {
+            LootableScript.instance.AddHealthPotion();
+        }
+        
+        if (ManaPot)
         {
             LootableScript.instance.AddManaPotion();
         }
 
-        if (extraManaPotTwo)
+        if (ManaPotTwo)
         {
             LootableScript.instance.AddManaPotion();
         }

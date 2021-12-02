@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: b2ea64b06dc86c4498917e7a58ccd434, type: 3}
   stackSize: 0
-  mana: 20
+  mana: 5

@@ -43,10 +43,11 @@ public class PlayerController : ActorController
         Debug.Log("SAVED IS "+saved);
         NPCMask = LayerMask.GetMask("NPC");
         name = "Player";
-        MaxHealth = 15;
-        MaxMana = 10;
-        MaxShield = 15;
+        MaxHealth = 20;
+        MaxMana = 20;
+        MaxShield = 20;
         CurrentLevel = 0;
+        base_melee_damage = 2;
         playerLocation = Location.Home;
         base.Start();
         healthBar.SetMaxHealth(MaxHealth);
@@ -139,17 +140,7 @@ public class PlayerController : ActorController
                     LoseShield(1);
                 }
             }
-            //rest
-            if (Input.GetKeyDown("r"))
-            {        
-                Debug.Log("Skipped turn and regained 5 mana!");
-                RegenMana(5); 
-                isFree = false;
-                LoseShield(1);
-                doneTurn = true;
-            }
         }
-
 
         return isFree;
     }
