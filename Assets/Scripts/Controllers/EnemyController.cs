@@ -6,6 +6,7 @@ public class EnemyController : ActorController
     private Transform target;
     private LayerMask PlayerMask;
     private BehaviourState currentBehaviourState = BehaviourState.Idle;
+    private static int enemiesKilled = 0; 
 
     private enum BehaviourState
     {
@@ -158,6 +159,15 @@ public class EnemyController : ActorController
         CurrentHealth -= damage;
         base.TakeDamage(damage);
     }
+    
+    protected override void Die()
+    {
+        Debug.Log("Enemy HAS DIED");
+        enemiesKilled += 1;
+        PlayerController.instance.goldIndicator.IncrementGold(5, transform.position);
+        base.Die();
+    }
+
 
     private float HorizontalDistance(Vector3 target, Vector3 self)
     {
