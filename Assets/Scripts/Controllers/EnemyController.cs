@@ -19,7 +19,7 @@ public class EnemyController : ActorController
     {
         MaxHealth = 15;
         CurrentHealth = MaxHealth;
-        base_melee_damage = 3;
+        base_melee_damage = 2;
         PlayerMask = LayerMask.GetMask("Player");
         base.Start();
         //target.position player Position; transform.position for enemy position

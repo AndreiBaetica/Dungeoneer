@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Epic Fire Trap
   manaCost: 9
   powerCost: 15
-  description: Attack 4
+  description: Casts a powerful fireball 2 units away.
   rarity: {fileID: 21300000, guid: d50198986c9df1d429c08c3d7eb7127a, type: 3}
   type: {fileID: 21300000, guid: 2ab8e4a1631b3534ba47dea7b97c7994, type: 3}
   powerType: {fileID: 21300000, guid: a76ebe08972223c4c8c176cf213c5433, type: 3}
