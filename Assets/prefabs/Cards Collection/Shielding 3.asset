@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shield
   manaCost: 3
-  powerCost: 5
-  description: Increases the player's shield by 5.
+  powerCost: 6
+  description: Surrounds the caster in a temporary shield.er's shield by 5.
   rarity: {fileID: 21300000, guid: 9d9912efd6ed42c4aa9c95e83d391c0f, type: 3}
   type: {fileID: 21300000, guid: 527a5e89411d55d43961212c1cc4b8e9, type: 3}
   powerType: {fileID: 21300000, guid: 2a584368b64783a4e91955b2052db888, type: 3}
   artwork: {fileID: 21300000, guid: c3f13cd1c395bfc408bebaf9a04ea8d7, type: 3}
-  shield: 5
+  shield: 6

@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Feeble Fire Trap
   manaCost: 3
   powerCost: 5
-  description: Attack 1
+  description: Casts a fireball 1 unit away.
   rarity: {fileID: 21300000, guid: e88f47608fd3e344aa5f1c5e147f5a4f, type: 3}
   type: {fileID: 21300000, guid: 2ab8e4a1631b3534ba47dea7b97c7994, type: 3}
   powerType: {fileID: 21300000, guid: a76ebe08972223c4c8c176cf213c5433, type: 3}
