@@ -3,7 +3,7 @@
 Capstone Project for Software Engineering at uOttawa
 
 Turn Based Roguelike game built in Unity
-
+****Store Page: https://dungeoneerproject.itch.io/dungeoneer-project ****
 
 Please refer to our wiki: https://github.com/AndreiBaetica/Dungeoneer/wiki
 
