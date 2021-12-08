@@ -9,6 +9,8 @@ public class HealthBar : MonoBehaviour
     public Slider slider;
     public Gradient gradient;
     public Image fill;
+    public GameObject hpTextObject;
+    public static Text hpTexts;
 
     public void SetMaxHealth(int health)
     {
@@ -16,6 +18,10 @@ public class HealthBar : MonoBehaviour
         slider.value = health;
 
         gradient.Evaluate(1);
+
+        hpTextObject = GameObject.Find("HP Number");
+        hpTexts = hpTextObject.GetComponent<Text>();
+        hpTexts.text = health.ToString();
     }
     
     public void SetHealth(int health)
@@ -23,6 +29,10 @@ public class HealthBar : MonoBehaviour
         slider.value = health;
 
         fill.color = gradient.Evaluate(slider.normalizedValue);
+        
+        hpTextObject = GameObject.Find("HP Number");
+        hpTexts = hpTextObject.GetComponent<Text>();
+        hpTexts.text = health.ToString();
     }
     
 }

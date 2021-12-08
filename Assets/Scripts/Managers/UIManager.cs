@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     private static Canvas pauseMenu;
     public static int FinalRoomScore;
     private static bool acceptingInput;
+    
     void Start()
     {
         FinalRoomScore = 1;
