@@ -33,6 +33,9 @@ public class PlayerController : ActorController
     private Color unshielded = Color.black;
     public Gold goldIndicator;
     public int gold = 0;
+    private GameObject mainCam;
+    private GameObject mapCam;
+    private bool inMapView = false;
     public Location playerLocation;
     public enum Location
     {
@@ -59,6 +62,10 @@ public class PlayerController : ActorController
         shieldBar.SetMaxShield(MaxShield);
         playerCube = GameObject.Find("Player/Cube");
         playerMaterial = GameObject.Find("Player/Sprite").GetComponent<SpriteRenderer>().material;
+        mainCam = GameObject.Find("Player/MainCamera");
+        mapCam = GameObject.Find("Player/MapCamera");
+        mainCam.SetActive(true);
+        mapCam.SetActive(false);
         if (saved)
         {
             PlayerSaveData data = SaveSystem.LoadPlayer();
@@ -152,6 +159,23 @@ public class PlayerController : ActorController
                 if (!isFree)
                 {
                     LoseShield(1);
+                }
+            }
+            
+            //map view
+            if (Input.GetKeyDown("m"))
+            {
+                if (inMapView)
+                {
+                    mainCam.SetActive(true);
+                    mapCam.SetActive(false);
+                    inMapView = false;
+                }
+                else
+                {
+                    mapCam.SetActive(true);
+                    mainCam.SetActive(false);
+                    inMapView = true;
                 }
             }
         }
