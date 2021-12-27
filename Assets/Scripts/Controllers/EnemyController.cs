@@ -158,6 +158,14 @@ public class EnemyController : ActorController
         CurrentHealth -= damage;
         base.TakeDamage(damage);
     }
+    
+    protected override void Die()
+    {
+        Debug.Log("Enemy HAS DIED");
+        PlayerController.instance.goldIndicator.IncrementGold(5, transform.position);
+        base.Die();
+    }
+
 
     private float HorizontalDistance(Vector3 target, Vector3 self)
     {

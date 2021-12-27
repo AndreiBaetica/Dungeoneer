@@ -35,7 +35,7 @@ public class ActorController : MonoBehaviour
     private Vector3 meleeAttackShape = new Vector3(0.4f, 0.4f, 0.4f);
     private Vector3 meleeAttackMultiplier = new Vector3(1f, 1f, 1f);
 
-    protected int base_melee_damage = 1;
+    protected int base_melee_damage = 10;
     private int melee_damage_multiplier = 1;
 
     protected Animator animator;
@@ -207,11 +207,6 @@ public class ActorController : MonoBehaviour
 
     protected virtual void Die()
     {
-        // TODO: Enable once dependency to Core prefab is removed.
-        // if (GetComponent<EnemyController>()&& GetComponent<EnemyController>().moving==false)
-        // {
-        //     gold.IncrementGold(5,transform.position);
-        // }
         animator.SetBool("isDead", true);
         enabled = false;
         Rigidbody rb = GetComponent<Rigidbody>();

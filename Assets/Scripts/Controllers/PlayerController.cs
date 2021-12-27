@@ -226,6 +226,7 @@ public class PlayerController : ActorController
     protected override void Die()
     {
         Debug.Log("PLAYER HAS DIED");
+        goldIndicator.DecrementGold(5, transform.position);
         base.Die();
         UIManager.EndGame();
     }
